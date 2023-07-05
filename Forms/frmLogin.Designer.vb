@@ -55,7 +55,7 @@ Partial Class frmLogin
         ' 
         txtUserName.Location = New Point(180, 33)
         txtUserName.Name = "txtUserName"
-        txtUserName.Size = New Size(209, 23)
+        txtUserName.Size = New Size(219, 23)
         txtUserName.TabIndex = 2
         ' 
         ' txtUserPassword
@@ -63,7 +63,7 @@ Partial Class frmLogin
         txtUserPassword.Location = New Point(180, 73)
         txtUserPassword.Name = "txtUserPassword"
         txtUserPassword.PasswordChar = "*"c
-        txtUserPassword.Size = New Size(209, 23)
+        txtUserPassword.Size = New Size(219, 23)
         txtUserPassword.TabIndex = 3
         ' 
         ' btnLogin
@@ -92,7 +92,7 @@ Partial Class frmLogin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(438, 181)
+        ClientSize = New Size(470, 181)
         Controls.Add(btnCancel)
         Controls.Add(btnLogin)
         Controls.Add(txtUserPassword)
