@@ -65,14 +65,15 @@ Partial Class frmMainMenu
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button3.ForeColor = Color.White
-        Button3.Image = My.Resources.Resources.user_solid_24
+        Button3.Image = My.Resources.Resources.door_open_regular_24
         Button3.ImageAlign = ContentAlignment.MiddleRight
         Button3.Location = New Point(10, 179)
         Button3.Margin = New Padding(1)
         Button3.Name = "Button3"
         Button3.Size = New Size(128, 34)
         Button3.TabIndex = 4
-        Button3.Text = "Users"
+        Button3.Text = "Assign House"
+        Button3.TextAlign = ContentAlignment.MiddleLeft
         Button3.UseVisualStyleBackColor = True
         ' 
         ' Button4

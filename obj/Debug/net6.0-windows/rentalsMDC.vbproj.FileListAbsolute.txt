@@ -28,3 +28,4 @@ C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\renta
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.Resources.resources
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmTenants.resources
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmHouses.resources
+C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmAssignHouse.resources

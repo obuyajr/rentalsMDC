@@ -43,4 +43,11 @@ Public Class frmMainMenu
         switchPanel(housesPanel)
 
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        Dim assignHouse As New frmAssignHouse
+        switchPanel(assignHouse)
+
+    End Sub
 End Class

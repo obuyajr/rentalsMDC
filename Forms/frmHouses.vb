@@ -282,9 +282,10 @@ Public Class frmHouses
             For I = 0 To lvwHouses.Items.Count - 1
 
                 If lvwHouses.Items(I).Selected = True Then
+                    hsNumber = txtHouseNo.Text
 
                     hsNumber = lvwHouses.Items(I).SubItems(0).Text
-                    txtHouseNo.Text = lvwHouses.Items(I).SubItems(0).Text
+                    'txtHouseNo.Text = lvwHouses.Items(I).SubItems(1).Text
                     txtLocation.Text = lvwHouses.Items(I).SubItems(1).Text
                     txtCategory.Text = lvwHouses.Items(I).SubItems(2).Text
                     txtRent.Text = lvwHouses.Items(I).SubItems(3).Text
