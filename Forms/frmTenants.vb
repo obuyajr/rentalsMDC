@@ -9,13 +9,25 @@ Public Class frmTenants
 
     Private Sub frmTenants_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         Define_listviewUsers_Columns()
         LoadDataTo_lvwTenants()
+        TextBoxes_To_Take_Uppercase_data()
+
 
 
     End Sub
 
+    Private Sub TextBoxes_To_Take_Uppercase_data()
 
+        txtName.CharacterCasing = CharacterCasing.Upper
+        txtNationalId.CharacterCasing = CharacterCasing.Upper
+        txtContact.CharacterCasing = CharacterCasing.Upper
+        txt_NOK.CharacterCasing = CharacterCasing.Upper
+        txt_NOK_phone.CharacterCasing = CharacterCasing.Upper
+
+
+    End Sub
 
 
 
@@ -24,13 +36,13 @@ Public Class frmTenants
         With lvwTenants
 
             .Columns.Add("ID", 100, HorizontalAlignment.Left)
-            .Columns.Add("Name", 100, HorizontalAlignment.Left)
+            .Columns.Add("Name", 150, HorizontalAlignment.Left)
             .Columns.Add("National ID", 100, HorizontalAlignment.Left)
             .Columns.Add("Contact", 100, HorizontalAlignment.Left)
-            .Columns.Add("Email Address", 100, HorizontalAlignment.Left)
-            .Columns.Add("NOK Name", 100, HorizontalAlignment.Left)
+            .Columns.Add("Email Address", 200, HorizontalAlignment.Left)
+            .Columns.Add("NOK Name", 150, HorizontalAlignment.Left)
             .Columns.Add("NOK Phone", 100, HorizontalAlignment.Left)
-
+            .CheckBoxes = True
 
             .View = View.Details
 
@@ -148,7 +160,7 @@ Public Class frmTenants
                             "           ('" & txtName.Text.ToUpper.Trim & "'" &
                             "           ,'" & txtNationalId.Text.ToUpper & "'" &
                             "           ,'" & txtContact.Text.ToUpper & "'" &
-                            "           ,'" & txtEmail.Text.ToUpper & "'" &
+                            "           ,'" & txtEmail.Text.ToLower & "'" &
                             "           ,'" & txt_NOK.Text.ToUpper & "'" &
                             "           ,'" & txt_NOK_phone.Text.ToUpper & "')"
             End If
@@ -211,6 +223,54 @@ Public Class frmTenants
 
     End Sub
 
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+        StrCmd = ""
+        Dim I As Integer = 0
+        Dim Count As Integer = 0
+
+
+        For I = 0 To lvwTenants.Items.Count - 1
+
+            If lvwTenants.Items(I).Checked = True Then
+
+                Dim result As DialogResult = MessageBox.Show("Are you sure you want to Delete this Record ??", "Warning", MessageBoxButtons.YesNo)
+
+                If result = DialogResult.Yes Then
+                    currentId = CInt(lvwTenants.Items(I).SubItems(0).Text)
+
+
+                    StrCmd = ""
+                    StrCmd = "DELETE tenants where id = " & currentId & ""
+
+                    Cmd = New SqlCommand(StrCmd, conn)
+
+                    Try
+
+                        Cmd.ExecuteNonQuery()
+
+                    Catch ex As Exception
+
+                        MessageBox.Show(ex.Message)
+
+                    End Try
+
+                    Cmd.Dispose()
+
+                    Count = +1
+
+                End If
+
+            End If
+
+
+        Next
+
+        LoadDataTo_lvwTenants()
+
+
+    End Sub
+
     Private Sub lvwTenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwTenants.SelectedIndexChanged
 
         Dim I As Integer = 0
@@ -234,5 +294,26 @@ Public Class frmTenants
             Next
 
         End If
+    End Sub
+
+    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        currentState = 0
+        currentId = 0
+
+        txtName.ReadOnly = False
+        txtNationalId.ReadOnly = False
+        txtContact.ReadOnly = False
+        txtEmail.ReadOnly = False
+        txt_NOK.ReadOnly = False
+        txt_NOK_phone.ReadOnly = False
+
+        txtName.Text = ""
+        txtNationalId.Text = ""
+        txtContact.Text = ""
+        txtEmail.Text = ""
+        txt_NOK.Text = ""
+        txt_NOK.Text = ""
+
+
     End Sub
 End Class

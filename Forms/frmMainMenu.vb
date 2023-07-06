@@ -17,6 +17,7 @@ Public Class frmMainMenu
     Private Sub btn_Users_Click(sender As Object, e As EventArgs) Handles btn_Users.Click
 
         Dim userPanel As New frmUsers
+
         switchPanel(userPanel)
 
     End Sub
@@ -33,6 +34,13 @@ Public Class frmMainMenu
 
         Dim tenantsPanel As New frmTenants
         switchPanel(tenantsPanel)
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+
+        Dim housesPanel As New frmHouses
+        switchPanel(housesPanel)
 
     End Sub
 End Class

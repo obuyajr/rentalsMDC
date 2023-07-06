@@ -23,11 +23,11 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
-        Button2 = New Button()
-        btn_Users = New Button()
-        btn_Tenants = New Button()
         Button3 = New Button()
         Button4 = New Button()
+        btn_Tenants = New Button()
+        Button2 = New Button()
+        btn_Users = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.SuspendLayout()
@@ -57,52 +57,6 @@ Partial Class frmMainMenu
         SplitContainer1.Size = New Size(1063, 566)
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
-        ' 
-        ' Button2
-        ' 
-        Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(26, 183)
-        Button2.Margin = New Padding(1)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(163, 25)
-        Button2.TabIndex = 1
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' btn_Users
-        ' 
-        btn_Users.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        btn_Users.FlatAppearance.BorderSize = 0
-        btn_Users.FlatStyle = FlatStyle.Flat
-        btn_Users.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_Users.ForeColor = Color.White
-        btn_Users.Image = My.Resources.Resources.user_solid_24
-        btn_Users.ImageAlign = ContentAlignment.MiddleRight
-        btn_Users.Location = New Point(10, 33)
-        btn_Users.Margin = New Padding(1)
-        btn_Users.Name = "btn_Users"
-        btn_Users.Size = New Size(128, 34)
-        btn_Users.TabIndex = 0
-        btn_Users.Text = "Users"
-        btn_Users.UseVisualStyleBackColor = True
-        ' 
-        ' btn_Tenants
-        ' 
-        btn_Tenants.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        btn_Tenants.FlatAppearance.BorderSize = 0
-        btn_Tenants.FlatStyle = FlatStyle.Flat
-        btn_Tenants.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_Tenants.ForeColor = Color.White
-        btn_Tenants.Image = My.Resources.Resources.book_open_regular_24___Copy
-        btn_Tenants.ImageAlign = ContentAlignment.MiddleRight
-        btn_Tenants.Location = New Point(10, 83)
-        btn_Tenants.Margin = New Padding(1)
-        btn_Tenants.Name = "btn_Tenants"
-        btn_Tenants.Size = New Size(128, 34)
-        btn_Tenants.TabIndex = 2
-        btn_Tenants.Text = "Tenants"
-        btn_Tenants.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
@@ -137,6 +91,52 @@ Partial Class frmMainMenu
         Button4.TabIndex = 3
         Button4.Text = "Houses"
         Button4.UseVisualStyleBackColor = True
+        ' 
+        ' btn_Tenants
+        ' 
+        btn_Tenants.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btn_Tenants.FlatAppearance.BorderSize = 0
+        btn_Tenants.FlatStyle = FlatStyle.Flat
+        btn_Tenants.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_Tenants.ForeColor = Color.White
+        btn_Tenants.Image = My.Resources.Resources.book_open_regular_24___Copy
+        btn_Tenants.ImageAlign = ContentAlignment.MiddleRight
+        btn_Tenants.Location = New Point(10, 83)
+        btn_Tenants.Margin = New Padding(1)
+        btn_Tenants.Name = "btn_Tenants"
+        btn_Tenants.Size = New Size(128, 34)
+        btn_Tenants.TabIndex = 2
+        btn_Tenants.Text = "Tenants"
+        btn_Tenants.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Location = New Point(26, 183)
+        Button2.Margin = New Padding(1)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(163, 25)
+        Button2.TabIndex = 1
+        Button2.Text = "Button2"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' btn_Users
+        ' 
+        btn_Users.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btn_Users.FlatAppearance.BorderSize = 0
+        btn_Users.FlatStyle = FlatStyle.Flat
+        btn_Users.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_Users.ForeColor = Color.White
+        btn_Users.Image = My.Resources.Resources.user_solid_24
+        btn_Users.ImageAlign = ContentAlignment.MiddleRight
+        btn_Users.Location = New Point(10, 33)
+        btn_Users.Margin = New Padding(1)
+        btn_Users.Name = "btn_Users"
+        btn_Users.Size = New Size(128, 34)
+        btn_Users.TabIndex = 0
+        btn_Users.Text = "Users"
+        btn_Users.UseVisualStyleBackColor = True
         ' 
         ' frmMainMenu
         ' 

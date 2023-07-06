@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmTenants
+Partial Class frmHouses
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,12 +24,12 @@ Partial Class frmTenants
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
-        txt_NOK_phone = New TextBox()
-        txt_NOK = New TextBox()
-        txtEmail = New TextBox()
-        txtContact = New TextBox()
-        txtNationalId = New TextBox()
-        txtName = New TextBox()
+        txtStatus = New TextBox()
+        txtDeposit = New TextBox()
+        txtRent = New TextBox()
+        txtCategory = New TextBox()
+        txtLocation = New TextBox()
+        txtHouseNo = New TextBox()
         Label7 = New Label()
         Label6 = New Label()
         Label5 = New Label()
@@ -38,7 +38,7 @@ Partial Class frmTenants
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
-        lvwTenants = New ListView()
+        lvwHouses = New ListView()
         Panel3 = New Panel()
         Button4 = New Button()
         btnadd = New Button()
@@ -57,12 +57,12 @@ Partial Class frmTenants
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.WhiteSmoke
         Panel1.BorderStyle = BorderStyle.Fixed3D
-        Panel1.Controls.Add(txt_NOK_phone)
-        Panel1.Controls.Add(txt_NOK)
-        Panel1.Controls.Add(txtEmail)
-        Panel1.Controls.Add(txtContact)
-        Panel1.Controls.Add(txtNationalId)
-        Panel1.Controls.Add(txtName)
+        Panel1.Controls.Add(txtStatus)
+        Panel1.Controls.Add(txtDeposit)
+        Panel1.Controls.Add(txtRent)
+        Panel1.Controls.Add(txtCategory)
+        Panel1.Controls.Add(txtLocation)
+        Panel1.Controls.Add(txtHouseNo)
         Panel1.Controls.Add(Label7)
         Panel1.Controls.Add(Label6)
         Panel1.Controls.Add(Label5)
@@ -73,109 +73,109 @@ Partial Class frmTenants
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1047, 156)
-        Panel1.TabIndex = 0
+        Panel1.TabIndex = 1
         ' 
-        ' txt_NOK_phone
+        ' txtStatus
         ' 
-        txt_NOK_phone.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txt_NOK_phone.Location = New Point(777, 86)
-        txt_NOK_phone.Name = "txt_NOK_phone"
-        txt_NOK_phone.Size = New Size(261, 25)
-        txt_NOK_phone.TabIndex = 12
+        txtStatus.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtStatus.Location = New Point(758, 86)
+        txtStatus.Name = "txtStatus"
+        txtStatus.Size = New Size(261, 25)
+        txtStatus.TabIndex = 12
         ' 
-        ' txt_NOK
+        ' txtDeposit
         ' 
-        txt_NOK.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txt_NOK.Location = New Point(777, 34)
-        txt_NOK.Name = "txt_NOK"
-        txt_NOK.Size = New Size(261, 25)
-        txt_NOK.TabIndex = 11
+        txtDeposit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtDeposit.Location = New Point(758, 34)
+        txtDeposit.Name = "txtDeposit"
+        txtDeposit.Size = New Size(261, 25)
+        txtDeposit.TabIndex = 11
         ' 
-        ' txtEmail
+        ' txtRent
         ' 
-        txtEmail.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtEmail.Location = New Point(424, 86)
-        txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(261, 25)
-        txtEmail.TabIndex = 10
+        txtRent.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtRent.Location = New Point(424, 86)
+        txtRent.Name = "txtRent"
+        txtRent.Size = New Size(261, 25)
+        txtRent.TabIndex = 10
         ' 
-        ' txtContact
+        ' txtCategory
         ' 
-        txtContact.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtContact.Location = New Point(424, 34)
-        txtContact.Name = "txtContact"
-        txtContact.Size = New Size(261, 25)
-        txtContact.TabIndex = 9
+        txtCategory.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtCategory.Location = New Point(424, 34)
+        txtCategory.Name = "txtCategory"
+        txtCategory.Size = New Size(261, 25)
+        txtCategory.TabIndex = 9
         ' 
-        ' txtNationalId
+        ' txtLocation
         ' 
-        txtNationalId.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtNationalId.Location = New Point(86, 88)
-        txtNationalId.Name = "txtNationalId"
-        txtNationalId.Size = New Size(261, 25)
-        txtNationalId.TabIndex = 8
+        txtLocation.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtLocation.Location = New Point(86, 88)
+        txtLocation.Name = "txtLocation"
+        txtLocation.Size = New Size(261, 25)
+        txtLocation.TabIndex = 8
         ' 
-        ' txtName
+        ' txtHouseNo
         ' 
-        txtName.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtName.Location = New Point(86, 36)
-        txtName.Name = "txtName"
-        txtName.Size = New Size(261, 25)
-        txtName.TabIndex = 7
+        txtHouseNo.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtHouseNo.Location = New Point(86, 36)
+        txtHouseNo.Name = "txtHouseNo"
+        txtHouseNo.Size = New Size(261, 25)
+        txtHouseNo.TabIndex = 7
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
         Label7.Location = New Point(702, 91)
         Label7.Name = "Label7"
-        Label7.Size = New Size(72, 15)
+        Label7.Size = New Size(42, 15)
         Label7.TabIndex = 6
-        Label7.Text = "NOK Phone:"
+        Label7.Text = "Status:"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
         Label6.Location = New Point(702, 39)
         Label6.Name = "Label6"
-        Label6.Size = New Size(69, 15)
+        Label6.Size = New Size(50, 15)
         Label6.TabIndex = 5
-        Label6.Text = "Next of Kin:"
+        Label6.Text = "Deposit:"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(379, 91)
+        Label5.Location = New Point(384, 91)
         Label5.Name = "Label5"
-        Label5.Size = New Size(39, 15)
+        Label5.Size = New Size(34, 15)
         Label5.TabIndex = 4
-        Label5.Text = "Email:"
+        Label5.Text = "Rent:"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
         Label4.Location = New Point(366, 39)
         Label4.Name = "Label4"
-        Label4.Size = New Size(52, 15)
+        Label4.Size = New Size(58, 15)
         Label4.TabIndex = 3
-        Label4.Text = "Contact:"
+        Label4.Text = "Category:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(11, 91)
+        Label3.Location = New Point(17, 91)
         Label3.Name = "Label3"
-        Label3.Size = New Size(69, 15)
+        Label3.Size = New Size(56, 15)
         Label3.TabIndex = 2
-        Label3.Text = "National ID:"
+        Label3.Text = "Location:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(38, 39)
+        Label2.Location = New Point(17, 41)
         Label2.Name = "Label2"
-        Label2.Size = New Size(42, 15)
+        Label2.Size = New Size(63, 15)
         Label2.TabIndex = 1
-        Label2.Text = "Name:"
+        Label2.Text = "House No:"
         ' 
         ' Label1
         ' 
@@ -183,30 +183,30 @@ Partial Class frmTenants
         Label1.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.Location = New Point(3, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(113, 20)
+        Label1.Size = New Size(109, 20)
         Label1.TabIndex = 0
-        Label1.Text = "Tenant Details"
+        Label1.Text = "House Details"
         ' 
         ' Panel2
         ' 
         Panel2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel2.BackColor = Color.WhiteSmoke
         Panel2.BorderStyle = BorderStyle.Fixed3D
-        Panel2.Controls.Add(lvwTenants)
+        Panel2.Controls.Add(lvwHouses)
         Panel2.Location = New Point(12, 192)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1047, 225)
-        Panel2.TabIndex = 1
+        Panel2.TabIndex = 2
         ' 
-        ' lvwTenants
+        ' lvwHouses
         ' 
-        lvwTenants.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        lvwTenants.BackColor = Color.White
-        lvwTenants.Location = New Point(11, 15)
-        lvwTenants.Name = "lvwTenants"
-        lvwTenants.Size = New Size(1027, 203)
-        lvwTenants.TabIndex = 0
-        lvwTenants.UseCompatibleStateImageBehavior = False
+        lvwHouses.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
+        lvwHouses.BackColor = Color.White
+        lvwHouses.Location = New Point(11, 15)
+        lvwHouses.Name = "lvwHouses"
+        lvwHouses.Size = New Size(1027, 203)
+        lvwHouses.TabIndex = 0
+        lvwHouses.UseCompatibleStateImageBehavior = False
         ' 
         ' Panel3
         ' 
@@ -218,15 +218,15 @@ Partial Class frmTenants
         Panel3.Controls.Add(btnSave)
         Panel3.Controls.Add(btnEdit)
         Panel3.Controls.Add(btnDelete)
-        Panel3.Location = New Point(0, 437)
+        Panel3.Location = New Point(12, 437)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1059, 63)
-        Panel3.TabIndex = 2
+        Panel3.Size = New Size(1047, 63)
+        Panel3.TabIndex = 3
         ' 
         ' Button4
         ' 
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button4.Location = New Point(911, 20)
+        Button4.Location = New Point(880, 20)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 11
@@ -277,7 +277,7 @@ Partial Class frmTenants
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
-        ' frmTenants
+        ' frmHouses
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -286,8 +286,8 @@ Partial Class frmTenants
         Controls.Add(Panel3)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
-        Name = "frmTenants"
-        Text = "Tenants"
+        Name = "frmHouses"
+        Text = "frmHouses"
         WindowState = FormWindowState.Maximized
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
@@ -298,26 +298,26 @@ Partial Class frmTenants
     End Sub
 
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtStatus As TextBox
+    Friend WithEvents txtDeposit As TextBox
+    Friend WithEvents txtRent As TextBox
+    Friend WithEvents txtCategory As TextBox
+    Friend WithEvents txtLocation As TextBox
+    Friend WithEvents txtHouseNo As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents lvwHouses As ListView
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents txt_NOK_phone As TextBox
-    Friend WithEvents txt_NOK As TextBox
-    Friend WithEvents txtEmail As TextBox
-    Friend WithEvents txtContact As TextBox
-    Friend WithEvents txtNationalId As TextBox
-    Friend WithEvents txtName As TextBox
     Friend WithEvents Button4 As Button
     Friend WithEvents btnadd As Button
     Friend WithEvents btnSave As Button
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
-    Friend WithEvents lvwTenants As ListView
     Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

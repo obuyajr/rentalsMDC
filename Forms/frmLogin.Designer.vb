@@ -30,80 +30,134 @@ Partial Class frmLogin
         btnLogin = New Button()
         btnCancel = New Button()
         ErrorProvider1 = New ErrorProvider(components)
+        Panel1 = New Panel()
+        Panel2 = New Panel()
+        Panel3 = New Panel()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(82, 33)
+        Label1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Location = New Point(20, 30)
         Label1.Name = "Label1"
-        Label1.Size = New Size(63, 15)
+        Label1.Size = New Size(75, 17)
         Label1.TabIndex = 0
         Label1.Text = "Username:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(95, 77)
+        Label2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(22, 85)
         Label2.Name = "Label2"
-        Label2.Size = New Size(57, 15)
+        Label2.Size = New Size(73, 17)
         Label2.TabIndex = 1
-        Label2.Text = "Password"
+        Label2.Text = "Password:"
         ' 
         ' txtUserName
         ' 
-        txtUserName.Location = New Point(180, 33)
+        txtUserName.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        txtUserName.Location = New Point(110, 24)
         txtUserName.Name = "txtUserName"
-        txtUserName.Size = New Size(219, 23)
+        txtUserName.Size = New Size(289, 29)
         txtUserName.TabIndex = 2
         ' 
         ' txtUserPassword
         ' 
-        txtUserPassword.Location = New Point(180, 73)
+        txtUserPassword.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        txtUserPassword.Location = New Point(110, 79)
         txtUserPassword.Name = "txtUserPassword"
         txtUserPassword.PasswordChar = "*"c
-        txtUserPassword.Size = New Size(219, 23)
+        txtUserPassword.Size = New Size(289, 29)
         txtUserPassword.TabIndex = 3
         ' 
         ' btnLogin
         ' 
-        btnLogin.Location = New Point(180, 137)
+        btnLogin.BackColor = Color.Peru
+        btnLogin.FlatStyle = FlatStyle.Popup
+        btnLogin.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnLogin.Image = My.Resources.Resources.login_btn
+        btnLogin.ImageAlign = ContentAlignment.MiddleRight
+        btnLogin.Location = New Point(110, 140)
         btnLogin.Name = "btnLogin"
-        btnLogin.Size = New Size(75, 23)
+        btnLogin.Size = New Size(101, 43)
         btnLogin.TabIndex = 4
         btnLogin.Text = "Login"
-        btnLogin.UseVisualStyleBackColor = True
+        btnLogin.TextAlign = ContentAlignment.MiddleLeft
+        btnLogin.UseVisualStyleBackColor = False
         ' 
         ' btnCancel
         ' 
-        btnCancel.Location = New Point(314, 137)
+        btnCancel.BackColor = Color.Peru
+        btnCancel.DialogResult = DialogResult.Cancel
+        btnCancel.FlatStyle = FlatStyle.Popup
+        btnCancel.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnCancel.Image = My.Resources.Resources.log_out_circle_solid_36
+        btnCancel.ImageAlign = ContentAlignment.MiddleRight
+        btnCancel.Location = New Point(304, 140)
         btnCancel.Name = "btnCancel"
-        btnCancel.Size = New Size(75, 23)
+        btnCancel.Size = New Size(95, 39)
         btnCancel.TabIndex = 5
         btnCancel.Text = "Cancel"
-        btnCancel.UseVisualStyleBackColor = True
+        btnCancel.TextAlign = ContentAlignment.MiddleLeft
+        btnCancel.UseVisualStyleBackColor = False
         ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.Indigo
+        Panel1.Dock = DockStyle.Top
+        Panel1.Location = New Point(0, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(428, 103)
+        Panel1.TabIndex = 6
+        ' 
+        ' Panel2
+        ' 
+        Panel2.BackColor = Color.White
+        Panel2.Controls.Add(btnCancel)
+        Panel2.Controls.Add(btnLogin)
+        Panel2.Controls.Add(txtUserPassword)
+        Panel2.Controls.Add(Label1)
+        Panel2.Controls.Add(Label2)
+        Panel2.Controls.Add(txtUserName)
+        Panel2.Dock = DockStyle.Fill
+        Panel2.Location = New Point(0, 103)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(428, 267)
+        Panel2.TabIndex = 7
+        ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.Indigo
+        Panel3.Dock = DockStyle.Bottom
+        Panel3.Location = New Point(0, 296)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(428, 74)
+        Panel3.TabIndex = 8
+        ' 
         ' frmLogin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(470, 181)
-        Controls.Add(btnCancel)
-        Controls.Add(btnLogin)
-        Controls.Add(txtUserPassword)
-        Controls.Add(txtUserName)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
+        ClientSize = New Size(428, 370)
+        Controls.Add(Panel3)
+        Controls.Add(Panel2)
+        Controls.Add(Panel1)
+        FormBorderStyle = FormBorderStyle.None
         Name = "frmLogin"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "frmLogin"
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
+        Panel2.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents Label1 As Label
@@ -113,4 +167,7 @@ Partial Class frmLogin
     Friend WithEvents btnLogin As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class

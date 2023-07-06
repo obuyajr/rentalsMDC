@@ -5,6 +5,21 @@ Public Class frmLogin
     Dim Dr As SqlDataReader
     Dim UserExists As Boolean = False
 
+
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBoxes_To_Take_Uppercase_data()
+
+    End Sub
+
+    Private Sub TextBoxes_To_Take_Uppercase_data()
+
+        txtUserName.CharacterCasing = CharacterCasing.Upper
+        txtUserPassword.CharacterCasing = CharacterCasing.Upper
+
+
+
+    End Sub
+
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
         If txtUserName.Text.Trim = "" Then
@@ -54,4 +69,9 @@ Public Class frmLogin
 
     End Sub
 
+
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.Close()
+    End Sub
 End Class
