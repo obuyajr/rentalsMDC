@@ -38,73 +38,84 @@ Partial Class frmUsers
         Button4 = New Button()
         ErrorProvider1 = New ErrorProvider(components)
         btnadd = New Button()
+        Panel4 = New Panel()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel4.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
+        Panel1.BackColor = Color.Snow
+        Panel1.BorderStyle = BorderStyle.Fixed3D
         Panel1.Controls.Add(txtUserPassword)
         Panel1.Controls.Add(txtUserName)
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(25, 12)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(647, 103)
+        Panel1.Size = New Size(650, 109)
         Panel1.TabIndex = 0
         ' 
         ' txtUserPassword
         ' 
-        txtUserPassword.Location = New Point(426, 6)
+        txtUserPassword.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtUserPassword.Location = New Point(407, 14)
         txtUserPassword.Name = "txtUserPassword"
         txtUserPassword.PasswordChar = "*"c
         txtUserPassword.ReadOnly = True
-        txtUserPassword.Size = New Size(209, 23)
+        txtUserPassword.Size = New Size(209, 28)
         txtUserPassword.TabIndex = 7
         ' 
         ' txtUserName
         ' 
-        txtUserName.Location = New Point(83, 6)
+        txtUserName.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtUserName.Location = New Point(83, 14)
         txtUserName.Name = "txtUserName"
         txtUserName.ReadOnly = True
-        txtUserName.Size = New Size(209, 23)
+        txtUserName.Size = New Size(209, 28)
         txtUserName.TabIndex = 6
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(341, 10)
+        Label2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(332, 19)
         Label2.Name = "Label2"
-        Label2.Size = New Size(57, 15)
+        Label2.Size = New Size(69, 17)
         Label2.TabIndex = 5
         Label2.Text = "Password"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(12, 14)
+        Label1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Location = New Point(4, 19)
         Label1.Name = "Label1"
-        Label1.Size = New Size(63, 15)
+        Label1.Size = New Size(75, 17)
         Label1.TabIndex = 4
         Label1.Text = "Username:"
         ' 
         ' Panel2
         ' 
+        Panel2.BackColor = Color.Snow
+        Panel2.BorderStyle = BorderStyle.Fixed3D
         Panel2.Controls.Add(chkBoxSuperAdmin)
-        Panel2.Location = New Point(25, 134)
+        Panel2.Location = New Point(25, 152)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(647, 50)
+        Panel2.Size = New Size(650, 89)
         Panel2.TabIndex = 1
         ' 
         ' chkBoxSuperAdmin
         ' 
         chkBoxSuperAdmin.AutoSize = True
         chkBoxSuperAdmin.Enabled = False
-        chkBoxSuperAdmin.Location = New Point(27, 25)
+        chkBoxSuperAdmin.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkBoxSuperAdmin.Location = New Point(22, 14)
         chkBoxSuperAdmin.Name = "chkBoxSuperAdmin"
-        chkBoxSuperAdmin.Size = New Size(95, 19)
+        chkBoxSuperAdmin.Size = New Size(109, 21)
         chkBoxSuperAdmin.TabIndex = 0
         chkBoxSuperAdmin.Text = "Super Admin"
         chkBoxSuperAdmin.UseVisualStyleBackColor = True
@@ -112,25 +123,27 @@ Partial Class frmUsers
         ' Panel3
         ' 
         Panel3.Controls.Add(lvwUsers)
-        Panel3.Location = New Point(25, 190)
+        Panel3.Location = New Point(25, 260)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(647, 187)
+        Panel3.Size = New Size(650, 204)
         Panel3.TabIndex = 2
         ' 
         ' lvwUsers
         ' 
-        lvwUsers.Dock = DockStyle.Fill
+        lvwUsers.BackColor = Color.Snow
+        lvwUsers.BorderStyle = BorderStyle.FixedSingle
         lvwUsers.FullRowSelect = True
-        lvwUsers.Location = New Point(0, 0)
+        lvwUsers.Location = New Point(0, 13)
         lvwUsers.MultiSelect = False
         lvwUsers.Name = "lvwUsers"
-        lvwUsers.Size = New Size(647, 187)
+        lvwUsers.Size = New Size(650, 175)
         lvwUsers.TabIndex = 0
         lvwUsers.UseCompatibleStateImageBehavior = False
         ' 
         ' btnSave
         ' 
-        btnSave.Location = New Point(29, 400)
+        btnSave.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnSave.Location = New Point(6, 13)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 26)
         btnSave.TabIndex = 3
@@ -139,7 +152,8 @@ Partial Class frmUsers
         ' 
         ' btnEdit
         ' 
-        btnEdit.Location = New Point(108, 400)
+        btnEdit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnEdit.Location = New Point(126, 13)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(75, 26)
         btnEdit.TabIndex = 4
@@ -148,7 +162,8 @@ Partial Class frmUsers
         ' 
         ' btnDelete
         ' 
-        btnDelete.Location = New Point(186, 400)
+        btnDelete.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnDelete.Location = New Point(250, 13)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 26)
         btnDelete.TabIndex = 5
@@ -157,7 +172,8 @@ Partial Class frmUsers
         ' 
         ' Button4
         ' 
-        Button4.Location = New Point(532, 400)
+        Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button4.Location = New Point(498, 13)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 6
@@ -170,34 +186,49 @@ Partial Class frmUsers
         ' 
         ' btnadd
         ' 
-        btnadd.Location = New Point(267, 400)
+        btnadd.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnadd.Location = New Point(368, 13)
         btnadd.Name = "btnadd"
-        btnadd.Size = New Size(75, 26)
+        btnadd.Size = New Size(84, 26)
         btnadd.TabIndex = 7
         btnadd.Text = "Add New"
         btnadd.UseVisualStyleBackColor = True
+        ' 
+        ' Panel4
+        ' 
+        Panel4.BorderStyle = BorderStyle.FixedSingle
+        Panel4.Controls.Add(Button4)
+        Panel4.Controls.Add(btnadd)
+        Panel4.Controls.Add(btnSave)
+        Panel4.Controls.Add(btnEdit)
+        Panel4.Controls.Add(btnDelete)
+        Panel4.Location = New Point(25, 470)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(650, 70)
+        Panel4.TabIndex = 8
         ' 
         ' frmUsers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(691, 450)
-        Controls.Add(btnadd)
-        Controls.Add(Button4)
-        Controls.Add(btnDelete)
-        Controls.Add(btnEdit)
-        Controls.Add(btnSave)
+        BackColor = Color.MistyRose
+        ClientSize = New Size(699, 547)
         Controls.Add(Panel3)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
+        Controls.Add(Panel4)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        MaximizeBox = False
         Name = "frmUsers"
-        Text = "frmUsers"
+        StartPosition = FormStartPosition.CenterParent
+        Text = "Users"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         Panel3.ResumeLayout(False)
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
+        Panel4.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -216,4 +247,5 @@ Partial Class frmUsers
     Friend WithEvents Label1 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents btnadd As Button
+    Friend WithEvents Panel4 As Panel
 End Class

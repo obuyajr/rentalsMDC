@@ -10,6 +10,9 @@
     <Compile Update="Forms\frmMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmTenants.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmUsers.vb">
       <SubType>Form</SubType>
     </Compile>

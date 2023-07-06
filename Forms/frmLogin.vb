@@ -43,7 +43,7 @@ Public Class frmLogin
                 '*-----------------------------------------------------------------------------
                 '* Load Main Menu
                 '*-----------------------------------------------------------------------------
-                Dim mmenu As New frmUsers
+                Dim mmenu As New frmMainMenu
                 Me.Hide()
                 mmenu.ShowDialog()
 
