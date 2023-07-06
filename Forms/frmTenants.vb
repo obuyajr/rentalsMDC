@@ -4,8 +4,16 @@ Public Class frmTenants
 
     Dim Dr As SqlDataReader
     Dim currentId As Integer = 0
+    Dim currentState As Integer = 0
 
 
+    Private Sub frmTenants_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Define_listviewUsers_Columns()
+        LoadDataTo_lvwTenants()
+
+
+    End Sub
 
 
 
@@ -115,52 +123,73 @@ Public Class frmTenants
         '-----------------------------------------------------------------------------------
 
 
-        StrCmd = ""
-        StrCmd = "INSERT INTO tenants" &
-                    "           (name" &
-                    "           ,national_id" &
-                    "           ,contact" &
-                    "           ,email" &
-                    "           ,nok_name" &
-                    "           ,nok_phone)" &
-                    "     VALUES" &
-                    "           ('" & txtName.Text.ToUpper.Trim & "'" &
-                    "           ,'" & txtNationalId.Text.ToUpper & "'" &
-                    "           ,'" & txtContact.Text.ToUpper & "'" &
-                    "           ,'" & txtEmail.Text.ToUpper & "'" &
-                    "           ,'" & txt_NOK.Text.ToUpper & "'" &
-                    "           ,'" & txt_NOK_phone.Text.ToUpper & "')"
-
-        Cmd = New SqlCommand(StrCmd, conn)
-
-        Try
-
-            Cmd.ExecuteNonQuery()
-
-        Catch ex As Exception
-
-            MessageBox.Show(ex.Message)
-            Exit Sub
-
-        End Try
-
-        Cmd.Dispose()
-
-        LoadDataTo_lvwTenants()
+        If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
 
-        txtName.Text = ""
-        txtNationalId.Text = ""
-        txtContact.Text = ""
-        txtEmail.Text = ""
-        txt_NOK.Text = ""
-        txt_NOK_phone.Text = ""
 
-        txtName.Focus()
 
-        Beep()
+            StrCmd = ""
 
-        MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+            If currentId <> 0 Then
+
+                StrCmd = ""
+                StrCmd = "UPDATE tenants set name = '" & txtName.Text.ToUpper.Trim & "',national_id = '" & txtNationalId.Text & "',contact = '" & txtContact.Text & "',email = '" & txtEmail.Text & "',nok_name = '" & txt_NOK.Text & "',nok_phone = '" & txt_NOK_phone.Text & "' where id = " & currentId & ""
+
+            Else
+                StrCmd = ""
+                StrCmd = "INSERT INTO tenants" &
+                            "           (name" &
+                            "           ,national_id" &
+                            "           ,contact" &
+                            "           ,email" &
+                            "           ,nok_name" &
+                            "           ,nok_phone)" &
+                            "     VALUES" &
+                            "           ('" & txtName.Text.ToUpper.Trim & "'" &
+                            "           ,'" & txtNationalId.Text.ToUpper & "'" &
+                            "           ,'" & txtContact.Text.ToUpper & "'" &
+                            "           ,'" & txtEmail.Text.ToUpper & "'" &
+                            "           ,'" & txt_NOK.Text.ToUpper & "'" &
+                            "           ,'" & txt_NOK_phone.Text.ToUpper & "')"
+            End If
+
+            Cmd = New SqlCommand(StrCmd, conn)
+
+            Try
+
+                Cmd.ExecuteNonQuery()
+
+            Catch ex As Exception
+
+                MessageBox.Show(ex.Message)
+                Exit Sub
+
+            End Try
+
+            Cmd.Dispose()
+
+            LoadDataTo_lvwTenants()
+
+
+            txtName.Text = ""
+            txtNationalId.Text = ""
+            txtContact.Text = ""
+            txtEmail.Text = ""
+            txt_NOK.Text = ""
+            txt_NOK_phone.Text = ""
+
+            txtName.Focus()
+
+            currentId = 0
+            currentState = 0
+            Beep()
+
+            MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+
+
+        End If
+
+
 
 
 
@@ -168,11 +197,42 @@ Public Class frmTenants
 
     End Sub
 
-    Private Sub frmTenants_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        currentState = 1
+        currentId = 0
 
-        Define_listviewUsers_Columns()
-        LoadDataTo_lvwTenants()
+        txtName.ReadOnly = False
+        txtNationalId.ReadOnly = False
+        txtContact.ReadOnly = False
+        txtEmail.ReadOnly = False
+        txt_NOK.ReadOnly = False
+        txt_NOK_phone.ReadOnly = False
 
 
+    End Sub
+
+    Private Sub lvwTenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwTenants.SelectedIndexChanged
+
+        Dim I As Integer = 0
+
+        If currentState = 1 Then
+
+            For I = 0 To lvwTenants.Items.Count - 1
+
+                If lvwTenants.Items(I).Selected = True Then
+
+                    currentId = CInt(lvwTenants.Items(I).SubItems(0).Text)
+                    txtName.Text = lvwTenants.Items(I).SubItems(1).Text
+                    txtNationalId.Text = lvwTenants.Items(I).SubItems(2).Text
+                    txtContact.Text = lvwTenants.Items(I).SubItems(3).Text
+                    txtEmail.Text = lvwTenants.Items(I).SubItems(4).Text
+                    txt_NOK.Text = lvwTenants.Items(I).SubItems(5).Text
+                    txt_NOK_phone.Text = lvwTenants.Items(I).SubItems(6).Text
+
+                End If
+
+            Next
+
+        End If
     End Sub
 End Class
