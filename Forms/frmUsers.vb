@@ -253,170 +253,170 @@ Public Class frmUsers
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
-        Dim StrCmd As String = ""
-        Dim RCount As Integer = 0
-        Dim I As Integer = 0
+        '    Dim StrCmd As String = ""
+        '    Dim RCount As Integer = 0
+        '    Dim I As Integer = 0
 
-        Dim Dr As SqlDataReader
-        Dim Cmd As SqlCommand
-        Dim MaxRecords As Integer = 0
+        '    Dim Dr As SqlDataReader
+        '    Dim Cmd As SqlCommand
+        '    Dim MaxRecords As Integer = 0
 
 
 
 
 
-        Dim found As Boolean = My.Computer.FileSystem.DirectoryExists(Application.StartupPath & "\users")
-        If found = False Then
-            My.Computer.FileSystem.CreateDirectory(Application.StartupPath & "\users\")
-        End If
+        '    Dim found As Boolean = My.Computer.FileSystem.DirectoryExists(Application.StartupPath & "\users")
+        '    If found = False Then
+        '        My.Computer.FileSystem.CreateDirectory(Application.StartupPath & "\users\")
+        '    End If
 
 
-        '* Fetch Record Number To Pass To Dynamic Array
-        '* ---------------------------------------------
+        '    '* Fetch Record Number To Pass To Dynamic Array
+        '    '* ---------------------------------------------
 
-        StrCmd = ""
-        StrCmd = "Select Count(*) As MaxRecords From users"
-        Cmd = New SqlCommand(StrCmd, conn)
-        Dr = Cmd.ExecuteReader
+        '    StrCmd = ""
+        '    StrCmd = "Select Count(*) As MaxRecords From users"
+        '    Cmd = New SqlCommand(StrCmd, conn)
+        '    Dr = Cmd.ExecuteReader
 
-        While Dr.Read
-            MaxRecords = CInt(Dr.Item("MaxRecords"))
-        End While
+        '    While Dr.Read
+        '        MaxRecords = CInt(Dr.Item("MaxRecords"))
+        '    End While
 
-        Dr.Close()
-        Cmd.Dispose()
+        '    Dr.Close()
+        '    Cmd.Dispose()
 
 
-        '* Since Excel Takes Only 64000 Records Maximum so if maxrecords > 60000
-        '* Back Out
-        '* Advice The User To Reduce His/Her Date Range
-        '* ----------------------------------------------------------------------
+        '    '* Since Excel Takes Only 64000 Records Maximum so if maxrecords > 60000
+        '    '* Back Out
+        '    '* Advice The User To Reduce His/Her Date Range
+        '    '* ----------------------------------------------------------------------
 
-        If MaxRecords > 60000 Then
+        '    If MaxRecords > 60000 Then
 
-            MessageBox.Show("Records Number More Than An Excel Sheet Limit" & vbCrLf &
-                            "Sorry For That Small Inconvenience", "Excel Sheet Limit", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Exit Sub
+        '        MessageBox.Show("Records Number More Than An Excel Sheet Limit" & vbCrLf &
+        '                        "Sorry For That Small Inconvenience", "Excel Sheet Limit", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '        Exit Sub
 
-        End If
+        '    End If
 
 
-        StrCmd = ""
+        '    StrCmd = ""
 
 
 
 
-        Cmd = New SqlCommand(StrCmd, conn)
-        Dr = Cmd.ExecuteReader
+        '    Cmd = New SqlCommand(StrCmd, conn)
+        '    Dr = Cmd.ExecuteReader
 
 
-        Dim ColsCount As Integer = Dr.FieldCount - 1
-        Dim FieldsArr(0, ColsCount) As String
-        Dim RowCounter As Integer = 0
-        Dim DataArr(MaxRecords, ColsCount) As Object
+        '    Dim ColsCount As Integer = Dr.FieldCount - 1
+        '    Dim FieldsArr(0, ColsCount) As String
+        '    Dim RowCounter As Integer = 0
+        '    Dim DataArr(MaxRecords, ColsCount) As Object
 
 
 
-        '* Populate the array of field names by using the DataReader's method 'GetName'.
-        '* -----------------------------------------------------------------------------
+        '    '* Populate the array of field names by using the DataReader's method 'GetName'.
+        '    '* -----------------------------------------------------------------------------
 
-        For NameCounter As Integer = 0 To ColsCount
-            FieldsArr(0, NameCounter) = Dr.GetName(NameCounter)
-        Next
+        '    For NameCounter As Integer = 0 To ColsCount
+        '        FieldsArr(0, NameCounter) = Dr.GetName(NameCounter)
+        '    Next
 
 
-        While Dr.Read
+        '    While Dr.Read
 
-            For RecordCounter As Integer = 0 To ColsCount
-                DataArr(RowCounter, RecordCounter) = "'" & Dr.Item(RecordCounter)
-            Next
-            RowCounter = RowCounter + 1
+        '        For RecordCounter As Integer = 0 To ColsCount
+        '            DataArr(RowCounter, RecordCounter) = "'" & Dr.Item(RecordCounter)
+        '        Next
+        '        RowCounter = RowCounter + 1
 
-            ''* delay Counter
-            ''* -------------
+        '        ''* delay Counter
+        '        ''* -------------
 
-            'For I = 1 To 100
-            '    PleaseWait.ProgressBar1.PerformStep()
-            'Next
+        '        'For I = 1 To 100
+        '        '    PleaseWait.ProgressBar1.PerformStep()
+        '        'Next
 
 
-        End While
+        '    End While
 
-        Dr.Close()
+        '    Dr.Close()
 
-        '* Close Patience request Form
-        '* ---------------------------
-        'PleaseWait.Close()
+        '    '* Close Patience request Form
+        '    '* ---------------------------
+        '    'PleaseWait.Close()
 
 
 
-        '* Variables for Excel.
-        '* --------------------
+        '    '* Variables for Excel.
+        '    '* --------------------
 
-        Dim xlApp As New Microsoft.Office.Interop.Excel.Application
-        Dim xlWBook As Microsoft.Office.Interop.Excel.Workbook = xlApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet)
-        Dim xlWSheet As Microsoft.Office.Interop.Excel.Worksheet = CType(xlWBook.Worksheets(1), Microsoft.Office.Interop.Excel.Worksheet)
-        Dim xlCalc As Microsoft.Office.Interop.Excel.XlCalculation
+        '    Dim xlApp As New Microsoft.Office.Interop.Excel.Application
+        '    Dim xlWBook As Microsoft.Office.Interop.Excel.Workbook = xlApp.Workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet)
+        '    Dim xlWSheet As Microsoft.Office.Interop.Excel.Worksheet = CType(xlWBook.Worksheets(1), Microsoft.Office.Interop.Excel.Worksheet)
+        '    Dim xlCalc As Microsoft.Office.Interop.Excel.XlCalculation
 
-        '* Save the present setting for Excel's calculation mode and turn it off.
-        '* ----------------------------------------------------------------------
+        '    '* Save the present setting for Excel's calculation mode and turn it off.
+        '    '* ----------------------------------------------------------------------
 
-        With xlApp
-            .StandardFont = "Courier New"
-            .StandardFontSize = 12
-            xlCalc = .Calculation
-            .Calculation = Microsoft.Office.Interop.Excel.XlCalculation.xlCalculationManual
-        End With
+        '    With xlApp
+        '        .StandardFont = "Courier New"
+        '        .StandardFontSize = 12
+        '        xlCalc = .Calculation
+        '        .Calculation = Microsoft.Office.Interop.Excel.XlCalculation.xlCalculationManual
+        '    End With
 
 
-        '* Write the field names and the data to the targeting worksheet.
-        '* --------------------------------------------------------------
+        '    '* Write the field names and the data to the targeting worksheet.
+        '    '* --------------------------------------------------------------
 
 
-        With xlWSheet
-            .Range(.Cells(1, 1), .Cells(1, ColsCount + 1)).Value = FieldsArr
-            .Range(.Cells(2, 1), .Cells(RowCounter + 2, ColsCount + 1)).Value = DataArr
-            .UsedRange.Columns.AutoFit()
-        End With
+        '    With xlWSheet
+        '        .Range(.Cells(1, 1), .Cells(1, ColsCount + 1)).Value = FieldsArr
+        '        .Range(.Cells(2, 1), .Cells(RowCounter + 2, ColsCount + 1)).Value = DataArr
+        '        .UsedRange.Columns.AutoFit()
+        '    End With
 
 
 
-        MessageBox.Show("Your File Is Ready." & vbCrLf _
-                      & "Save It In The Folder :" & Application.StartupPath & "\AllStocks\" & vbCrLf _
-                      & "With Name As AllStocks", "Stock Master Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    MessageBox.Show("Your File Is Ready." & vbCrLf _
+        '                  & "Save It In The Folder :" & Application.StartupPath & "\AllStocks\" & vbCrLf _
+        '                  & "With Name As AllStocks", "Stock Master Items", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
 
 
-        '* Make Excel available to the user.
-        '* ---------------------------------
+        '    '* Make Excel available to the user.
+        '    '* ---------------------------------
 
-        With xlApp
+        '    With xlApp
 
-            .Visible = True
-            .UserControl = True
+        '        .Visible = True
+        '        .UserControl = True
 
-            '* Restore the calculation mode.
-            '* -----------------------------
+        '        '* Restore the calculation mode.
+        '        '* -----------------------------
 
-            .Calculation = xlCalc
+        '        .Calculation = xlCalc
 
-        End With
+        '    End With
 
-        '* Relase objects from memory.
-        '* ---------------------------
+        '    '* Relase objects from memory.
+        '    '* ---------------------------
 
-        Cmd.Dispose()
+        '    Cmd.Dispose()
 
 
-        Dr = Nothing
+        '    Dr = Nothing
 
-        Cmd = Nothing
+        '    Cmd = Nothing
 
-        xlWSheet = Nothing
+        '    xlWSheet = Nothing
 
-        xlWBook = Nothing
+        '    xlWBook = Nothing
 
-        xlApp = Nothing
+        '    xlApp = Nothing
 
     End Sub
 End Class
