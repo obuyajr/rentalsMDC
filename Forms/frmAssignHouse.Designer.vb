@@ -23,7 +23,7 @@ Partial Class frmAssignHouse
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Panel1 = New Panel()
-        ComboBox1 = New ComboBox()
+        combo_status = New ComboBox()
         Label4 = New Label()
         combo_category = New ComboBox()
         combo_location = New ComboBox()
@@ -45,7 +45,7 @@ Partial Class frmAssignHouse
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.White
         Panel1.BorderStyle = BorderStyle.FixedSingle
-        Panel1.Controls.Add(ComboBox1)
+        Panel1.Controls.Add(combo_status)
         Panel1.Controls.Add(Label4)
         Panel1.Controls.Add(combo_category)
         Panel1.Controls.Add(combo_location)
@@ -57,14 +57,14 @@ Partial Class frmAssignHouse
         Panel1.Size = New Size(1047, 65)
         Panel1.TabIndex = 0
         ' 
-        ' ComboBox1
+        ' combo_status
         ' 
-        ComboBox1.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(659, 16)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(156, 28)
-        ComboBox1.TabIndex = 6
+        combo_status.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        combo_status.FormattingEnabled = True
+        combo_status.Location = New Point(659, 16)
+        combo_status.Name = "combo_status"
+        combo_status.Size = New Size(156, 28)
+        combo_status.TabIndex = 6
         ' 
         ' Label4
         ' 
@@ -209,6 +209,6 @@ Partial Class frmAssignHouse
     Friend WithEvents Label1 As Label
     Friend WithEvents combo_tenantName As ComboBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents combo_status As ComboBox
     Friend WithEvents Label4 As Label
 End Class
