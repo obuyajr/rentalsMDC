@@ -213,7 +213,10 @@ Public Class frmAssignHouse
                 Count += 1
             End If
 
-            txt_total.Text = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
+            Dim totalAmount As Decimal
+            totalAmount = (CDec(txt_rent.Text) + CDec(txtDeposit.Text))
+            txt_total.Text = totalAmount
+
 
         Next
 
@@ -339,8 +342,10 @@ Public Class frmAssignHouse
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
+            txt_total.Text = Decimal.Parse(txt_rent.Text + txtDeposit.Text) * -1
 
-            txt_total.Text = CDec(txt_total.Text * -1)
+            'txt_total.Text = (txt_total.Text) * -1
+
 
             StrCmd = ""
             StrCmd = "INSERT INTO rentHouse" &
@@ -434,6 +439,8 @@ Public Class frmAssignHouse
 
     Private Sub btn_assignHouse_Click(sender As Object, e As EventArgs) Handles btn_assignHouse.Click
         Assign_House_To_Tenants()
+        Display_Data_on_Comboboxes_from_DatabaseTable()
+
 
 
 
