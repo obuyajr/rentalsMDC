@@ -3,7 +3,7 @@
 Public Class frmHouses
 
     Dim Dr As SqlDataReader
-    Dim hsNumber As String = ""
+    Dim currentID As Integer = 0
     Dim currentState As Integer = 0
 
 
@@ -22,10 +22,8 @@ Public Class frmHouses
 
         txtHouseNo.CharacterCasing = CharacterCasing.Upper
         txtLocation.CharacterCasing = CharacterCasing.Upper
-        txtCategory.CharacterCasing = CharacterCasing.Upper
         txtRent.CharacterCasing = CharacterCasing.Upper
         txtDeposit.CharacterCasing = CharacterCasing.Upper
-        txtStatus.CharacterCasing = CharacterCasing.Upper
 
 
 
@@ -37,12 +35,13 @@ Public Class frmHouses
 
         With lvwHouses
 
-            .Columns.Add(" House ID", 100, HorizontalAlignment.Left)
-            .Columns.Add("Location", 150, HorizontalAlignment.Left)
-            .Columns.Add("Category", 100, HorizontalAlignment.Left)
+            .Columns.Add(" ID", 50, HorizontalAlignment.Left)
+            .Columns.Add(" House No.", 100, HorizontalAlignment.Left)
+            .Columns.Add("Location", 200, HorizontalAlignment.Left)
+            .Columns.Add("Category", 300, HorizontalAlignment.Left)
             .Columns.Add("Rent", 100, HorizontalAlignment.Left)
-            .Columns.Add("Deposit", 200, HorizontalAlignment.Left)
-            .Columns.Add("Status", 150, HorizontalAlignment.Left)
+            .Columns.Add("Deposit", 100, HorizontalAlignment.Left)
+            .Columns.Add("Status", 100, HorizontalAlignment.Left)
 
             .CheckBoxes = True
 
@@ -65,6 +64,7 @@ Public Class frmHouses
 
             With li
 
+                .SubItems.Add(Dr.Item("house_no").ToString)
                 .SubItems.Add(Dr.Item("location").ToString)
                 .SubItems.Add(Dr.Item("category").ToString)
                 .SubItems.Add(Dr.Item("rent").ToString)
@@ -103,11 +103,11 @@ Public Class frmHouses
             ErrorProvider1.SetError(txtLocation, "")
         End If
 
-        If txtCategory.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtCategory, "Invalid Input")
+        If combo_category.Text.Trim = "" Then
+            ErrorProvider1.SetError(combo_category, "Invalid Input")
             Exit Sub
         Else
-            ErrorProvider1.SetError(txtCategory, "")
+            ErrorProvider1.SetError(combo_category, "")
         End If
 
 
@@ -126,11 +126,11 @@ Public Class frmHouses
         End If
 
 
-        If txtStatus.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtStatus, "Invalid Input")
+        If combo_status.Text.Trim = "" Then
+            ErrorProvider1.SetError(combo_status, "Invalid Input")
             Exit Sub
         Else
-            ErrorProvider1.SetError(txtStatus, "")
+            ErrorProvider1.SetError(combo_status, "")
         End If
 
         ' End validation ------------------------------------------------------------------------
@@ -144,15 +144,15 @@ Public Class frmHouses
 
             StrCmd = ""
 
-            If hsNumber.Trim.Length > 0 Then
+            If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE houses set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & txtCategory.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',status = '" & txtStatus.Text & "' where id = " & hsNumber.Trim & ""
+                StrCmd = "UPDATE houses set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',status = '" & combo_status.Text & "' where id = " & currentID & ""
 
             Else
                 StrCmd = ""
                 StrCmd = "INSERT INTO houses" &
-                            "           (id" &
+                            "           (house_no" &
                             "           ,location" &
                             "           ,category" &
                             "           ,rent" &
@@ -161,10 +161,10 @@ Public Class frmHouses
                             "     VALUES" &
                             "           ('" & txtHouseNo.Text.ToUpper.Trim & "'" &
                             "           ,'" & txtLocation.Text.ToUpper & "'" &
-                            "           ,'" & txtCategory.Text.ToUpper & "'" &
+                            "           ,'" & combo_category.Text.ToUpper & "'" &
                             "           ,'" & txtRent.Text.ToLower & "'" &
                             "           ,'" & txtDeposit.Text.ToUpper & "'" &
-                            "           ,'" & txtStatus.Text.ToUpper & "')"
+                            "           ,'" & combo_status.Text.ToUpper & "')"
             End If
 
             Cmd = New SqlCommand(StrCmd, conn)
@@ -184,17 +184,16 @@ Public Class frmHouses
 
             LoadDataTo_lvwHouses()
 
-
-            txtCategory.Text = ""
+            combo_category.Text = Nothing
             txtDeposit.Text = ""
             txtHouseNo.Text = ""
             txtLocation.Text = ""
             txtRent.Text = ""
-            txtStatus.Text = ""
+            combo_status.Text = Nothing
 
             txtHouseNo.Focus()
 
-            hsNumber = ""
+            currentID = 0
             currentState = 0
             Beep()
 
@@ -213,14 +212,14 @@ Public Class frmHouses
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         currentState = 1
-        hsNumber = ""
+        currentID = 0
 
         txtHouseNo.ReadOnly = False
         txtLocation.ReadOnly = False
-        txtCategory.ReadOnly = False
+        'txtCategory.ReadOnly = False
         txtRent.ReadOnly = False
         txtDeposit.ReadOnly = False
-        txtStatus.ReadOnly = False
+        ' txtStatus.ReadOnly = False
 
 
     End Sub
@@ -239,11 +238,11 @@ Public Class frmHouses
                 Dim result As DialogResult = MessageBox.Show("Are you sure you want to Delete this Record ??", "Warning", MessageBoxButtons.YesNo)
 
                 If result = DialogResult.Yes Then
-                    hsNumber = lvwHouses.Items(I).SubItems(0).Text
+                    currentID = CInt(lvwHouses.Items(I).SubItems(0).Text)
 
 
                     StrCmd = ""
-                    StrCmd = "DELETE houses where id = '" & hsNumber & "'"
+                    StrCmd = "DELETE houses where id = " & currentID & ""
 
                     Cmd = New SqlCommand(StrCmd, conn)
 
@@ -282,15 +281,15 @@ Public Class frmHouses
             For I = 0 To lvwHouses.Items.Count - 1
 
                 If lvwHouses.Items(I).Selected = True Then
-                    hsNumber = txtHouseNo.Text
 
-                    hsNumber = lvwHouses.Items(I).SubItems(0).Text
-                    'txtHouseNo.Text = lvwHouses.Items(I).SubItems(1).Text
-                    txtLocation.Text = lvwHouses.Items(I).SubItems(1).Text
-                    txtCategory.Text = lvwHouses.Items(I).SubItems(2).Text
-                    txtRent.Text = lvwHouses.Items(I).SubItems(3).Text
-                    txtDeposit.Text = lvwHouses.Items(I).SubItems(4).Text
-                    txtStatus.Text = lvwHouses.Items(I).SubItems(5).Text
+
+                    currentID = lvwHouses.Items(I).SubItems(0).Text
+                    txtHouseNo.Text = lvwHouses.Items(I).SubItems(1).Text
+                    txtLocation.Text = lvwHouses.Items(I).SubItems(2).Text
+                    combo_category.Text = lvwHouses.Items(I).SubItems(3).Text
+                    txtRent.Text = lvwHouses.Items(I).SubItems(4).Text
+                    txtDeposit.Text = lvwHouses.Items(I).SubItems(5).Text
+                    combo_status.Text = lvwHouses.Items(I).SubItems(6).Text
 
                 End If
 
@@ -301,21 +300,21 @@ Public Class frmHouses
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         currentState = 0
-        hsNumber = ""
+        currentID = 0
 
         txtHouseNo.ReadOnly = False
         txtLocation.ReadOnly = False
         txtDeposit.ReadOnly = False
         txtRent.ReadOnly = False
         txtRent.ReadOnly = False
-        txtCategory.ReadOnly = False
+        'txtCategory.ReadOnly = False
 
         txtHouseNo.Text = ""
         txtLocation.Text = ""
         txtDeposit.Text = ""
         txtRent.Text = ""
-        txtStatus.Text = ""
-        txtCategory.Text = ""
+        combo_status.Text = ""
+        combo_category.Text = ""
 
 
     End Sub

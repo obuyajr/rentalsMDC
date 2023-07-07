@@ -112,6 +112,7 @@ Partial Class frmLogin
         ' Panel1
         ' 
         Panel1.BackColor = Color.Indigo
+        Panel1.BackgroundImageLayout = ImageLayout.None
         Panel1.Dock = DockStyle.Top
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"

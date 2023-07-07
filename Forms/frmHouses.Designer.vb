@@ -24,10 +24,10 @@ Partial Class frmHouses
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
-        txtStatus = New TextBox()
+        combo_status = New ComboBox()
+        combo_category = New ComboBox()
         txtDeposit = New TextBox()
         txtRent = New TextBox()
-        txtCategory = New TextBox()
         txtLocation = New TextBox()
         txtHouseNo = New TextBox()
         Label7 = New Label()
@@ -57,10 +57,10 @@ Partial Class frmHouses
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.WhiteSmoke
         Panel1.BorderStyle = BorderStyle.Fixed3D
-        Panel1.Controls.Add(txtStatus)
+        Panel1.Controls.Add(combo_status)
+        Panel1.Controls.Add(combo_category)
         Panel1.Controls.Add(txtDeposit)
         Panel1.Controls.Add(txtRent)
-        Panel1.Controls.Add(txtCategory)
         Panel1.Controls.Add(txtLocation)
         Panel1.Controls.Add(txtHouseNo)
         Panel1.Controls.Add(Label7)
@@ -75,13 +75,25 @@ Partial Class frmHouses
         Panel1.Size = New Size(1047, 156)
         Panel1.TabIndex = 1
         ' 
-        ' txtStatus
+        ' combo_status
         ' 
-        txtStatus.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtStatus.Location = New Point(758, 86)
-        txtStatus.Name = "txtStatus"
-        txtStatus.Size = New Size(261, 25)
-        txtStatus.TabIndex = 12
+        combo_status.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_status.FormattingEnabled = True
+        combo_status.Items.AddRange(New Object() {"AVAILABLE"})
+        combo_status.Location = New Point(758, 86)
+        combo_status.Name = "combo_status"
+        combo_status.Size = New Size(261, 25)
+        combo_status.TabIndex = 14
+        ' 
+        ' combo_category
+        ' 
+        combo_category.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_category.FormattingEnabled = True
+        combo_category.Items.AddRange(New Object() {"BEDSITTER UNIT", "OFFICE UNIT ( SHOP UNIT )", "1 BEDROOM", "2 BEDROOM", "3 BEDROOM", "4 BEDROOM", "5 BEDROOM", ""})
+        combo_category.Location = New Point(430, 36)
+        combo_category.Name = "combo_category"
+        combo_category.Size = New Size(255, 25)
+        combo_category.TabIndex = 13
         ' 
         ' txtDeposit
         ' 
@@ -98,14 +110,6 @@ Partial Class frmHouses
         txtRent.Name = "txtRent"
         txtRent.Size = New Size(261, 25)
         txtRent.TabIndex = 10
-        ' 
-        ' txtCategory
-        ' 
-        txtCategory.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtCategory.Location = New Point(424, 34)
-        txtCategory.Name = "txtCategory"
-        txtCategory.Size = New Size(261, 25)
-        txtCategory.TabIndex = 9
         ' 
         ' txtLocation
         ' 
@@ -287,7 +291,7 @@ Partial Class frmHouses
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         Name = "frmHouses"
-        Text = "frmHouses"
+        Text = "Houses"
         WindowState = FormWindowState.Maximized
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
@@ -298,10 +302,8 @@ Partial Class frmHouses
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents txtStatus As TextBox
     Friend WithEvents txtDeposit As TextBox
     Friend WithEvents txtRent As TextBox
-    Friend WithEvents txtCategory As TextBox
     Friend WithEvents txtLocation As TextBox
     Friend WithEvents txtHouseNo As TextBox
     Friend WithEvents Label7 As Label
@@ -320,4 +322,6 @@ Partial Class frmHouses
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents combo_category As ComboBox
+    Friend WithEvents combo_status As ComboBox
 End Class

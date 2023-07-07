@@ -23,6 +23,7 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        Button1 = New Button()
         Button3 = New Button()
         Button4 = New Button()
         btn_Tenants = New Button()
@@ -42,6 +43,7 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(Button1)
         SplitContainer1.Panel1.Controls.Add(Button3)
         SplitContainer1.Panel1.Controls.Add(Button4)
         SplitContainer1.Panel1.Controls.Add(btn_Tenants)
@@ -57,6 +59,24 @@ Partial Class frmMainMenu
         SplitContainer1.Size = New Size(1063, 566)
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
+        ' 
+        ' Button1
+        ' 
+        Button1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Button1.DialogResult = DialogResult.Cancel
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.ForeColor = Color.White
+        Button1.Image = My.Resources.Resources.close
+        Button1.ImageAlign = ContentAlignment.MiddleRight
+        Button1.Location = New Point(10, 522)
+        Button1.Margin = New Padding(1)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(128, 34)
+        Button1.TabIndex = 5
+        Button1.Text = "Exit"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
@@ -161,4 +181,5 @@ Partial Class frmMainMenu
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents btn_Tenants As Button
+    Friend WithEvents Button1 As Button
 End Class
