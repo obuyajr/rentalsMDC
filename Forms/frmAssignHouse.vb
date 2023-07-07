@@ -5,6 +5,9 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Public Class frmAssignHouse
 
     Dim Dr As SqlDataReader
+    Dim currentId As Integer = 0
+    Dim currentState As Integer = 0
+
 
     Private Sub frmAssignHouse_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -99,7 +102,7 @@ Public Class frmAssignHouse
         End Using
 
 
-        Dim query3 As String = "SELECT DISTINCT name FROM tenants"
+        Dim query3 As String = "SELECT DISTINCT name FROM tenants WHERE name NOT IN (SELECT tenant_name FROM rentHouse)"
 
         Using cmd As New SqlCommand(query3, conn)
 
@@ -195,8 +198,252 @@ Public Class frmAssignHouse
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Display_data()
+        StrCmd = ""
+        Dim I As Integer = 0
+        Dim Count As Integer = 0
+
+        For I = 0 To lvwHouses.Items.Count - 1
+            If lvwHouses.Items(I).Checked = True Then
+                currentId = CInt(lvwHouses.Items(I).SubItems(0).Text)
+                txt_houseNo.Text = lvwHouses.Items(I).SubItems(1).Text
+                txt_rent.Text = lvwHouses.Items(I).SubItems(4).Text
+                txtDeposit.Text = lvwHouses.Items(I).SubItems(5).Text
+
+                Count += 1
+            End If
+
+            txt_total.Text = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
+
+        Next
+
+    End Sub
+
+    Private Sub Assign_House_To_Tenants()
+        '
+
+
+        'validation ------------------------------------------------------------------------
+        '-----------------------------------------------------------------------------------
+        If combo_location.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(combo_location, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(combo_location, "")
+
+        End If
+
+
+        If combo_category.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(combo_category, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(combo_category, "")
+
+        End If
+
+        If combo_status.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(combo_status, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(combo_status, "")
+
+        End If
+
+
+        If combo_tenantName.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(combo_tenantName, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(combo_tenantName, "")
+
+        End If
+
+        If txt_houseNo.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_houseNo, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_houseNo, "")
+
+        End If
+
+
+        If txt_id.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_id, "Invalid Input")
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_id, "")
+
+        End If
+
+        If txt_rent.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_rent, "Invalid Input")
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_rent, "")
+
+        End If
+
+        If txtDeposit.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txtDeposit, "Invalid Input")
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txtDeposit, "")
+
+        End If
+
+        If txt_total.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_total, "Invalid Input")
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_total, "")
+
+        End If
+
+        ' End validation ------------------------------------------------------------------------
+        '-----------------------------------------------------------------------------------
+
+
+
+        If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+
+
+            txt_total.Text = CDec(txt_total.Text * -1)
+
+            StrCmd = ""
+            StrCmd = "INSERT INTO rentHouse" &
+                            "           (house_no" &
+                            "           ,tenant_id" &
+                            "           ,tenant_name" &
+                            "           ,rent" &
+                            "           ,deposit" &
+                            "           ,total)" &
+                            "     VALUES" &
+                            "           ('" & txt_houseNo.Text.ToUpper.Trim & "'" &
+                            "           ,'" & txt_id.Text.ToUpper & "'" &
+                            "           ,'" & combo_tenantName.Text.ToUpper & "'" &
+                            "           ,'" & txt_rent.Text & "'" &
+                            "           ,'" & txtDeposit.Text & "'" &
+                            "           ,'" & txt_total.Text & "')"
+
+        End If
+
+            Cmd = New SqlCommand(StrCmd, conn)
+
+            Try
+
+                Cmd.ExecuteNonQuery()
+
+            Catch ex As Exception
+
+                MessageBox.Show(ex.Message)
+                Exit Sub
+
+            End Try
+
+            Cmd.Dispose()
+
+        If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
+
+
+            '*------------------------------------------------------------------------------------------------------
+            '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+            StrCmd = ""
+            StrCmd = "UPDATE houses SET status = 'OCCUPIED' WHERE house_no = '" & txt_houseNo.Text & "'"
+            Cmd = New SqlCommand(StrCmd, conn)
+
+            Try
+
+                Cmd.ExecuteNonQuery()
+
+            Catch ex As Exception
+
+                MessageBox.Show(ex.Message)
+                Exit Sub
+
+            End Try
+
+            Cmd.Dispose()
+
+            LoadDataTo_lvwHouses()
+
+            '*------------------------------------------------------------------------------------------------------
+            '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
+        End If
+
+
+        combo_location.Text = Nothing
+        combo_category.Text = Nothing
+        combo_status.Text = Nothing
+        combo_tenantName.Text = Nothing
+        txt_id.Text = ""
+        txt_houseNo.Text = ""
+        txt_rent.Text = ""
+        txt_total.Text = ""
+        txtDeposit.Text = ""
+
+        combo_location.Focus()
+
+        currentId = 0
+        currentState = 0
+
+        Beep()
+
+        MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnGenerate.Click
         LoadDataTo_lvwHouses()
 
     End Sub
+
+    Private Sub btn_assignHouse_Click(sender As Object, e As EventArgs) Handles btn_assignHouse.Click
+        Assign_House_To_Tenants()
+
+
+
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btn_display.Click
+
+        Display_data()
+
+    End Sub
+
+
 End Class
