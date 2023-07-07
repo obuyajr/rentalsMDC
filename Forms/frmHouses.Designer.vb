@@ -83,7 +83,7 @@ Partial Class frmHouses
         combo_status.Location = New Point(758, 86)
         combo_status.Name = "combo_status"
         combo_status.Size = New Size(261, 25)
-        combo_status.TabIndex = 14
+        combo_status.TabIndex = 6
         ' 
         ' combo_category
         ' 
@@ -93,7 +93,7 @@ Partial Class frmHouses
         combo_category.Location = New Point(430, 36)
         combo_category.Name = "combo_category"
         combo_category.Size = New Size(255, 25)
-        combo_category.TabIndex = 13
+        combo_category.TabIndex = 3
         ' 
         ' txtDeposit
         ' 
@@ -101,7 +101,7 @@ Partial Class frmHouses
         txtDeposit.Location = New Point(758, 34)
         txtDeposit.Name = "txtDeposit"
         txtDeposit.Size = New Size(261, 25)
-        txtDeposit.TabIndex = 11
+        txtDeposit.TabIndex = 5
         ' 
         ' txtRent
         ' 
@@ -109,7 +109,7 @@ Partial Class frmHouses
         txtRent.Location = New Point(424, 86)
         txtRent.Name = "txtRent"
         txtRent.Size = New Size(261, 25)
-        txtRent.TabIndex = 10
+        txtRent.TabIndex = 4
         ' 
         ' txtLocation
         ' 
@@ -117,7 +117,7 @@ Partial Class frmHouses
         txtLocation.Location = New Point(86, 88)
         txtLocation.Name = "txtLocation"
         txtLocation.Size = New Size(261, 25)
-        txtLocation.TabIndex = 8
+        txtLocation.TabIndex = 1
         ' 
         ' txtHouseNo
         ' 
@@ -125,7 +125,7 @@ Partial Class frmHouses
         txtHouseNo.Location = New Point(86, 36)
         txtHouseNo.Name = "txtHouseNo"
         txtHouseNo.Size = New Size(261, 25)
-        txtHouseNo.TabIndex = 7
+        txtHouseNo.TabIndex = 0
         ' 
         ' Label7
         ' 
