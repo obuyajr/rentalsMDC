@@ -213,9 +213,11 @@ Public Class frmAssignHouse
                 Count += 1
             End If
 
-            Dim totalAmount As Decimal
-            totalAmount = (CDec(txt_rent.Text) + CDec(txtDeposit.Text))
-            txt_total.Text = totalAmount
+            'Dim totalAmount As Decimal
+            'totalAmount = (CDec(txt_rent.Text) + CDec(txtDeposit.Text))
+            'txt_total.Text = totalAmount
+            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+
 
 
         Next
@@ -342,9 +344,14 @@ Public Class frmAssignHouse
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
-            txt_total.Text = Decimal.Parse(txt_rent.Text + txtDeposit.Text) * -1
+            ' txt_total.Text = Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text) * -1
+            'Dim totalAmount As Decimal = Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text) * -1
+            ' txt_total.Text = totalAmount
 
-            'txt_total.Text = (txt_total.Text) * -1
+            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text)) * -1
+
+
+
 
 
             StrCmd = ""
@@ -362,6 +369,8 @@ Public Class frmAssignHouse
                             "           ,'" & txt_rent.Text & "'" &
                             "           ,'" & txtDeposit.Text & "'" &
                             "           ,'" & txt_total.Text & "')"
+
+
 
         End If
 

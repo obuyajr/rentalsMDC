@@ -46,6 +46,7 @@ Partial Class frmTenants
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
+        Label8 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -57,6 +58,7 @@ Partial Class frmTenants
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.WhiteSmoke
         Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(Label8)
         Panel1.Controls.Add(txt_NOK_phone)
         Panel1.Controls.Add(txt_NOK)
         Panel1.Controls.Add(txtEmail)
@@ -277,6 +279,15 @@ Partial Class frmTenants
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(11, 126)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(27, 15)
+        Label8.TabIndex = 13
+        Label8.Text = "Pin:"
+        ' 
         ' frmTenants
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -320,4 +331,5 @@ Partial Class frmTenants
     Friend WithEvents btnDelete As Button
     Friend WithEvents lvwTenants As ListView
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents Label8 As Label
 End Class

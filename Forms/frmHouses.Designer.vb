@@ -46,6 +46,7 @@ Partial Class frmHouses
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
+        btn_reset = New Button()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -217,6 +218,7 @@ Partial Class frmHouses
         Panel3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel3.BackColor = Color.WhiteSmoke
         Panel3.BorderStyle = BorderStyle.FixedSingle
+        Panel3.Controls.Add(btn_reset)
         Panel3.Controls.Add(Button4)
         Panel3.Controls.Add(btnadd)
         Panel3.Controls.Add(btnSave)
@@ -281,6 +283,16 @@ Partial Class frmHouses
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' btn_reset
+        ' 
+        btn_reset.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_reset.Location = New Point(565, 20)
+        btn_reset.Name = "btn_reset"
+        btn_reset.Size = New Size(84, 26)
+        btn_reset.TabIndex = 13
+        btn_reset.Text = "Reset house"
+        btn_reset.UseVisualStyleBackColor = True
+        ' 
         ' frmHouses
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -324,4 +336,5 @@ Partial Class frmHouses
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents combo_category As ComboBox
     Friend WithEvents combo_status As ComboBox
+    Friend WithEvents btn_reset As Button
 End Class
