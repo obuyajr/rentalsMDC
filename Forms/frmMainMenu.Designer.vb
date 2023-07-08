@@ -23,13 +23,13 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        Button5 = New Button()
         Button1 = New Button()
         Button3 = New Button()
         Button4 = New Button()
         btn_Tenants = New Button()
         Button2 = New Button()
         btn_Users = New Button()
-        Button5 = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.SuspendLayout()
@@ -62,13 +62,31 @@ Partial Class frmMainMenu
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
         ' 
+        ' Button5
+        ' 
+        Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Button5.FlatAppearance.BorderSize = 0
+        Button5.FlatStyle = FlatStyle.Flat
+        Button5.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button5.ForeColor = Color.White
+        Button5.Image = My.Resources.Resources.money_withdraw_regular_24
+        Button5.ImageAlign = ContentAlignment.MiddleRight
+        Button5.Location = New Point(10, 225)
+        Button5.Margin = New Padding(1)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(128, 34)
+        Button5.TabIndex = 6
+        Button5.Text = "Payment"
+        Button5.TextAlign = ContentAlignment.MiddleLeft
+        Button5.UseVisualStyleBackColor = True
+        ' 
         ' Button1
         ' 
         Button1.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Button1.DialogResult = DialogResult.Cancel
         Button1.FlatAppearance.BorderSize = 0
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
         Button1.Image = My.Resources.Resources.close
         Button1.ImageAlign = ContentAlignment.MiddleRight
@@ -78,6 +96,7 @@ Partial Class frmMainMenu
         Button1.Size = New Size(128, 34)
         Button1.TabIndex = 5
         Button1.Text = "Exit"
+        Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = True
         ' 
         ' Button3
@@ -113,6 +132,7 @@ Partial Class frmMainMenu
         Button4.Size = New Size(128, 34)
         Button4.TabIndex = 3
         Button4.Text = "Houses"
+        Button4.TextAlign = ContentAlignment.MiddleLeft
         Button4.UseVisualStyleBackColor = True
         ' 
         ' btn_Tenants
@@ -130,6 +150,7 @@ Partial Class frmMainMenu
         btn_Tenants.Size = New Size(128, 34)
         btn_Tenants.TabIndex = 2
         btn_Tenants.Text = "Tenants"
+        btn_Tenants.TextAlign = ContentAlignment.MiddleLeft
         btn_Tenants.UseVisualStyleBackColor = True
         ' 
         ' Button2
@@ -159,25 +180,8 @@ Partial Class frmMainMenu
         btn_Users.Size = New Size(128, 34)
         btn_Users.TabIndex = 0
         btn_Users.Text = "Users"
+        btn_Users.TextAlign = ContentAlignment.MiddleLeft
         btn_Users.UseVisualStyleBackColor = True
-        ' 
-        ' Button5
-        ' 
-        Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button5.FlatAppearance.BorderSize = 0
-        Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button5.ForeColor = Color.White
-        Button5.Image = My.Resources.Resources.money_withdraw_regular_24
-        Button5.ImageAlign = ContentAlignment.MiddleRight
-        Button5.Location = New Point(10, 225)
-        Button5.Margin = New Padding(1)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(128, 34)
-        Button5.TabIndex = 6
-        Button5.Text = "Payment"
-        Button5.TextAlign = ContentAlignment.MiddleLeft
-        Button5.UseVisualStyleBackColor = True
         ' 
         ' frmMainMenu
         ' 

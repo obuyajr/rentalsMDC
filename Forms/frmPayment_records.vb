@@ -22,10 +22,9 @@ Public Class frmPayment_records
 
         txt_balance.CharacterCasing = CharacterCasing.Upper
         txt_balance.ReadOnly = True
-        txt_category.CharacterCasing = CharacterCasing.Upper
-        txt_category.ReadOnly = True
-        txt_location.CharacterCasing = CharacterCasing.Upper
-        txt_location.ReadOnly = True
+        txt_id.CharacterCasing = CharacterCasing.Upper
+        txt_id.ReadOnly = True
+
 
         'dropdown
         combo_houseNo.DropDownStyle = ComboBoxStyle.DropDownList
@@ -59,6 +58,34 @@ Public Class frmPayment_records
 
         End Using
     End Sub
+
+    Private Sub combo_houseNo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_houseNo.SelectedIndexChanged
+
+        'display data to textbox if text changes
+        StrCmd = ""
+        StrCmd = "SELECT tenant_id, tenant_name, total FROM rentHouse WHERE house_no = '" & combo_houseNo.Text & "'"
+
+        Cmd = New SqlCommand(StrCmd, conn)
+
+        Dim reader As SqlDataReader = Cmd.ExecuteReader()
+
+        If reader.Read() Then
+
+            txt_id.Text = reader("tenant_id").ToString()
+            'txt_tenantName.Text = reader("tenant_name").ToString()
+            'txt_balance.Text = reader("total").ToString()
+
+        End If
+
+        reader.Close()
+
+
+
+
+        '
+    End Sub
+
+
 
 
     '*----------------------------- End Functions-----------------------------------------------------------------*

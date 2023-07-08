@@ -130,9 +130,10 @@ Public Class frmAssignHouse
 
     Private Sub combo_tenantName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_tenantName.SelectedIndexChanged
 
+        StrCmd = ""
+        StrCmd = "SELECT id FROM tenants WHERE name = '" & combo_tenantName.Text & "'"
+        Cmd = New SqlCommand(StrCmd, conn)
 
-        Dim query As String = "SELECT id FROM tenants WHERE name = '" & combo_tenantName.Text & "'"
-        Cmd = New SqlCommand(query, conn)
         Dim reader As SqlDataReader = Cmd.ExecuteReader()
 
         If reader.Read() Then
