@@ -348,7 +348,12 @@ Public Class frmAssignHouse
             'Dim totalAmount As Decimal = Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text) * -1
             ' txt_total.Text = totalAmount
 
-            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text)) * -1
+            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+            Dim totalAmount As New Decimal
+            totalAmount = CDec(txt_total.Text) * -1
+
+
+
 
 
 
@@ -368,7 +373,7 @@ Public Class frmAssignHouse
                             "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                             "           ,'" & txt_rent.Text & "'" &
                             "           ,'" & txtDeposit.Text & "'" &
-                            "           ,'" & txt_total.Text & "')"
+                            "           ," & totalAmount & ")"
 
 
 

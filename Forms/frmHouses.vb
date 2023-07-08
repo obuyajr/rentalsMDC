@@ -216,10 +216,9 @@ Public Class frmHouses
 
         txtHouseNo.ReadOnly = False
         txtLocation.ReadOnly = False
-        'txtCategory.ReadOnly = False
         txtRent.ReadOnly = False
         txtDeposit.ReadOnly = False
-        ' txtStatus.ReadOnly = False
+
 
 
     End Sub
@@ -307,7 +306,7 @@ Public Class frmHouses
         txtDeposit.ReadOnly = False
         txtRent.ReadOnly = False
         txtRent.ReadOnly = False
-        'txtCategory.ReadOnly = False
+
 
         txtHouseNo.Text = ""
         txtLocation.Text = ""

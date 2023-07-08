@@ -29,6 +29,7 @@ Partial Class frmMainMenu
         btn_Tenants = New Button()
         Button2 = New Button()
         btn_Users = New Button()
+        Button5 = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.SuspendLayout()
@@ -43,6 +44,7 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(Button5)
         SplitContainer1.Panel1.Controls.Add(Button1)
         SplitContainer1.Panel1.Controls.Add(Button3)
         SplitContainer1.Panel1.Controls.Add(Button4)
@@ -159,6 +161,24 @@ Partial Class frmMainMenu
         btn_Users.Text = "Users"
         btn_Users.UseVisualStyleBackColor = True
         ' 
+        ' Button5
+        ' 
+        Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Button5.FlatAppearance.BorderSize = 0
+        Button5.FlatStyle = FlatStyle.Flat
+        Button5.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button5.ForeColor = Color.White
+        Button5.Image = My.Resources.Resources.money_withdraw_regular_24
+        Button5.ImageAlign = ContentAlignment.MiddleRight
+        Button5.Location = New Point(10, 225)
+        Button5.Margin = New Padding(1)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(128, 34)
+        Button5.TabIndex = 6
+        Button5.Text = "Payment"
+        Button5.TextAlign = ContentAlignment.MiddleLeft
+        Button5.UseVisualStyleBackColor = True
+        ' 
         ' frmMainMenu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -182,4 +202,5 @@ Partial Class frmMainMenu
     Friend WithEvents Button4 As Button
     Friend WithEvents btn_Tenants As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button5 As Button
 End Class

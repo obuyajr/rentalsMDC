@@ -24,16 +24,16 @@ Partial Class frmPayment_records
     Private Sub InitializeComponent()
         Panel1 = New Panel()
         Label1 = New Label()
-        combo_location = New ComboBox()
+        combo_houseNo = New ComboBox()
         Panel2 = New Panel()
-        Label3 = New Label()
-        Label2 = New Label()
+        txt_balance = New TextBox()
+        txt_location = New TextBox()
+        txt_category = New TextBox()
+        txt_tenantName = New TextBox()
         Label4 = New Label()
         Label5 = New Label()
-        txt_id = New TextBox()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
+        Label3 = New Label()
+        Label2 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         SuspendLayout()
@@ -43,7 +43,7 @@ Partial Class frmPayment_records
         Panel1.BackColor = Color.White
         Panel1.BorderStyle = BorderStyle.Fixed3D
         Panel1.Controls.Add(Label1)
-        Panel1.Controls.Add(combo_location)
+        Panel1.Controls.Add(combo_houseNo)
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(723, 81)
@@ -59,23 +59,23 @@ Partial Class frmPayment_records
         Label1.TabIndex = 2
         Label1.Text = "Select House # :"
         ' 
-        ' combo_location
+        ' combo_houseNo
         ' 
-        combo_location.Font = New Font("Segoe UI Black", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
-        combo_location.FormattingEnabled = True
-        combo_location.Location = New Point(133, 13)
-        combo_location.Name = "combo_location"
-        combo_location.Size = New Size(185, 45)
-        combo_location.TabIndex = 1
+        combo_houseNo.Font = New Font("Segoe UI Black", 20.25F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_houseNo.FormattingEnabled = True
+        combo_houseNo.Location = New Point(133, 13)
+        combo_houseNo.Name = "combo_houseNo"
+        combo_houseNo.Size = New Size(185, 45)
+        combo_houseNo.TabIndex = 1
         ' 
         ' Panel2
         ' 
         Panel2.BackColor = Color.White
         Panel2.BorderStyle = BorderStyle.Fixed3D
-        Panel2.Controls.Add(TextBox3)
-        Panel2.Controls.Add(TextBox2)
-        Panel2.Controls.Add(TextBox1)
-        Panel2.Controls.Add(txt_id)
+        Panel2.Controls.Add(txt_balance)
+        Panel2.Controls.Add(txt_location)
+        Panel2.Controls.Add(txt_category)
+        Panel2.Controls.Add(txt_tenantName)
         Panel2.Controls.Add(Label4)
         Panel2.Controls.Add(Label5)
         Panel2.Controls.Add(Label3)
@@ -85,25 +85,45 @@ Partial Class frmPayment_records
         Panel2.Size = New Size(723, 238)
         Panel2.TabIndex = 1
         ' 
-        ' Label3
+        ' txt_balance
         ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(48, 84)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(72, 17)
-        Label3.TabIndex = 3
-        Label3.Text = "Category :"
+        txt_balance.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_balance.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_balance.Location = New Point(133, 180)
+        txt_balance.Name = "txt_balance"
+        txt_balance.Size = New Size(115, 33)
+        txt_balance.TabIndex = 10
+        txt_balance.TextAlign = HorizontalAlignment.Center
         ' 
-        ' Label2
+        ' txt_location
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(20, 32)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(100, 17)
-        Label2.TabIndex = 2
-        Label2.Text = "Tenant Name :"
+        txt_location.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_location.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_location.Location = New Point(133, 130)
+        txt_location.Name = "txt_location"
+        txt_location.Size = New Size(304, 33)
+        txt_location.TabIndex = 9
+        txt_location.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' txt_category
+        ' 
+        txt_category.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_category.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_category.Location = New Point(133, 76)
+        txt_category.Name = "txt_category"
+        txt_category.Size = New Size(304, 33)
+        txt_category.TabIndex = 8
+        txt_category.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' txt_tenantName
+        ' 
+        txt_tenantName.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_tenantName.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_tenantName.Location = New Point(133, 23)
+        txt_tenantName.Name = "txt_tenantName"
+        txt_tenantName.Size = New Size(304, 33)
+        txt_tenantName.TabIndex = 7
+        txt_tenantName.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label4
         ' 
@@ -125,45 +145,25 @@ Partial Class frmPayment_records
         Label5.TabIndex = 4
         Label5.Text = "Location :"
         ' 
-        ' txt_id
+        ' Label3
         ' 
-        txt_id.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txt_id.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        txt_id.Location = New Point(133, 23)
-        txt_id.Name = "txt_id"
-        txt_id.Size = New Size(304, 33)
-        txt_id.TabIndex = 7
-        txt_id.TextAlign = HorizontalAlignment.Center
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(48, 84)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(72, 17)
+        Label3.TabIndex = 3
+        Label3.Text = "Category :"
         ' 
-        ' TextBox1
+        ' Label2
         ' 
-        TextBox1.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox1.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        TextBox1.Location = New Point(133, 76)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(304, 33)
-        TextBox1.TabIndex = 8
-        TextBox1.TextAlign = HorizontalAlignment.Center
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox2.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        TextBox2.Location = New Point(133, 130)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(304, 33)
-        TextBox2.TabIndex = 9
-        TextBox2.TextAlign = HorizontalAlignment.Center
-        ' 
-        ' TextBox3
-        ' 
-        TextBox3.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBox3.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        TextBox3.Location = New Point(133, 180)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(115, 33)
-        TextBox3.TabIndex = 10
-        TextBox3.TextAlign = HorizontalAlignment.Center
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(20, 32)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(100, 17)
+        Label2.TabIndex = 2
+        Label2.Text = "Tenant Name :"
         ' 
         ' frmPayment_records
         ' 
@@ -186,15 +186,15 @@ Partial Class frmPayment_records
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents combo_location As ComboBox
+    Friend WithEvents combo_houseNo As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents txt_id As TextBox
+    Friend WithEvents txt_balance As TextBox
+    Friend WithEvents txt_location As TextBox
+    Friend WithEvents txt_category As TextBox
+    Friend WithEvents txt_tenantName As TextBox
 End Class

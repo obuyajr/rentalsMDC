@@ -58,4 +58,11 @@ Public Class frmMainMenu
         frmLogin.Show()
 
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        Dim payRent As New frmPayment_records
+        switchPanel(payRent)
+
+    End Sub
 End Class
