@@ -72,8 +72,8 @@ Public Class frmPayment_records
         If reader.Read() Then
 
             txt_id.Text = reader("tenant_id").ToString()
-            'txt_tenantName.Text = reader("tenant_name").ToString()
-            'txt_balance.Text = reader("total").ToString()
+            txt_tenantName.Text = reader("tenant_name").ToString()
+            txt_balance.Text = reader("total")
 
         End If
 

@@ -120,7 +120,6 @@ Partial Class frmPayment_records
         txt_tenantName.Name = "txt_tenantName"
         txt_tenantName.Size = New Size(304, 33)
         txt_tenantName.TabIndex = 7
-        txt_tenantName.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label4
         ' 
