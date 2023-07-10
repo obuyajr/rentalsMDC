@@ -351,7 +351,7 @@ Public Class frmAssignHouse
 
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-
+                                   
 
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
@@ -359,6 +359,7 @@ Public Class frmAssignHouse
             txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
             Dim totalAmount As New Decimal
             totalAmount = CDec(txt_total.Text) * -1
+
 
 
 
@@ -396,6 +397,12 @@ Public Class frmAssignHouse
         End Try
 
         Cmd.Dispose()
+
+
+
+
+
+
 
         '*-----------------------Insert into Rent records table------------------------------------------------------
         '*-----------------------------------------------------------------------------------------------------------
@@ -454,12 +461,68 @@ Public Class frmAssignHouse
 
         '*--------------------------End-------------------------------------------------------------------------------
         '*------------------------------------------------------------------------------------------------------------
+        '*******************************'
+
+
+        '*-----------------------Insert into Rent Updates table------------------------------------------------------
+        '*-----------------------------------------------------------------------------------------------------------
+
+
+        txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+        'Dim totalAmount1 As New Decimal
+        totalAmount1 = CDec(txt_total.Text)
+
+
+        If chkbox_bill.Checked Then
+            StrCmd = ""
+            StrCmd = "INSERT INTO rent_updates" &
+                                "           (date" &
+                                "           ,house_no" &
+                                "           ,tenant_name" &
+                                "           ,balance)" &
+                                "     VALUES" &
+                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
+                                "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & combo_tenantName.Text.ToUpper & "'" &
+                                "           ," & totalAmount1 & ")"
+
+        End If
+
+
+
+
+
+        Cmd = New SqlCommand(StrCmd, conn)
+
+        Try
+
+            Cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Exit Sub
+
+        End Try
+
+        Cmd.Dispose()
+
+
+
+        '*--------------------------End-------------------------------------------------------------------------------
+        '*------------------------------------------------------------------------------------------------------------
+        '*******************************'
+
+
+
+
+        '*------------------------------------------------------------------------------------------------------
+        '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
 
         If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
 
 
-            '*------------------------------------------------------------------------------------------------------
-            '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
             StrCmd = ""
             StrCmd = "UPDATE houses SET status = 'OCCUPIED' WHERE house_no = '" & txt_houseNo.Text & "'"
             Cmd = New SqlCommand(StrCmd, conn)
@@ -479,10 +542,13 @@ Public Class frmAssignHouse
 
             LoadDataTo_lvwHouses()
 
-            '*------------------------------------------------------------------------------------------------------
-            '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
 
         End If
+
+        '*------------------------------------------------------------------------------------------------------
+        '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
 
 
         combo_location.Text = Nothing

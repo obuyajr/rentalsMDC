@@ -10,6 +10,132 @@ Public Class frmPayment_records
     End Sub
 
 
+    '*-----------------------Insert into Rent records table------------------------------------------------------
+    '*-----------------------------------------------------------------------------------------------------------
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_pay.Click
+
+
+
+
+        ' txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+        Dim cashPaid As New Decimal
+        cashPaid = CDec(txt_cash.Text)
+
+        Dim currentDate As DateTime = DateTime.Now
+        Dim transactionDesc As String = "Pay Rent For :" + combo_houseNo.Text
+        Dim transactionType As String = " Payment "
+
+        If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+
+            If chkbox_payment.Checked Then
+                StrCmd = ""
+                StrCmd = "INSERT INTO rent_records" &
+                                "           (date" &
+                                "           ,house_no" &
+                                "           ,tenant_name" &
+                                "           ,transaction_description" &
+                                "           ,transaction_type" &
+                                "           ,debit" &
+                                "           ,credit)" &
+                                "     VALUES" &
+                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
+                                "           ,'" & combo_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & txt_tenantName.Text.ToUpper & "'" &
+                                "           ,'" & transactionDesc & "'" &
+                                "           ,'Payment'" &
+                                "           ," & 0 & "" &
+                                "           ," & cashPaid & ")"
+
+            End If
+
+
+
+        End If
+
+
+
+        Cmd = New SqlCommand(StrCmd, conn)
+
+        Try
+
+            Cmd.ExecuteNonQuery()
+
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Exit Sub
+
+        End Try
+
+        Cmd.Dispose()
+
+
+        Beep()
+
+        MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+
+        'combo_houseNo.Text = Nothing
+        'txt_cash.Text = ""
+        'txt_id.Text = ""
+        'txt_mMoney.Text = ""
+        'txt_tenantName.Text = ""
+
+
+
+        ''*--------------------------End-------------------------------------------------------------------------------
+        ''*------------------------------------------------------------------------------------------------------------
+        ''*******************************'
+
+
+
+
+
+
+
+        '*-----------------------Insert into Rent Updates table------------------------------------------------------
+        '*-----------------------------------------------------------------------------------------------------------
+
+        Dim balance As Decimal
+        balance = CDec(txt_balance.Text) - CDec(txt_cash.Text)
+
+        If chkbox_payment.Checked Then
+            ' Construct the SQL UPDATE statement
+            StrCmd = "UPDATE rent_updates" &
+             " SET date = '" & currentDate.ToString("dd-MM-yyyy HH:mm:ss") & "'" &
+             " ,tenant_name = '" & txt_tenantName.Text.ToUpper & "'" &
+             " ,balance = " & balance &
+             " WHERE house_no = '" & combo_houseNo.Text.ToUpper & "'"
+
+        End If
+
+
+
+
+
+        Cmd = New SqlCommand(StrCmd, conn)
+
+        Try
+
+            Cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Exit Sub
+
+        End Try
+
+        Cmd.Dispose()
+
+
+
+        '*--------------------------End-------------------------------------------------------------------------------
+        '*------------------------------------------------------------------------------------------------------------
+        '*******************************'
+
+    End Sub
+
 
 
 
@@ -84,6 +210,7 @@ Public Class frmPayment_records
 
         '
     End Sub
+
 
 
 
