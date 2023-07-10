@@ -338,6 +338,17 @@ Public Class frmAssignHouse
 
         End If
 
+        If Not chkbox_bill.Checked Then
+
+            ErrorProvider1.SetError(chkbox_bill, "Field must be checked")
+
+            Exit Sub
+        Else
+
+            ErrorProvider1.SetError(chkbox_bill, "")
+        End If
+
+
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
 
@@ -345,18 +356,9 @@ Public Class frmAssignHouse
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
-            ' txt_total.Text = Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text) * -1
-            'Dim totalAmount As Decimal = Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text) * -1
-            ' txt_total.Text = totalAmount
-
             txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
             Dim totalAmount As New Decimal
             totalAmount = CDec(txt_total.Text) * -1
-
-
-
-
-
 
 
 
@@ -380,20 +382,78 @@ Public Class frmAssignHouse
 
         End If
 
-            Cmd = New SqlCommand(StrCmd, conn)
+        Cmd = New SqlCommand(StrCmd, conn)
 
-            Try
+        Try
 
-                Cmd.ExecuteNonQuery()
+            Cmd.ExecuteNonQuery()
 
-            Catch ex As Exception
+        Catch ex As Exception
 
-                MessageBox.Show(ex.Message)
-                Exit Sub
+            MessageBox.Show(ex.Message)
+            Exit Sub
 
-            End Try
+        End Try
 
-            Cmd.Dispose()
+        Cmd.Dispose()
+
+        '*-----------------------Insert into Rent records table------------------------------------------------------
+        '*-----------------------------------------------------------------------------------------------------------
+
+
+        txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+        Dim totalAmount1 As New Decimal
+        totalAmount1 = CDec(txt_total.Text)
+
+        Dim currentDate As DateTime = DateTime.Now
+        Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
+        Dim transactionType As String = "Bill"
+
+
+        If chkbox_bill.Checked Then
+            StrCmd = ""
+            StrCmd = "INSERT INTO rent_records" &
+                                "           (date" &
+                                "           ,house_no" &
+                                "           ,tenant_name" &
+                                "           ,transaction_description" &
+                                "           ,transaction_type" &
+                                "           ,debit" &
+                                "           ,credit)" &
+                                "     VALUES" &
+                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
+                                "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & combo_tenantName.Text.ToUpper & "'" &
+                                "           ,'" & transactionDesc & "'" &
+                                "           ,'BILL'" &
+                                "           ," & totalAmount1 & "" &
+                                "           ," & 0 & ")"
+
+        End If
+
+
+
+
+
+        Cmd = New SqlCommand(StrCmd, conn)
+
+        Try
+
+            Cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Exit Sub
+
+        End Try
+
+        Cmd.Dispose()
+
+
+
+        '*--------------------------End-------------------------------------------------------------------------------
+        '*------------------------------------------------------------------------------------------------------------
 
         If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
 

@@ -49,6 +49,7 @@ Partial Class frmAssignHouse
         combo_tenantName = New ComboBox()
         Label3 = New Label()
         ErrorProvider1 = New ErrorProvider(components)
+        chkbox_bill = New CheckBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -187,6 +188,7 @@ Partial Class frmAssignHouse
         Panel3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel3.BackColor = Color.White
         Panel3.BorderStyle = BorderStyle.Fixed3D
+        Panel3.Controls.Add(chkbox_bill)
         Panel3.Controls.Add(Label7)
         Panel3.Controls.Add(txt_total)
         Panel3.Controls.Add(btn_assignHouse)
@@ -342,6 +344,19 @@ Partial Class frmAssignHouse
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' chkbox_bill
+        ' 
+        chkbox_bill.AutoSize = True
+        chkbox_bill.Checked = True
+        chkbox_bill.CheckState = CheckState.Checked
+        chkbox_bill.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkbox_bill.Location = New Point(292, 203)
+        chkbox_bill.Name = "chkbox_bill"
+        chkbox_bill.Size = New Size(48, 21)
+        chkbox_bill.TabIndex = 18
+        chkbox_bill.Text = "Bill"
+        chkbox_bill.UseVisualStyleBackColor = True
+        ' 
         ' frmAssignHouse
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -389,4 +404,5 @@ Partial Class frmAssignHouse
     Friend WithEvents Label7 As Label
     Friend WithEvents txt_total As TextBox
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents chkbox_bill As CheckBox
 End Class
