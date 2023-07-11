@@ -422,6 +422,7 @@ Public Class frmAssignHouse
             StrCmd = "INSERT INTO rent_records" &
                                 "           (date" &
                                 "           ,house_no" &
+                                "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,transaction_description" &
                                 "           ,transaction_type" &
@@ -430,6 +431,7 @@ Public Class frmAssignHouse
                                 "     VALUES" &
                                 "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
                                 "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                                 "           ,'" & transactionDesc & "'" &
                                 "           ,'BILL'" &
@@ -478,11 +480,13 @@ Public Class frmAssignHouse
             StrCmd = "INSERT INTO rent_updates" &
                                 "           (date" &
                                 "           ,house_no" &
+                                "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,balance)" &
                                 "     VALUES" &
                                 "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
                                 "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                                 "           ," & totalAmount1 & ")"
 

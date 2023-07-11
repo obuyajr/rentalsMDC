@@ -202,7 +202,7 @@ Public Class frmPayment_records
 
             txt_id.Text = reader("tenant_id").ToString()
             txt_tenantName.Text = reader("tenant_name").ToString()
-            txt_balance.Text = Math.Abs(Convert.ToDecimal(reader("balance")))
+            txt_balance.Text = reader("balance")
 
 
         End If
