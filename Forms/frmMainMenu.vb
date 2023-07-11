@@ -28,6 +28,9 @@ Public Class frmMainMenu
         Me.Width = Screen.PrimaryScreen.WorkingArea.Width
         Me.Height = Screen.PrimaryScreen.WorkingArea.Height
 
+        lbl_uname.Text = frmLogin.txtUserName.Text
+
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_Tenants.Click

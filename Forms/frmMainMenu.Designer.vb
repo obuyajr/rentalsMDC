@@ -23,6 +23,9 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        Panel1 = New Panel()
+        Label1 = New Label()
+        lbl_uname = New Label()
         Button5 = New Button()
         Button1 = New Button()
         Button3 = New Button()
@@ -33,6 +36,7 @@ Partial Class frmMainMenu
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' SplitContainer1
@@ -44,6 +48,7 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(Panel1)
         SplitContainer1.Panel1.Controls.Add(Button5)
         SplitContainer1.Panel1.Controls.Add(Button1)
         SplitContainer1.Panel1.Controls.Add(Button3)
@@ -62,6 +67,41 @@ Partial Class frmMainMenu
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
         ' 
+        ' Panel1
+        ' 
+        Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel1.BackColor = Color.Crimson
+        Panel1.BackgroundImage = My.Resources.Resources.building_house_solid_36
+        Panel1.BackgroundImageLayout = ImageLayout.Center
+        Panel1.Controls.Add(Label1)
+        Panel1.Controls.Add(lbl_uname)
+        Panel1.Location = New Point(0, 3)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(152, 87)
+        Panel1.TabIndex = 7
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.White
+        Label1.Location = New Point(10, 69)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(49, 17)
+        Label1.TabIndex = 9
+        Label1.Text = "USER :"
+        ' 
+        ' lbl_uname
+        ' 
+        lbl_uname.AutoSize = True
+        lbl_uname.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        lbl_uname.ForeColor = Color.White
+        lbl_uname.Location = New Point(92, 66)
+        lbl_uname.Name = "lbl_uname"
+        lbl_uname.Size = New Size(46, 21)
+        lbl_uname.TabIndex = 8
+        lbl_uname.Text = "User"
+        ' 
         ' Button5
         ' 
         Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
@@ -71,7 +111,7 @@ Partial Class frmMainMenu
         Button5.ForeColor = Color.White
         Button5.Image = My.Resources.Resources.money_withdraw_regular_24
         Button5.ImageAlign = ContentAlignment.MiddleRight
-        Button5.Location = New Point(10, 225)
+        Button5.Location = New Point(10, 303)
         Button5.Margin = New Padding(1)
         Button5.Name = "Button5"
         Button5.Size = New Size(128, 34)
@@ -108,7 +148,7 @@ Partial Class frmMainMenu
         Button3.ForeColor = Color.White
         Button3.Image = My.Resources.Resources.door_open_regular_24
         Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(10, 179)
+        Button3.Location = New Point(10, 257)
         Button3.Margin = New Padding(1)
         Button3.Name = "Button3"
         Button3.Size = New Size(128, 34)
@@ -126,7 +166,7 @@ Partial Class frmMainMenu
         Button4.ForeColor = Color.White
         Button4.Image = My.Resources.Resources.building_house_solid_24
         Button4.ImageAlign = ContentAlignment.MiddleRight
-        Button4.Location = New Point(10, 129)
+        Button4.Location = New Point(10, 207)
         Button4.Margin = New Padding(1)
         Button4.Name = "Button4"
         Button4.Size = New Size(128, 34)
@@ -144,7 +184,7 @@ Partial Class frmMainMenu
         btn_Tenants.ForeColor = Color.White
         btn_Tenants.Image = My.Resources.Resources.book_open_regular_24___Copy
         btn_Tenants.ImageAlign = ContentAlignment.MiddleRight
-        btn_Tenants.Location = New Point(10, 83)
+        btn_Tenants.Location = New Point(10, 161)
         btn_Tenants.Margin = New Padding(1)
         btn_Tenants.Name = "btn_Tenants"
         btn_Tenants.Size = New Size(128, 34)
@@ -157,7 +197,7 @@ Partial Class frmMainMenu
         ' 
         Button2.FlatAppearance.BorderSize = 0
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(26, 183)
+        Button2.Location = New Point(26, 261)
         Button2.Margin = New Padding(1)
         Button2.Name = "Button2"
         Button2.Size = New Size(163, 25)
@@ -174,7 +214,7 @@ Partial Class frmMainMenu
         btn_Users.ForeColor = Color.White
         btn_Users.Image = My.Resources.Resources.user_solid_24
         btn_Users.ImageAlign = ContentAlignment.MiddleRight
-        btn_Users.Location = New Point(10, 33)
+        btn_Users.Location = New Point(10, 111)
         btn_Users.Margin = New Padding(1)
         btn_Users.Name = "btn_Users"
         btn_Users.Size = New Size(128, 34)
@@ -196,6 +236,8 @@ Partial Class frmMainMenu
         SplitContainer1.Panel1.ResumeLayout(False)
         CType(SplitContainer1, ComponentModel.ISupportInitialize).EndInit()
         SplitContainer1.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -207,4 +249,7 @@ Partial Class frmMainMenu
     Friend WithEvents btn_Tenants As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents lbl_uname As Label
+    Friend WithEvents Label1 As Label
 End Class
