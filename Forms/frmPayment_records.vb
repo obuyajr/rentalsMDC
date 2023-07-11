@@ -32,6 +32,7 @@ Public Class frmPayment_records
                 StrCmd = "INSERT INTO rent_records" &
                                 "           (date" &
                                 "           ,house_no" &
+                                "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,transaction_description" &
                                 "           ,transaction_type" &
@@ -40,6 +41,7 @@ Public Class frmPayment_records
                                 "     VALUES" &
                                 "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
                                 "           ,'" & combo_houseNo.Text.ToUpper & "'" &
+                                "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & txt_tenantName.Text.ToUpper & "'" &
                                 "           ,'" & transactionDesc & "'" &
                                 "           ,'Payment'" &
@@ -103,6 +105,7 @@ Public Class frmPayment_records
             ' Construct the SQL UPDATE statement
             StrCmd = "UPDATE rent_updates" &
              " SET date = '" & currentDate.ToString("dd-MM-yyyy HH:mm:ss") & "'" &
+             " ,tenant_id = '" & txt_id.Text.ToUpper & "'" &
              " ,tenant_name = '" & txt_tenantName.Text.ToUpper & "'" &
              " ,balance = " & balance &
              " WHERE house_no = '" & combo_houseNo.Text.ToUpper & "'"
@@ -189,7 +192,7 @@ Public Class frmPayment_records
 
         'display data to textbox if text changes
         StrCmd = ""
-        StrCmd = "SELECT tenant_id, tenant_name, total FROM rentHouse WHERE house_no = '" & combo_houseNo.Text & "'"
+        StrCmd = "SELECT tenant_id, tenant_name, balance FROM rent_updates WHERE house_no = '" & combo_houseNo.Text & "'"
 
         Cmd = New SqlCommand(StrCmd, conn)
 
@@ -199,7 +202,7 @@ Public Class frmPayment_records
 
             txt_id.Text = reader("tenant_id").ToString()
             txt_tenantName.Text = reader("tenant_name").ToString()
-            txt_balance.Text = Math.Abs(Convert.ToDecimal(reader("total")))
+            txt_balance.Text = Math.Abs(Convert.ToDecimal(reader("balance")))
 
 
         End If
