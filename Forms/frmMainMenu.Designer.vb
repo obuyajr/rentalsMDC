@@ -23,6 +23,7 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        Button6 = New Button()
         Panel1 = New Panel()
         Label1 = New Label()
         lbl_uname = New Label()
@@ -35,6 +36,7 @@ Partial Class frmMainMenu
         btn_Users = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
+        SplitContainer1.Panel2.SuspendLayout()
         SplitContainer1.SuspendLayout()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -48,13 +50,13 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(Button6)
         SplitContainer1.Panel1.Controls.Add(Panel1)
         SplitContainer1.Panel1.Controls.Add(Button5)
         SplitContainer1.Panel1.Controls.Add(Button1)
         SplitContainer1.Panel1.Controls.Add(Button3)
         SplitContainer1.Panel1.Controls.Add(Button4)
         SplitContainer1.Panel1.Controls.Add(btn_Tenants)
-        SplitContainer1.Panel1.Controls.Add(Button2)
         SplitContainer1.Panel1.Controls.Add(btn_Users)
         ' 
         ' SplitContainer1.Panel2
@@ -62,10 +64,29 @@ Partial Class frmMainMenu
         SplitContainer1.Panel2.BackColor = Color.White
         SplitContainer1.Panel2.BackgroundImage = My.Resources.Resources.download__1_
         SplitContainer1.Panel2.BackgroundImageLayout = ImageLayout.Center
+        SplitContainer1.Panel2.Controls.Add(Button2)
         SplitContainer1.Panel2.ForeColor = Color.Black
         SplitContainer1.Size = New Size(1063, 566)
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
+        ' 
+        ' Button6
+        ' 
+        Button6.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Button6.FlatAppearance.BorderSize = 0
+        Button6.FlatStyle = FlatStyle.Flat
+        Button6.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button6.ForeColor = Color.White
+        Button6.Image = My.Resources.Resources.report_solid_24__1_
+        Button6.ImageAlign = ContentAlignment.MiddleRight
+        Button6.Location = New Point(10, 333)
+        Button6.Margin = New Padding(1)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(128, 34)
+        Button6.TabIndex = 8
+        Button6.Text = "Reports"
+        Button6.TextAlign = ContentAlignment.MiddleLeft
+        Button6.UseVisualStyleBackColor = True
         ' 
         ' Panel1
         ' 
@@ -111,7 +132,7 @@ Partial Class frmMainMenu
         Button5.ForeColor = Color.White
         Button5.Image = My.Resources.Resources.money_withdraw_regular_24
         Button5.ImageAlign = ContentAlignment.MiddleRight
-        Button5.Location = New Point(10, 303)
+        Button5.Location = New Point(10, 288)
         Button5.Margin = New Padding(1)
         Button5.Name = "Button5"
         Button5.Size = New Size(128, 34)
@@ -148,7 +169,7 @@ Partial Class frmMainMenu
         Button3.ForeColor = Color.White
         Button3.Image = My.Resources.Resources.door_open_regular_24
         Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(10, 257)
+        Button3.Location = New Point(10, 243)
         Button3.Margin = New Padding(1)
         Button3.Name = "Button3"
         Button3.Size = New Size(128, 34)
@@ -197,7 +218,7 @@ Partial Class frmMainMenu
         ' 
         Button2.FlatAppearance.BorderSize = 0
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(26, 261)
+        Button2.Location = New Point(-168, 288)
         Button2.Margin = New Padding(1)
         Button2.Name = "Button2"
         Button2.Size = New Size(163, 25)
@@ -234,6 +255,7 @@ Partial Class frmMainMenu
         StartPosition = FormStartPosition.Manual
         Text = "frmMainMenu"
         SplitContainer1.Panel1.ResumeLayout(False)
+        SplitContainer1.Panel2.ResumeLayout(False)
         CType(SplitContainer1, ComponentModel.ISupportInitialize).EndInit()
         SplitContainer1.ResumeLayout(False)
         Panel1.ResumeLayout(False)
@@ -252,4 +274,5 @@ Partial Class frmMainMenu
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_uname As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button6 As Button
 End Class

@@ -29,6 +29,7 @@ Partial Class frmPayment_records
         txt_tenantName = New TextBox()
         Label2 = New Label()
         Panel2 = New Panel()
+        chkbox_payment = New CheckBox()
         txt_mMoney = New TextBox()
         Label6 = New Label()
         txt_cash = New TextBox()
@@ -43,7 +44,6 @@ Partial Class frmPayment_records
         btn_pay = New Button()
         ListView1 = New ListView()
         ErrorProvider1 = New ErrorProvider(components)
-        chkbox_payment = New CheckBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -52,6 +52,7 @@ Partial Class frmPayment_records
         ' 
         ' Panel1
         ' 
+        Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.White
         Panel1.BorderStyle = BorderStyle.Fixed3D
         Panel1.Controls.Add(Label1)
@@ -103,6 +104,7 @@ Partial Class frmPayment_records
         ' 
         ' Panel2
         ' 
+        Panel2.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel2.BackColor = Color.White
         Panel2.BorderStyle = BorderStyle.Fixed3D
         Panel2.Controls.Add(chkbox_payment)
@@ -118,6 +120,19 @@ Partial Class frmPayment_records
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1045, 172)
         Panel2.TabIndex = 1
+        ' 
+        ' chkbox_payment
+        ' 
+        chkbox_payment.AutoSize = True
+        chkbox_payment.Checked = True
+        chkbox_payment.CheckState = CheckState.Checked
+        chkbox_payment.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkbox_payment.Location = New Point(617, 21)
+        chkbox_payment.Name = "chkbox_payment"
+        chkbox_payment.Size = New Size(82, 21)
+        chkbox_payment.TabIndex = 17
+        chkbox_payment.Text = "Payment"
+        chkbox_payment.UseVisualStyleBackColor = True
         ' 
         ' txt_mMoney
         ' 
@@ -201,6 +216,7 @@ Partial Class frmPayment_records
         ' 
         ' Panel3
         ' 
+        Panel3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel3.BackColor = Color.White
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(Button1)
@@ -249,6 +265,7 @@ Partial Class frmPayment_records
         ' 
         ' ListView1
         ' 
+        ListView1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         ListView1.BorderStyle = BorderStyle.FixedSingle
         ListView1.Location = New Point(12, 290)
         ListView1.Name = "ListView1"
@@ -259,19 +276,6 @@ Partial Class frmPayment_records
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' chkbox_payment
-        ' 
-        chkbox_payment.AutoSize = True
-        chkbox_payment.Checked = True
-        chkbox_payment.CheckState = CheckState.Checked
-        chkbox_payment.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        chkbox_payment.Location = New Point(617, 21)
-        chkbox_payment.Name = "chkbox_payment"
-        chkbox_payment.Size = New Size(82, 21)
-        chkbox_payment.TabIndex = 17
-        chkbox_payment.Text = "Payment"
-        chkbox_payment.UseVisualStyleBackColor = True
         ' 
         ' frmPayment_records
         ' 

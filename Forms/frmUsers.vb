@@ -60,6 +60,7 @@ Public Class frmUsers
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
         Dim isSuperAdmin As String = ""
+        Dim isAddHouse As String = ""
 
 
         If txtUserName.Text.Trim = "" Then
@@ -84,6 +85,12 @@ Public Class frmUsers
             isSuperAdmin = "N"
         End If
 
+        If chkbox_addHouse.Checked = True Then
+            isAddHouse = "Y"
+        Else
+            isAddHouse = "N"
+        End If
+
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
@@ -95,7 +102,7 @@ Public Class frmUsers
             If currentId <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE users set name = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',super_admin = '" & isSuperAdmin & "' where id = " & currentId & ""
+                StrCmd = "UPDATE users set name = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',super_admin = '" & isSuperAdmin & "',add_house = '" & isAddHouse & "' where id = " & currentId & ""
 
 
             Else
@@ -103,11 +110,13 @@ Public Class frmUsers
                 StrCmd = "INSERT INTO users" &
                     "           (name" &
                     "           ,password" &
-                    "           ,super_admin)" &
+                    "           ,super_admin" &
+                    "           ,add_house)" &
                     "     VALUES" &
                     "           ('" & txtUserName.Text.ToUpper.Trim & "'" &
                     "           ,'" & txtUserPassword.Text.ToUpper & "'" &
-                    "           ,'" & isSuperAdmin & "')"
+                    "           ,'" & isSuperAdmin & "'" &
+                    "           ,'" & isAddHouse & "')"
 
             End If
 
