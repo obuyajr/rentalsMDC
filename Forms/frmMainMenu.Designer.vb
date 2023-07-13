@@ -23,17 +23,17 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
-        Button6 = New Button()
+        btnReports = New Button()
         Panel1 = New Panel()
         Label1 = New Label()
         lbl_uname = New Label()
-        Button5 = New Button()
+        btnPayments = New Button()
         Button1 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
+        btnAssignHouse = New Button()
+        btnHouses = New Button()
         btn_Tenants = New Button()
-        Button2 = New Button()
         btn_Users = New Button()
+        Button2 = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.Panel2.SuspendLayout()
@@ -50,12 +50,12 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
-        SplitContainer1.Panel1.Controls.Add(Button6)
+        SplitContainer1.Panel1.Controls.Add(btnReports)
         SplitContainer1.Panel1.Controls.Add(Panel1)
-        SplitContainer1.Panel1.Controls.Add(Button5)
+        SplitContainer1.Panel1.Controls.Add(btnPayments)
         SplitContainer1.Panel1.Controls.Add(Button1)
-        SplitContainer1.Panel1.Controls.Add(Button3)
-        SplitContainer1.Panel1.Controls.Add(Button4)
+        SplitContainer1.Panel1.Controls.Add(btnAssignHouse)
+        SplitContainer1.Panel1.Controls.Add(btnHouses)
         SplitContainer1.Panel1.Controls.Add(btn_Tenants)
         SplitContainer1.Panel1.Controls.Add(btn_Users)
         ' 
@@ -70,23 +70,23 @@ Partial Class frmMainMenu
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
         ' 
-        ' Button6
+        ' btnReports
         ' 
-        Button6.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button6.FlatAppearance.BorderSize = 0
-        Button6.FlatStyle = FlatStyle.Flat
-        Button6.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button6.ForeColor = Color.White
-        Button6.Image = My.Resources.Resources.report_solid_24__1_
-        Button6.ImageAlign = ContentAlignment.MiddleRight
-        Button6.Location = New Point(10, 333)
-        Button6.Margin = New Padding(1)
-        Button6.Name = "Button6"
-        Button6.Size = New Size(128, 34)
-        Button6.TabIndex = 8
-        Button6.Text = "Reports"
-        Button6.TextAlign = ContentAlignment.MiddleLeft
-        Button6.UseVisualStyleBackColor = True
+        btnReports.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnReports.FlatAppearance.BorderSize = 0
+        btnReports.FlatStyle = FlatStyle.Flat
+        btnReports.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnReports.ForeColor = Color.White
+        btnReports.Image = My.Resources.Resources.report_solid_24__1_
+        btnReports.ImageAlign = ContentAlignment.MiddleRight
+        btnReports.Location = New Point(10, 333)
+        btnReports.Margin = New Padding(1)
+        btnReports.Name = "btnReports"
+        btnReports.Size = New Size(128, 34)
+        btnReports.TabIndex = 8
+        btnReports.Text = "Reports"
+        btnReports.TextAlign = ContentAlignment.MiddleLeft
+        btnReports.UseVisualStyleBackColor = True
         ' 
         ' Panel1
         ' 
@@ -123,23 +123,23 @@ Partial Class frmMainMenu
         lbl_uname.TabIndex = 8
         lbl_uname.Text = "User"
         ' 
-        ' Button5
+        ' btnPayments
         ' 
-        Button5.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button5.FlatAppearance.BorderSize = 0
-        Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button5.ForeColor = Color.White
-        Button5.Image = My.Resources.Resources.money_withdraw_regular_24
-        Button5.ImageAlign = ContentAlignment.MiddleRight
-        Button5.Location = New Point(10, 288)
-        Button5.Margin = New Padding(1)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(128, 34)
-        Button5.TabIndex = 6
-        Button5.Text = "Payment"
-        Button5.TextAlign = ContentAlignment.MiddleLeft
-        Button5.UseVisualStyleBackColor = True
+        btnPayments.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnPayments.FlatAppearance.BorderSize = 0
+        btnPayments.FlatStyle = FlatStyle.Flat
+        btnPayments.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnPayments.ForeColor = Color.White
+        btnPayments.Image = My.Resources.Resources.money_withdraw_regular_24
+        btnPayments.ImageAlign = ContentAlignment.MiddleRight
+        btnPayments.Location = New Point(10, 288)
+        btnPayments.Margin = New Padding(1)
+        btnPayments.Name = "btnPayments"
+        btnPayments.Size = New Size(128, 34)
+        btnPayments.TabIndex = 6
+        btnPayments.Text = "Payment"
+        btnPayments.TextAlign = ContentAlignment.MiddleLeft
+        btnPayments.UseVisualStyleBackColor = True
         ' 
         ' Button1
         ' 
@@ -160,41 +160,41 @@ Partial Class frmMainMenu
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' Button3
+        ' btnAssignHouse
         ' 
-        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button3.ForeColor = Color.White
-        Button3.Image = My.Resources.Resources.door_open_regular_24
-        Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(10, 243)
-        Button3.Margin = New Padding(1)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(128, 34)
-        Button3.TabIndex = 4
-        Button3.Text = "Assign House"
-        Button3.TextAlign = ContentAlignment.MiddleLeft
-        Button3.UseVisualStyleBackColor = True
+        btnAssignHouse.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnAssignHouse.FlatAppearance.BorderSize = 0
+        btnAssignHouse.FlatStyle = FlatStyle.Flat
+        btnAssignHouse.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnAssignHouse.ForeColor = Color.White
+        btnAssignHouse.Image = My.Resources.Resources.door_open_regular_24
+        btnAssignHouse.ImageAlign = ContentAlignment.MiddleRight
+        btnAssignHouse.Location = New Point(10, 243)
+        btnAssignHouse.Margin = New Padding(1)
+        btnAssignHouse.Name = "btnAssignHouse"
+        btnAssignHouse.Size = New Size(128, 34)
+        btnAssignHouse.TabIndex = 4
+        btnAssignHouse.Text = "Assign House"
+        btnAssignHouse.TextAlign = ContentAlignment.MiddleLeft
+        btnAssignHouse.UseVisualStyleBackColor = True
         ' 
-        ' Button4
+        ' btnHouses
         ' 
-        Button4.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button4.FlatAppearance.BorderSize = 0
-        Button4.FlatStyle = FlatStyle.Flat
-        Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button4.ForeColor = Color.White
-        Button4.Image = My.Resources.Resources.building_house_solid_24
-        Button4.ImageAlign = ContentAlignment.MiddleRight
-        Button4.Location = New Point(10, 207)
-        Button4.Margin = New Padding(1)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(128, 34)
-        Button4.TabIndex = 3
-        Button4.Text = "Houses"
-        Button4.TextAlign = ContentAlignment.MiddleLeft
-        Button4.UseVisualStyleBackColor = True
+        btnHouses.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnHouses.FlatAppearance.BorderSize = 0
+        btnHouses.FlatStyle = FlatStyle.Flat
+        btnHouses.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnHouses.ForeColor = Color.White
+        btnHouses.Image = My.Resources.Resources.building_house_solid_24
+        btnHouses.ImageAlign = ContentAlignment.MiddleRight
+        btnHouses.Location = New Point(10, 207)
+        btnHouses.Margin = New Padding(1)
+        btnHouses.Name = "btnHouses"
+        btnHouses.Size = New Size(128, 34)
+        btnHouses.TabIndex = 3
+        btnHouses.Text = "Houses"
+        btnHouses.TextAlign = ContentAlignment.MiddleLeft
+        btnHouses.UseVisualStyleBackColor = True
         ' 
         ' btn_Tenants
         ' 
@@ -214,18 +214,6 @@ Partial Class frmMainMenu
         btn_Tenants.TextAlign = ContentAlignment.MiddleLeft
         btn_Tenants.UseVisualStyleBackColor = True
         ' 
-        ' Button2
-        ' 
-        Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(-168, 288)
-        Button2.Margin = New Padding(1)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(163, 25)
-        Button2.TabIndex = 1
-        Button2.Text = "Button2"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' btn_Users
         ' 
         btn_Users.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
@@ -243,6 +231,18 @@ Partial Class frmMainMenu
         btn_Users.Text = "Users"
         btn_Users.TextAlign = ContentAlignment.MiddleLeft
         btn_Users.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Location = New Point(-168, 288)
+        Button2.Margin = New Padding(1)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(163, 25)
+        Button2.TabIndex = 1
+        Button2.Text = "Button2"
+        Button2.UseVisualStyleBackColor = True
         ' 
         ' frmMainMenu
         ' 
@@ -266,13 +266,13 @@ Partial Class frmMainMenu
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents btn_Users As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnAssignHouse As Button
+    Friend WithEvents btnHouses As Button
     Friend WithEvents btn_Tenants As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnPayments As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents lbl_uname As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button6 As Button
+    Friend WithEvents btnReports As Button
 End Class

@@ -35,24 +35,53 @@ Public Class frmMainMenu
         '* check for rights
 
 
-
         StrCmd = ""
-        StrCmd = "Select * from users Where id = " & loggedInActiveUserID & ""
+        StrCmd = "SELECT * FROM users WHERE id = " & loggedInActiveUserID & ""
+
         Cmd = New SqlCommand(StrCmd, conn)
+
         Dr = Cmd.ExecuteReader
+
         While Dr.Read
 
             If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
                 btn_Users.Enabled = True
+                'btn_Tenants.Enabled = True
+                'btnHouses.Enabled = True
+                btnAssignHouse.Enabled = True
+                'btnReports.Enabled = True
+
+
+
             Else
+
                 btn_Users.Enabled = False
+                'btn_Tenants.Enabled = False
+                'btnHouses.Enabled = False
+                btnAssignHouse.Enabled = False
+                'btnReports.Enabled = False
+
             End If
 
-            'If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
-            '    btn_Users.Enabled = True
-            'Else
-            '    btn_Users.Enabled = False
-            'End If
+            If Dr.Item("add_house").ToString.ToUpper = "Y" Then
+                btnHouses.Enabled = True
+            Else
+                btnHouses.Enabled = False
+            End If
+
+            If Dr.Item("add_tenants").ToString.ToUpper = "Y" Then
+                btn_Tenants.Enabled = True
+            Else
+                btn_Tenants.Enabled = False
+            End If
+
+            If Dr.Item("make_payments").ToString.ToUpper = "Y" Then
+                btnPayments.Enabled = True
+            Else
+                btnPayments.Enabled = False
+            End If
+
+
 
         End While
         Dr.Close()
@@ -69,14 +98,14 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnHouses.Click
 
         Dim housesPanel As New frmHouses
         switchPanel(housesPanel)
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnAssignHouse.Click
 
         Dim assignHouse As New frmAssignHouse
         switchPanel(assignHouse)
@@ -91,7 +120,7 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnPayments.Click
 
         Dim payRent As New frmPayment_records
         switchPanel(payRent)

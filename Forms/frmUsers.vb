@@ -26,6 +26,9 @@ Public Class frmUsers
             .Columns.Add("ID", 100, HorizontalAlignment.Left)
             .Columns.Add("Name", 100, HorizontalAlignment.Left)
             .Columns.Add("Super Admin", 100, HorizontalAlignment.Left)
+            .Columns.Add("Can Add House", 100, HorizontalAlignment.Left)
+            .Columns.Add("Can Add Tenants", 100, HorizontalAlignment.Left)
+            .Columns.Add("Can Take Payment", 100, HorizontalAlignment.Left)
             .CheckBoxes = True
             .View = View.Details
 
@@ -48,6 +51,9 @@ Public Class frmUsers
 
                 .SubItems.Add(Dr.Item("name").ToString)
                 .SubItems.Add(Dr.Item("super_admin").ToString)
+                .SubItems.Add(Dr.Item("add_house").ToString)
+                .SubItems.Add(Dr.Item("add_tenants").ToString)
+                .SubItems.Add(Dr.Item("make_payments"))
                 lvwUsers.Items.Add(li)
 
             End With
