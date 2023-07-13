@@ -16,6 +16,75 @@ Public Class frmPayment_records
 
 
 
+        'validation ------------------------------------------------------------------------
+        '-----------------------------------------------------------------------------------
+        If combo_houseNo.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(combo_houseNo, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(combo_houseNo, "")
+
+        End If
+
+        If txt_tenantName.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_tenantName, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_tenantName, "")
+
+        End If
+
+        If txt_id.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_id, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_id, "")
+
+        End If
+
+        If txt_id.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(txt_id, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(txt_id, "")
+
+        End If
+
+        If chkbox_payment.Text.Trim = "" Then
+
+            ErrorProvider1.SetError(chkbox_payment, "Invalid Input")
+
+            Exit Sub
+
+        Else
+
+            ErrorProvider1.SetError(chkbox_payment, "")
+
+        End If
+
+
+
+
+
+        '-----------------------------End validation ---------------------------------------
+        '-----------------------------------------------------------------------------------
+
 
         ' txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
         Dim cashPaid As New Decimal
@@ -30,8 +99,7 @@ Public Class frmPayment_records
             If chkbox_payment.Checked Then
                 StrCmd = ""
                 StrCmd = "INSERT INTO rent_records" &
-                                "           (date" &
-                                "           ,house_no" &
+                                "           (house_no" &
                                 "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,transaction_description" &
@@ -39,8 +107,7 @@ Public Class frmPayment_records
                                 "           ,debit" &
                                 "           ,credit)" &
                                 "     VALUES" &
-                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
-                                "           ,'" & combo_houseNo.Text.ToUpper & "'" &
+                                "           ('" & combo_houseNo.Text.ToUpper & "'" &
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & txt_tenantName.Text.ToUpper & "'" &
                                 "           ,'" & transactionDesc & "'" &
@@ -77,11 +144,6 @@ Public Class frmPayment_records
 
         MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
 
-        'combo_houseNo.Text = Nothing
-        'txt_cash.Text = ""
-        'txt_id.Text = ""
-        'txt_mMoney.Text = ""
-        'txt_tenantName.Text = ""
 
 
 
@@ -104,8 +166,7 @@ Public Class frmPayment_records
         If chkbox_payment.Checked Then
             ' Construct the SQL UPDATE statement
             StrCmd = "UPDATE rent_updates" &
-             " SET date = '" & currentDate.ToString("dd-MM-yyyy HH:mm:ss") & "'" &
-             " ,tenant_id = '" & txt_id.Text.ToUpper & "'" &
+             " SET tenant_id = '" & txt_id.Text.ToUpper & "'" &
              " ,tenant_name = '" & txt_tenantName.Text.ToUpper & "'" &
              " ,balance = " & balance &
              " WHERE house_no = '" & combo_houseNo.Text.ToUpper & "'"
