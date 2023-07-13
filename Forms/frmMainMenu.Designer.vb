@@ -96,9 +96,9 @@ Partial Class frmMainMenu
         Panel1.BackgroundImageLayout = ImageLayout.Center
         Panel1.Controls.Add(Label1)
         Panel1.Controls.Add(lbl_uname)
-        Panel1.Location = New Point(0, 3)
+        Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(152, 87)
+        Panel1.Size = New Size(152, 90)
         Panel1.TabIndex = 7
         ' 
         ' Label1

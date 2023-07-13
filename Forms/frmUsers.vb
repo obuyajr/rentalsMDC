@@ -158,12 +158,21 @@ Public Class frmUsers
 
             txtUserName.Text = ""
             txtUserPassword.Text = ""
+            chkBoxAddTenants.Checked = False
+            chkboxAddHouse.Checked = False
+            chkBoxMakePayment.Checked = False
+            chkBoxSuperAdmin.Checked = False
+            chkBoxSuperAdmin.Enabled = False
+
+
             txtUserName.Focus()
 
             txtUserName.ReadOnly = True
             txtUserPassword.ReadOnly = True
             chkBoxSuperAdmin.Enabled = False
-            chkBoxSuperAdmin.Checked = False
+            chkboxAddHouse.Enabled = False
+            chkBoxAddTenants.Enabled = False
+            chkBoxMakePayment.Checked = False
 
 
             currentId = 0
@@ -192,8 +201,13 @@ Public Class frmUsers
         chkboxAddHouse.Enabled = True
         chkBoxAddTenants.Enabled = True
 
+        '* clear all fields
         txtUserPassword.Text = ""
         txtUserName.Text = ""
+        chkBoxAddTenants.Checked = False
+        chkboxAddHouse.Checked = False
+        chkBoxMakePayment.Checked = False
+        chkBoxSuperAdmin.Checked = False
 
     End Sub
 

@@ -46,39 +46,43 @@ Public Class frmMainMenu
 
             If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
                 btn_Users.Enabled = True
-                'btn_Tenants.Enabled = True
-                'btnHouses.Enabled = True
                 btnAssignHouse.Enabled = True
-                'btnReports.Enabled = True
-
-
 
             Else
 
                 btn_Users.Enabled = False
-                'btn_Tenants.Enabled = False
-                'btnHouses.Enabled = False
                 btnAssignHouse.Enabled = False
-                'btnReports.Enabled = False
 
             End If
 
             If Dr.Item("add_house").ToString.ToUpper = "Y" Then
+
                 btnHouses.Enabled = True
+
             Else
+
                 btnHouses.Enabled = False
+
             End If
 
             If Dr.Item("add_tenants").ToString.ToUpper = "Y" Then
+
                 btn_Tenants.Enabled = True
+
             Else
+
                 btn_Tenants.Enabled = False
+
             End If
 
             If Dr.Item("make_payments").ToString.ToUpper = "Y" Then
+
                 btnPayments.Enabled = True
+
             Else
+
                 btnPayments.Enabled = False
+
             End If
 
 
@@ -113,8 +117,9 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Dispose()
 
-        Me.Close()
+        ' Me.Close()
         Dim frmLogin As New frmLogin
         frmLogin.Show()
 
