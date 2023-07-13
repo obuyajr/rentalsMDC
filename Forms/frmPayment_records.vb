@@ -286,12 +286,19 @@ Public Class frmPayment_records
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        txt_balance.Text = ""
-        txt_id.Text = ""
-        txt_cash.Text = ""
-        txt_mMoney.Text = ""
-        txt_tenantName.Text = ""
-        combo_houseNo.Text = Nothing
+
+        If MessageBox.Show("Clear These Records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+
+            '* clear fields
+            txt_balance.Text = ""
+            txt_id.Text = ""
+            txt_cash.Text = ""
+            txt_mMoney.Text = ""
+            txt_tenantName.Text = ""
+            combo_houseNo.Text = Nothing
+
+        End If
+
 
 
     End Sub

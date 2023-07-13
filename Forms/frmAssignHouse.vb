@@ -214,8 +214,9 @@ Public Class frmAssignHouse
                 Count += 1
             End If
 
-
-            txt_total.Text = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
+            Dim tAmount As Decimal
+            tAmount = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
+            txt_total.Text = tAmount
 
 
 

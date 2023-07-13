@@ -24,6 +24,7 @@ Partial Class frmTenants
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
+        Label8 = New Label()
         txt_NOK_phone = New TextBox()
         txt_NOK = New TextBox()
         txtEmail = New TextBox()
@@ -46,7 +47,6 @@ Partial Class frmTenants
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
-        Label8 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -77,105 +77,120 @@ Partial Class frmTenants
         Panel1.Size = New Size(1047, 156)
         Panel1.TabIndex = 0
         ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(11, 126)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(27, 15)
+        Label8.TabIndex = 13
+        Label8.Text = "Pin:"
+        ' 
         ' txt_NOK_phone
         ' 
-        txt_NOK_phone.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_NOK_phone.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txt_NOK_phone.Location = New Point(777, 86)
         txt_NOK_phone.Name = "txt_NOK_phone"
-        txt_NOK_phone.Size = New Size(261, 25)
+        txt_NOK_phone.Size = New Size(261, 26)
         txt_NOK_phone.TabIndex = 12
         ' 
         ' txt_NOK
         ' 
-        txt_NOK.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_NOK.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txt_NOK.Location = New Point(777, 34)
         txt_NOK.Name = "txt_NOK"
-        txt_NOK.Size = New Size(261, 25)
+        txt_NOK.Size = New Size(261, 26)
         txt_NOK.TabIndex = 11
         ' 
         ' txtEmail
         ' 
-        txtEmail.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtEmail.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txtEmail.Location = New Point(424, 86)
         txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(261, 25)
+        txtEmail.Size = New Size(261, 26)
         txtEmail.TabIndex = 10
         ' 
         ' txtContact
         ' 
-        txtContact.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtContact.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txtContact.Location = New Point(424, 34)
         txtContact.Name = "txtContact"
-        txtContact.Size = New Size(261, 25)
+        txtContact.Size = New Size(261, 26)
         txtContact.TabIndex = 9
         ' 
         ' txtNationalId
         ' 
-        txtNationalId.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtNationalId.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txtNationalId.Location = New Point(86, 88)
         txtNationalId.Name = "txtNationalId"
-        txtNationalId.Size = New Size(261, 25)
+        txtNationalId.Size = New Size(261, 26)
         txtNationalId.TabIndex = 8
         ' 
         ' txtName
         ' 
-        txtName.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtName.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         txtName.Location = New Point(86, 36)
         txtName.Name = "txtName"
-        txtName.Size = New Size(261, 25)
+        txtName.Size = New Size(261, 26)
         txtName.TabIndex = 7
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(702, 91)
+        Label7.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Location = New Point(692, 91)
         Label7.Name = "Label7"
-        Label7.Size = New Size(72, 15)
+        Label7.Size = New Size(79, 15)
         Label7.TabIndex = 6
         Label7.Text = "NOK Phone:"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(702, 39)
+        Label6.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Location = New Point(692, 41)
         Label6.Name = "Label6"
-        Label6.Size = New Size(69, 15)
+        Label6.Size = New Size(79, 15)
         Label6.TabIndex = 5
         Label6.Text = "Next of Kin:"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.Location = New Point(379, 91)
         Label5.Name = "Label5"
-        Label5.Size = New Size(39, 15)
+        Label5.Size = New Size(44, 15)
         Label5.TabIndex = 4
         Label5.Text = "Email:"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.Location = New Point(366, 39)
         Label4.Name = "Label4"
-        Label4.Size = New Size(52, 15)
+        Label4.Size = New Size(58, 15)
         Label4.TabIndex = 3
         Label4.Text = "Contact:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(11, 91)
+        Label3.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(4, 97)
         Label3.Name = "Label3"
-        Label3.Size = New Size(69, 15)
+        Label3.Size = New Size(80, 15)
         Label3.TabIndex = 2
         Label3.Text = "National ID:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(38, 39)
         Label2.Name = "Label2"
-        Label2.Size = New Size(42, 15)
+        Label2.Size = New Size(46, 15)
         Label2.TabIndex = 1
         Label2.Text = "Name:"
         ' 
@@ -278,15 +293,6 @@ Partial Class frmTenants
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(11, 126)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(27, 15)
-        Label8.TabIndex = 13
-        Label8.Text = "Pin:"
         ' 
         ' frmTenants
         ' 

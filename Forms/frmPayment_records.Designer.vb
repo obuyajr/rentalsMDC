@@ -230,7 +230,7 @@ Partial Class frmPayment_records
         ' btnClear
         ' 
         btnClear.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        btnClear.Image = My.Resources.Resources.wallet_regular_24
+        btnClear.Image = My.Resources.Resources.eraser_solid_24__1_
         btnClear.ImageAlign = ContentAlignment.MiddleRight
         btnClear.Location = New Point(267, 20)
         btnClear.Name = "btnClear"
