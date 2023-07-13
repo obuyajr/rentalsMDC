@@ -200,7 +200,7 @@ Public Class frmAssignHouse
     End Sub
 
     Private Sub Display_data()
-        StrCmd = ""
+
         Dim I As Integer = 0
         Dim Count As Integer = 0
 
@@ -214,10 +214,8 @@ Public Class frmAssignHouse
                 Count += 1
             End If
 
-            'Dim totalAmount As Decimal
-            'totalAmount = (CDec(txt_rent.Text) + CDec(txtDeposit.Text))
-            'txt_total.Text = totalAmount
-            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+
+            txt_total.Text = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
 
 
 
@@ -346,6 +344,7 @@ Public Class frmAssignHouse
         Else
 
             ErrorProvider1.SetError(chkbox_bill, "")
+
         End If
 
 

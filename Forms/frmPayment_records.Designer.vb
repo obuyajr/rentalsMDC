@@ -39,7 +39,7 @@ Partial Class frmPayment_records
         txt_balance = New TextBox()
         Label4 = New Label()
         Panel3 = New Panel()
-        Button1 = New Button()
+        btnClear = New Button()
         btn_cancel = New Button()
         btn_pay = New Button()
         ListView1 = New ListView()
@@ -219,7 +219,7 @@ Partial Class frmPayment_records
         Panel3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel3.BackColor = Color.White
         Panel3.BorderStyle = BorderStyle.FixedSingle
-        Panel3.Controls.Add(Button1)
+        Panel3.Controls.Add(btnClear)
         Panel3.Controls.Add(btn_cancel)
         Panel3.Controls.Add(btn_pay)
         Panel3.Location = New Point(12, 618)
@@ -227,17 +227,17 @@ Partial Class frmPayment_records
         Panel3.Size = New Size(1045, 80)
         Panel3.TabIndex = 2
         ' 
-        ' Button1
+        ' btnClear
         ' 
-        Button1.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Button1.Image = My.Resources.Resources.wallet_regular_24
-        Button1.ImageAlign = ContentAlignment.MiddleRight
-        Button1.Location = New Point(267, 20)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(107, 32)
-        Button1.TabIndex = 3
-        Button1.Text = "Clear"
-        Button1.UseVisualStyleBackColor = True
+        btnClear.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        btnClear.Image = My.Resources.Resources.wallet_regular_24
+        btnClear.ImageAlign = ContentAlignment.MiddleRight
+        btnClear.Location = New Point(267, 20)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(107, 32)
+        btnClear.TabIndex = 3
+        btnClear.Text = "Clear"
+        btnClear.UseVisualStyleBackColor = True
         ' 
         ' btn_cancel
         ' 
@@ -319,7 +319,7 @@ Partial Class frmPayment_records
     Friend WithEvents Label6 As Label
     Friend WithEvents btn_cancel As Button
     Friend WithEvents ListView1 As ListView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnClear As Button
     Friend WithEvents chkbox_payment As CheckBox
     Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

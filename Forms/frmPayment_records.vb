@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Button
 
 Public Class frmPayment_records
 
@@ -66,16 +67,14 @@ Public Class frmPayment_records
 
         End If
 
-        If chkbox_payment.Text.Trim = "" Then
+        If chkbox_payment.Checked Then
 
-            ErrorProvider1.SetError(chkbox_payment, "Invalid Input")
-
-            Exit Sub
-
+            ErrorProvider1.SetError(chkbox_payment, String.Empty)
         Else
 
-            ErrorProvider1.SetError(chkbox_payment, "")
+            ErrorProvider1.SetError(chkbox_payment, "This checkbox must be checked.")
 
+            Exit Sub
         End If
 
 
@@ -92,7 +91,7 @@ Public Class frmPayment_records
 
         Dim currentDate As DateTime = DateTime.Now
         Dim transactionDesc As String = "Pay Rent For :" + combo_houseNo.Text
-        Dim transactionType As String = " Payment "
+        Dim transactionType As String = " PAYMENT "
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
@@ -147,9 +146,8 @@ Public Class frmPayment_records
 
 
 
-        ''*--------------------------End-------------------------------------------------------------------------------
-        ''*------------------------------------------------------------------------------------------------------------
-        ''*******************************'
+        ''*-------------------------------------------End----------------------------------------------------
+        ''*-----------------------------''*******************************'-----------------------------------
 
 
 
@@ -157,7 +155,8 @@ Public Class frmPayment_records
 
 
 
-        '*-----------------------Insert into Rent Updates table------------------------------------------------------
+
+        '*-------------------------------Insert into Rent Updates table---------------------------------------------
         '*-----------------------------------------------------------------------------------------------------------
 
         Dim balance As Decimal
@@ -192,6 +191,15 @@ Public Class frmPayment_records
 
         Cmd.Dispose()
 
+        txt_tenantName.Text = ""
+        txt_balance.Text = ""
+        txt_cash.Text = ""
+        txt_id.Text = ""
+        txt_mMoney.Text = ""
+        combo_houseNo.Text = Nothing
+        chkbox_payment.Checked = False
+
+        Display_Data_on_Comboboxes_from_DatabaseTable()
 
 
         '*--------------------------End-------------------------------------------------------------------------------
@@ -214,6 +222,7 @@ Public Class frmPayment_records
         txt_balance.ReadOnly = True
         txt_id.CharacterCasing = CharacterCasing.Upper
         txt_id.ReadOnly = True
+        txt_tenantName.ReadOnly = True
 
 
         'dropdown
@@ -274,6 +283,17 @@ Public Class frmPayment_records
 
 
         '
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txt_balance.Text = ""
+        txt_id.Text = ""
+        txt_cash.Text = ""
+        txt_mMoney.Text = ""
+        txt_tenantName.Text = ""
+        combo_houseNo.Text = Nothing
+
+
     End Sub
 
 

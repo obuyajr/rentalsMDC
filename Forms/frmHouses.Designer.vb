@@ -40,13 +40,13 @@ Partial Class frmHouses
         Panel2 = New Panel()
         lvwHouses = New ListView()
         Panel3 = New Panel()
+        btn_reset = New Button()
         Button4 = New Button()
         btnadd = New Button()
         btnSave = New Button()
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
-        btn_reset = New Button()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -78,107 +78,113 @@ Partial Class frmHouses
         ' 
         ' combo_status
         ' 
-        combo_status.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_status.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_status.FormattingEnabled = True
         combo_status.Items.AddRange(New Object() {"AVAILABLE"})
         combo_status.Location = New Point(758, 86)
         combo_status.Name = "combo_status"
-        combo_status.Size = New Size(261, 25)
+        combo_status.Size = New Size(261, 27)
         combo_status.TabIndex = 6
         ' 
         ' combo_category
         ' 
-        combo_category.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_category.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_category.FormattingEnabled = True
         combo_category.Items.AddRange(New Object() {"BEDSITTER UNIT", "OFFICE UNIT ( SHOP UNIT )", "1 BEDROOM", "2 BEDROOM", "3 BEDROOM", "4 BEDROOM", "5 BEDROOM", ""})
         combo_category.Location = New Point(430, 36)
         combo_category.Name = "combo_category"
-        combo_category.Size = New Size(255, 25)
+        combo_category.Size = New Size(255, 27)
         combo_category.TabIndex = 3
         ' 
         ' txtDeposit
         ' 
-        txtDeposit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtDeposit.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         txtDeposit.Location = New Point(758, 34)
         txtDeposit.Name = "txtDeposit"
-        txtDeposit.Size = New Size(261, 25)
+        txtDeposit.Size = New Size(261, 27)
         txtDeposit.TabIndex = 5
         ' 
         ' txtRent
         ' 
-        txtRent.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        txtRent.Location = New Point(424, 86)
+        txtRent.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        txtRent.Location = New Point(430, 86)
         txtRent.Name = "txtRent"
-        txtRent.Size = New Size(261, 25)
+        txtRent.Size = New Size(255, 27)
         txtRent.TabIndex = 4
         ' 
         ' txtLocation
         ' 
-        txtLocation.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtLocation.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         txtLocation.Location = New Point(86, 88)
         txtLocation.Name = "txtLocation"
-        txtLocation.Size = New Size(261, 25)
+        txtLocation.Size = New Size(261, 27)
         txtLocation.TabIndex = 1
         ' 
         ' txtHouseNo
         ' 
-        txtHouseNo.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        txtHouseNo.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         txtHouseNo.Location = New Point(86, 36)
         txtHouseNo.Name = "txtHouseNo"
-        txtHouseNo.Size = New Size(261, 25)
+        txtHouseNo.Size = New Size(261, 27)
         txtHouseNo.TabIndex = 0
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(702, 91)
+        Label7.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Location = New Point(703, 91)
         Label7.Name = "Label7"
-        Label7.Size = New Size(42, 15)
+        Label7.Size = New Size(49, 15)
         Label7.TabIndex = 6
         Label7.Text = "Status:"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(702, 39)
+        Label6.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Location = New Point(694, 39)
         Label6.Name = "Label6"
-        Label6.Size = New Size(50, 15)
+        Label6.Size = New Size(58, 15)
         Label6.TabIndex = 5
         Label6.Text = "Deposit:"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(384, 91)
+        Label5.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.Location = New Point(385, 93)
         Label5.Name = "Label5"
-        Label5.Size = New Size(34, 15)
+        Label5.Size = New Size(39, 15)
         Label5.TabIndex = 4
         Label5.Text = "Rent:"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(366, 39)
+        Label4.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Location = New Point(358, 39)
         Label4.Name = "Label4"
-        Label4.Size = New Size(58, 15)
+        Label4.Size = New Size(66, 15)
         Label4.TabIndex = 3
         Label4.Text = "Category:"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(17, 91)
+        Label3.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(17, 93)
         Label3.Name = "Label3"
-        Label3.Size = New Size(56, 15)
+        Label3.Size = New Size(63, 15)
         Label3.TabIndex = 2
         Label3.Text = "Location:"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(17, 41)
+        Label2.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(9, 39)
         Label2.Name = "Label2"
-        Label2.Size = New Size(63, 15)
+        Label2.Size = New Size(71, 15)
         Label2.TabIndex = 1
         Label2.Text = "House No:"
         ' 
@@ -228,6 +234,16 @@ Partial Class frmHouses
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1047, 63)
         Panel3.TabIndex = 3
+        ' 
+        ' btn_reset
+        ' 
+        btn_reset.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_reset.Location = New Point(565, 20)
+        btn_reset.Name = "btn_reset"
+        btn_reset.Size = New Size(84, 26)
+        btn_reset.TabIndex = 13
+        btn_reset.Text = "Reset house"
+        btn_reset.UseVisualStyleBackColor = True
         ' 
         ' Button4
         ' 
@@ -282,16 +298,6 @@ Partial Class frmHouses
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' btn_reset
-        ' 
-        btn_reset.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_reset.Location = New Point(565, 20)
-        btn_reset.Name = "btn_reset"
-        btn_reset.Size = New Size(84, 26)
-        btn_reset.TabIndex = 13
-        btn_reset.Text = "Reset house"
-        btn_reset.UseVisualStyleBackColor = True
         ' 
         ' frmHouses
         ' 

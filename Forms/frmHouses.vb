@@ -14,6 +14,8 @@ Public Class frmHouses
         LoadDataTo_lvwHouses()
         TextBoxes_To_Take_Uppercase_data()
 
+        combo_category.DropDownStyle = ComboBoxStyle.DropDownList
+        combo_status.DropDownStyle = ComboBoxStyle.DropDownList
 
 
     End Sub
