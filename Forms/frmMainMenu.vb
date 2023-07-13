@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class frmMainMenu
 
@@ -23,12 +24,40 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub frmMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Dim Dr As SqlDataReader
         'work within working screen
         Me.Width = Screen.PrimaryScreen.WorkingArea.Width
         Me.Height = Screen.PrimaryScreen.WorkingArea.Height
 
         lbl_uname.Text = frmLogin.txtUserName.Text
+
+
+        '* check for rights
+
+
+
+        StrCmd = ""
+        StrCmd = "Select * from users Where id = " & loggedInActiveUserID & ""
+        Cmd = New SqlCommand(StrCmd, conn)
+        Dr = Cmd.ExecuteReader
+        While Dr.Read
+
+            If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
+                btn_Users.Enabled = True
+            Else
+                btn_Users.Enabled = False
+            End If
+
+            'If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
+            '    btn_Users.Enabled = True
+            'Else
+            '    btn_Users.Enabled = False
+            'End If
+
+        End While
+        Dr.Close()
+        Cmd.Dispose()
+
 
 
     End Sub

@@ -46,7 +46,15 @@ Public Class frmLogin
 
             Dr = Cmd.ExecuteReader
             If Dr.HasRows Then
+
+                While Dr.Read
+
+                    loggedInActiveUserID = Dr.Item("id")
+
+                End While
+
                 UserExists = True
+
             Else
                 UserExists = False
             End If

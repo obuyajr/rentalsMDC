@@ -10,6 +10,9 @@ Public Class frmUsers
     Private Sub frmUsers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         chkBoxSuperAdmin.Checked = False
+        chkBoxMakePayment.Enabled = False
+        chkboxAddHouse.Enabled = False
+        chkBoxAddTenants.Enabled = False
         Define_lvwUsers_Columns()
         LoadDataTo_lvwUsers()
 
@@ -59,8 +62,11 @@ Public Class frmUsers
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
-        Dim isSuperAdmin As String = ""
-        Dim isAddHouse As String = ""
+        Dim isSuperAdmin As String = "N"
+        Dim canAddHouse As String = "N"
+        Dim canTakePayments As String = "N"
+        Dim canAddTenants As String = "N"
+
 
 
         If txtUserName.Text.Trim = "" Then
@@ -81,15 +87,20 @@ Public Class frmUsers
 
         If chkBoxSuperAdmin.Checked = True Then
             isSuperAdmin = "Y"
-        Else
-            isSuperAdmin = "N"
         End If
 
-        If chkbox_addHouse.Checked = True Then
-            isAddHouse = "Y"
-        Else
-            isAddHouse = "N"
+        If chkboxAddHouse.Checked = True Then
+            canAddHouse = "Y"
         End If
+
+        If chkBoxAddTenants.Checked = True Then
+            canAddTenants = "Y"
+        End If
+
+        If chkBoxMakePayment.Checked = True Then
+            canTakePayments = "Y"
+        End If
+
 
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
@@ -102,7 +113,7 @@ Public Class frmUsers
             If currentId <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE users set name = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',super_admin = '" & isSuperAdmin & "',add_house = '" & isAddHouse & "' where id = " & currentId & ""
+                StrCmd = "UPDATE users set name = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',super_admin = '" & isSuperAdmin & "',add_house = '" & canAddHouse & "',add_tenants='" & canAddTenants & "',make_payments = '" & canTakePayments & "' where id = " & currentId & ""
 
 
             Else
@@ -111,12 +122,12 @@ Public Class frmUsers
                     "           (name" &
                     "           ,password" &
                     "           ,super_admin" &
-                    "           ,add_house)" &
+                    "           ,add_house,add_tenants,make_payments)" &
                     "     VALUES" &
                     "           ('" & txtUserName.Text.ToUpper.Trim & "'" &
                     "           ,'" & txtUserPassword.Text.ToUpper & "'" &
                     "           ,'" & isSuperAdmin & "'" &
-                    "           ,'" & isAddHouse & "')"
+                    "           ,'" & canAddHouse & "','" & canAddTenants & "','" & canTakePayments & "')"
 
             End If
 
@@ -171,6 +182,10 @@ Public Class frmUsers
         txtUserName.ReadOnly = False
         txtUserPassword.ReadOnly = False
         chkBoxSuperAdmin.Enabled = True
+        chkBoxMakePayment.Enabled = True
+        chkboxAddHouse.Enabled = True
+        chkBoxAddTenants.Enabled = True
+
         txtUserPassword.Text = ""
         txtUserName.Text = ""
 
@@ -184,6 +199,9 @@ Public Class frmUsers
         txtUserName.ReadOnly = False
         txtUserPassword.ReadOnly = False
         chkBoxSuperAdmin.Enabled = True
+        chkBoxMakePayment.Enabled = True
+        chkboxAddHouse.Enabled = True
+        chkBoxAddTenants.Enabled = True
 
 
     End Sub

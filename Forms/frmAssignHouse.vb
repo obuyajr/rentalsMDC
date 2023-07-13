@@ -412,7 +412,7 @@ Public Class frmAssignHouse
         Dim totalAmount1 As New Decimal
         totalAmount1 = CDec(txt_total.Text)
 
-        Dim currentDate As DateTime = DateTime.Now
+
         Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
         Dim transactionType As String = "Bill"
 
@@ -420,8 +420,7 @@ Public Class frmAssignHouse
         If chkbox_bill.Checked Then
             StrCmd = ""
             StrCmd = "INSERT INTO rent_records" &
-                                "           (date" &
-                                "           ,house_no" &
+                                "           (house_no" &
                                 "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,transaction_description" &
@@ -429,8 +428,7 @@ Public Class frmAssignHouse
                                 "           ,debit" &
                                 "           ,credit)" &
                                 "     VALUES" &
-                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
-                                "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ('" & txt_houseNo.Text.ToUpper & "'" &
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                                 "           ,'" & transactionDesc & "'" &
@@ -478,14 +476,12 @@ Public Class frmAssignHouse
         If chkbox_bill.Checked Then
             StrCmd = ""
             StrCmd = "INSERT INTO rent_updates" &
-                                "           (date" &
-                                "           ,house_no" &
+                                "           (house_no" &
                                 "           ,tenant_id" &
                                 "           ,tenant_name" &
                                 "           ,balance)" &
                                 "     VALUES" &
-                                "           ('" & currentDate.ToString("dd-MM-yyyy  HH:mm:ss") & "'" &
-                                "           ,'" & txt_houseNo.Text.ToUpper & "'" &
+                                "           ('" & txt_houseNo.Text.ToUpper & "'" &
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                                 "           ," & totalAmount1 & ")"

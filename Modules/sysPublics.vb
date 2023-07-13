@@ -5,6 +5,8 @@ Module sysPublics
     Public conn As SqlClient.SqlConnection = New SqlConnection
     Public StrCmd As String
     Public Cmd As New SqlCommand
+    Public loggedInActiveUserID As Integer = 0
+
 
 
     Public Function EstablishedConnectionToDB() As Boolean

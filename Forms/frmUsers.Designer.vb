@@ -29,9 +29,9 @@ Partial Class frmUsers
         Label2 = New Label()
         Label1 = New Label()
         Panel2 = New Panel()
-        CheckBox3 = New CheckBox()
-        CheckBox2 = New CheckBox()
-        chkbox_addHouse = New CheckBox()
+        chkBoxMakePayment = New CheckBox()
+        chkBoxAddTenants = New CheckBox()
+        chkboxAddHouse = New CheckBox()
         chkBoxSuperAdmin = New CheckBox()
         Panel3 = New Panel()
         lvwUsers = New ListView()
@@ -107,50 +107,50 @@ Partial Class frmUsers
         Panel2.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel2.BackColor = Color.Snow
         Panel2.BorderStyle = BorderStyle.Fixed3D
-        Panel2.Controls.Add(CheckBox3)
-        Panel2.Controls.Add(CheckBox2)
-        Panel2.Controls.Add(chkbox_addHouse)
+        Panel2.Controls.Add(chkBoxMakePayment)
+        Panel2.Controls.Add(chkBoxAddTenants)
+        Panel2.Controls.Add(chkboxAddHouse)
         Panel2.Controls.Add(chkBoxSuperAdmin)
         Panel2.Location = New Point(12, 93)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1013, 148)
         Panel2.TabIndex = 1
         ' 
-        ' CheckBox3
+        ' chkBoxMakePayment
         ' 
-        CheckBox3.AutoSize = True
-        CheckBox3.Enabled = False
-        CheckBox3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        CheckBox3.Location = New Point(197, 14)
-        CheckBox3.Name = "CheckBox3"
-        CheckBox3.Size = New Size(121, 21)
-        CheckBox3.TabIndex = 3
-        CheckBox3.Text = "Make Payment"
-        CheckBox3.UseVisualStyleBackColor = True
+        chkBoxMakePayment.AutoSize = True
+        chkBoxMakePayment.Enabled = False
+        chkBoxMakePayment.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkBoxMakePayment.Location = New Point(197, 14)
+        chkBoxMakePayment.Name = "chkBoxMakePayment"
+        chkBoxMakePayment.Size = New Size(121, 21)
+        chkBoxMakePayment.TabIndex = 3
+        chkBoxMakePayment.Text = "Make Payment"
+        chkBoxMakePayment.UseVisualStyleBackColor = True
         ' 
-        ' CheckBox2
+        ' chkBoxAddTenants
         ' 
-        CheckBox2.AutoSize = True
-        CheckBox2.Enabled = False
-        CheckBox2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        CheckBox2.Location = New Point(22, 92)
-        CheckBox2.Name = "CheckBox2"
-        CheckBox2.Size = New Size(106, 21)
-        CheckBox2.TabIndex = 2
-        CheckBox2.Text = "Add Tenants"
-        CheckBox2.UseVisualStyleBackColor = True
+        chkBoxAddTenants.AutoSize = True
+        chkBoxAddTenants.Enabled = False
+        chkBoxAddTenants.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkBoxAddTenants.Location = New Point(22, 92)
+        chkBoxAddTenants.Name = "chkBoxAddTenants"
+        chkBoxAddTenants.Size = New Size(106, 21)
+        chkBoxAddTenants.TabIndex = 2
+        chkBoxAddTenants.Text = "Add Tenants"
+        chkBoxAddTenants.UseVisualStyleBackColor = True
         ' 
-        ' chkbox_addHouse
+        ' chkboxAddHouse
         ' 
-        chkbox_addHouse.AutoSize = True
-        chkbox_addHouse.Enabled = False
-        chkbox_addHouse.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        chkbox_addHouse.Location = New Point(22, 54)
-        chkbox_addHouse.Name = "chkbox_addHouse"
-        chkbox_addHouse.Size = New Size(102, 21)
-        chkbox_addHouse.TabIndex = 1
-        chkbox_addHouse.Text = "Add Houses"
-        chkbox_addHouse.UseVisualStyleBackColor = True
+        chkboxAddHouse.AutoSize = True
+        chkboxAddHouse.Enabled = False
+        chkboxAddHouse.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkboxAddHouse.Location = New Point(22, 54)
+        chkboxAddHouse.Name = "chkboxAddHouse"
+        chkboxAddHouse.Size = New Size(102, 21)
+        chkboxAddHouse.TabIndex = 1
+        chkboxAddHouse.Text = "Add Houses"
+        chkboxAddHouse.UseVisualStyleBackColor = True
         ' 
         ' chkBoxSuperAdmin
         ' 
@@ -296,7 +296,7 @@ Partial Class frmUsers
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents btnadd As Button
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents chkbox_addHouse As CheckBox
+    Friend WithEvents chkBoxMakePayment As CheckBox
+    Friend WithEvents chkBoxAddTenants As CheckBox
+    Friend WithEvents chkboxAddHouse As CheckBox
 End Class
