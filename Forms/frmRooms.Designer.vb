@@ -198,7 +198,7 @@ Partial Class frmRooms
         ' 
         combo_vat.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_vat.FormattingEnabled = True
-        combo_vat.Items.AddRange(New Object() {"AVAILABLE"})
+        combo_vat.Items.AddRange(New Object() {"V", "Z"})
         combo_vat.Location = New Point(884, 34)
         combo_vat.Name = "combo_vat"
         combo_vat.Size = New Size(140, 27)

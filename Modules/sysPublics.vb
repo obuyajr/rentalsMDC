@@ -43,4 +43,12 @@ Module sysPublics
 
     End Function
 
+
+    Public vatV As Decimal = 0.16
+    Public vatZ As Decimal = 0.14
+    Public amountAfterVat As Decimal
+    Public vatAmount As Decimal
+    Public netAmount As Decimal
+
+
 End Module
