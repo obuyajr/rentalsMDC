@@ -35,6 +35,7 @@ Public Class frmRooms
             .Columns.Add("Net Amount", 100, HorizontalAlignment.Left)
             .Columns.Add("Vat Amount", 100, HorizontalAlignment.Left)
             .Columns.Add("Post Vat (rates) ", 200, HorizontalAlignment.Left)
+            .Columns.Add("Status", 100, HorizontalAlignment.Left)
 
 
             .CheckBoxes = True
@@ -64,6 +65,7 @@ Public Class frmRooms
                 .SubItems.Add(Dr.Item("netAmount").ToString)
                 .SubItems.Add(Dr.Item("vatAmount").ToString)
                 .SubItems.Add(Dr.Item("rates_afterVAT").ToString)
+                .SubItems.Add(Dr.Item("status").ToString)
 
                 lvwRooms.Items.Add(li)
 
@@ -111,6 +113,13 @@ Public Class frmRooms
             ErrorProvider1.SetError(combo_vat, "")
         End If
 
+        If chkboxStatus.CheckState = False Then
+            ErrorProvider1.SetError(chkboxStatus, "Invalid Input")
+
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(chkboxStatus, "")
+        End If
 
 
         ' End validation ------------------------------------------------------------------------
@@ -128,7 +137,7 @@ Public Class frmRooms
             If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE rooms set roomType = '" & combo_rtype.Text.ToUpper.Trim & "',vatType = '" & combo_vat.Text & "',netAmount = " & netAmount & " ,vatAmount = " & vatAmount & ",rates_afterVAT= " & amountAfterVat & "          where id = " & currentID & ""
+                StrCmd = "UPDATE rooms set roomType = '" & combo_rtype.Text.ToUpper.Trim & "',vatType = '" & combo_vat.Text & "',netAmount = " & netAmount & " ,vatAmount = " & vatAmount & ",rates_afterVAT= " & amountAfterVat & " , status = 'AVAILABLE' where id = " & currentID & ""
 
             Else
                 StrCmd = ""
@@ -138,14 +147,16 @@ Public Class frmRooms
                             "           ,vatType" &
                             "           ,netAmount" &
                             "           ,vatAmount" &
-                            "           ,rates_afterVAT)" &
+                            "           ,rates_afterVAT" &
+                            "           ,status)" &
                             "     VALUES" &
                             "           ('" & txtRoomNo.Text.ToUpper.Trim & "'" &
                             "           ,'" & combo_rtype.Text.ToUpper & "'" &
                             "           ,'" & combo_vat.Text.ToUpper & "'" &
                             "           ," & netAmount & "" &
                             "           ," & vatAmount & "" &
-                            "           ," & amountAfterVat & ")"
+                            "           ," & amountAfterVat & "" &
+                            "           , 'AVAILABLE')"
             End If
 
             Cmd = New SqlCommand(StrCmd, conn)
@@ -296,5 +307,7 @@ Public Class frmRooms
             vatAmount = netAmount * vatZ
 
         End If
+
+
     End Sub
 End Class
