@@ -19,6 +19,9 @@
     <Compile Update="Forms\frmPayment_records.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmRooms.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmTenants.vb">
       <SubType>Form</SubType>
     </Compile>

@@ -192,7 +192,7 @@ Partial Class frmReports
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(1107, 475)
+        TabPage2.Size = New Size(1114, 475)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Rent Payment "
         ' 
