@@ -134,7 +134,7 @@ Public Class frmMainMenu
 
     Private Sub btnReports_Click(sender As Object, e As EventArgs) Handles btnReports.Click
 
-        Dim reports As New reports
+        Dim reports As New frmReports
         switchPanel(reports)
 
     End Sub

@@ -303,6 +303,11 @@ Public Class frmPayment_records
 
     End Sub
 
+    Private Sub btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
+        Me.Close()
+
+    End Sub
+
 
 
 

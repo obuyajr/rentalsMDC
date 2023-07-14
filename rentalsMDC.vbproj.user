@@ -25,7 +25,7 @@
     <Compile Update="Forms\frmUsers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\reports.vb">
+    <Compile Update="Forms\frmReports.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
