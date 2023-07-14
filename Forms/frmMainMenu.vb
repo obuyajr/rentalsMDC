@@ -138,4 +138,11 @@ Public Class frmMainMenu
         switchPanel(reports)
 
     End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles btnRooms.Click
+
+        Dim rooms As New frmRooms
+        switchPanel(rooms)
+
+    End Sub
 End Class

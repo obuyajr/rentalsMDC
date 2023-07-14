@@ -23,6 +23,7 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        btnRooms = New Button()
         btnReports = New Button()
         Panel1 = New Panel()
         Label1 = New Label()
@@ -50,6 +51,7 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(btnRooms)
         SplitContainer1.Panel1.Controls.Add(btnReports)
         SplitContainer1.Panel1.Controls.Add(Panel1)
         SplitContainer1.Panel1.Controls.Add(btnPayments)
@@ -69,6 +71,24 @@ Partial Class frmMainMenu
         SplitContainer1.Size = New Size(1063, 566)
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
+        ' 
+        ' btnRooms
+        ' 
+        btnRooms.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnRooms.FlatAppearance.BorderSize = 0
+        btnRooms.FlatStyle = FlatStyle.Flat
+        btnRooms.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnRooms.ForeColor = Color.White
+        btnRooms.Image = My.Resources.Resources.report_solid_24__1_
+        btnRooms.ImageAlign = ContentAlignment.MiddleRight
+        btnRooms.Location = New Point(1, 457)
+        btnRooms.Margin = New Padding(1)
+        btnRooms.Name = "btnRooms"
+        btnRooms.Size = New Size(149, 34)
+        btnRooms.TabIndex = 9
+        btnRooms.Text = "Rooms"
+        btnRooms.TextAlign = ContentAlignment.MiddleLeft
+        btnRooms.UseVisualStyleBackColor = True
         ' 
         ' btnReports
         ' 
@@ -275,4 +295,5 @@ Partial Class frmMainMenu
     Friend WithEvents lbl_uname As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnReports As Button
+    Friend WithEvents btnRooms As Button
 End Class
