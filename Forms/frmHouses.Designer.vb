@@ -237,63 +237,76 @@ Partial Class frmHouses
         ' 
         ' btn_reset
         ' 
+        btn_reset.BackColor = Color.LightCoral
+        btn_reset.FlatStyle = FlatStyle.Popup
         btn_reset.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_reset.Location = New Point(565, 20)
+        btn_reset.Location = New Point(565, 13)
         btn_reset.Name = "btn_reset"
-        btn_reset.Size = New Size(84, 26)
+        btn_reset.Size = New Size(107, 33)
         btn_reset.TabIndex = 13
         btn_reset.Text = "Reset house"
-        btn_reset.UseVisualStyleBackColor = True
+        btn_reset.UseMnemonic = False
+        btn_reset.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
+        Button4.BackColor = Color.LightCoral
+        Button4.FlatStyle = FlatStyle.Popup
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button4.Location = New Point(880, 20)
+        Button4.Location = New Point(880, 13)
         Button4.Name = "Button4"
-        Button4.Size = New Size(140, 26)
+        Button4.Size = New Size(140, 33)
         Button4.TabIndex = 11
         Button4.Text = "User Listing Report"
-        Button4.UseVisualStyleBackColor = True
+        Button4.UseVisualStyleBackColor = False
         ' 
         ' btnadd
         ' 
+        btnadd.BackColor = Color.LightCoral
+        btnadd.FlatStyle = FlatStyle.Popup
         btnadd.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btnadd.Location = New Point(424, 20)
+        btnadd.Location = New Point(424, 13)
         btnadd.Name = "btnadd"
-        btnadd.Size = New Size(84, 26)
+        btnadd.Size = New Size(84, 33)
         btnadd.TabIndex = 12
         btnadd.Text = "Add New"
-        btnadd.UseVisualStyleBackColor = True
+        btnadd.UseVisualStyleBackColor = False
         ' 
         ' btnSave
         ' 
+        btnSave.BackColor = Color.LightCoral
+        btnSave.FlatStyle = FlatStyle.Popup
         btnSave.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btnSave.Location = New Point(28, 20)
+        btnSave.Location = New Point(28, 13)
         btnSave.Name = "btnSave"
-        btnSave.Size = New Size(75, 26)
+        btnSave.Size = New Size(75, 33)
         btnSave.TabIndex = 8
         btnSave.Text = "Save"
-        btnSave.UseVisualStyleBackColor = True
+        btnSave.UseVisualStyleBackColor = False
         ' 
         ' btnEdit
         ' 
+        btnEdit.BackColor = Color.LightCoral
+        btnEdit.FlatStyle = FlatStyle.Popup
         btnEdit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btnEdit.Location = New Point(162, 20)
+        btnEdit.Location = New Point(162, 13)
         btnEdit.Name = "btnEdit"
-        btnEdit.Size = New Size(75, 26)
+        btnEdit.Size = New Size(75, 33)
         btnEdit.TabIndex = 9
         btnEdit.Text = "Edit"
-        btnEdit.UseVisualStyleBackColor = True
+        btnEdit.UseVisualStyleBackColor = False
         ' 
         ' btnDelete
         ' 
+        btnDelete.BackColor = Color.LightCoral
+        btnDelete.FlatStyle = FlatStyle.Popup
         btnDelete.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btnDelete.Location = New Point(293, 20)
+        btnDelete.Location = New Point(293, 13)
         btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(75, 26)
+        btnDelete.Size = New Size(75, 33)
         btnDelete.TabIndex = 10
         btnDelete.Text = "Delete"
-        btnDelete.UseVisualStyleBackColor = True
+        btnDelete.UseVisualStyleBackColor = False
         ' 
         ' ErrorProvider1
         ' 

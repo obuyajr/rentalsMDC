@@ -188,43 +188,51 @@ Partial Class frmUsers
         ' 
         ' btnSave
         ' 
+        btnSave.BackColor = Color.LightCoral
+        btnSave.FlatStyle = FlatStyle.Flat
         btnSave.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btnSave.Location = New Point(3, 23)
+        btnSave.Location = New Point(23, 23)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 26)
         btnSave.TabIndex = 3
         btnSave.Text = "Save"
-        btnSave.UseVisualStyleBackColor = True
+        btnSave.UseVisualStyleBackColor = False
         ' 
         ' btnEdit
         ' 
+        btnEdit.BackColor = Color.LightCoral
+        btnEdit.FlatStyle = FlatStyle.Flat
         btnEdit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnEdit.Location = New Point(154, 23)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(75, 26)
         btnEdit.TabIndex = 4
         btnEdit.Text = "Edit"
-        btnEdit.UseVisualStyleBackColor = True
+        btnEdit.UseVisualStyleBackColor = False
         ' 
         ' btnDelete
         ' 
+        btnDelete.BackColor = Color.LightCoral
+        btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnDelete.Location = New Point(310, 23)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 26)
         btnDelete.TabIndex = 5
         btnDelete.Text = "Delete"
-        btnDelete.UseVisualStyleBackColor = True
+        btnDelete.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
+        Button4.BackColor = Color.LightCoral
+        Button4.FlatStyle = FlatStyle.Popup
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button4.Location = New Point(749, 23)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 6
         Button4.Text = "User Listing Report"
-        Button4.UseVisualStyleBackColor = True
+        Button4.UseVisualStyleBackColor = False
         ' 
         ' ErrorProvider1
         ' 
@@ -232,17 +240,20 @@ Partial Class frmUsers
         ' 
         ' btnadd
         ' 
+        btnadd.BackColor = Color.LightCoral
+        btnadd.FlatStyle = FlatStyle.Flat
         btnadd.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnadd.Location = New Point(467, 23)
         btnadd.Name = "btnadd"
         btnadd.Size = New Size(84, 26)
         btnadd.TabIndex = 7
         btnadd.Text = "Add New"
-        btnadd.UseVisualStyleBackColor = True
+        btnadd.UseVisualStyleBackColor = False
         ' 
         ' Panel4
         ' 
         Panel4.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel4.BackColor = Color.WhiteSmoke
         Panel4.BorderStyle = BorderStyle.FixedSingle
         Panel4.Controls.Add(Button4)
         Panel4.Controls.Add(btnadd)

@@ -33,8 +33,10 @@ Partial Class frmLogin
         Panel1 = New Panel()
         Panel2 = New Panel()
         Panel3 = New Panel()
+        Label3 = New Label()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
+        Panel3.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -139,11 +141,23 @@ Partial Class frmLogin
         ' Panel3
         ' 
         Panel3.BackColor = Color.Indigo
+        Panel3.Controls.Add(Label3)
         Panel3.Dock = DockStyle.Bottom
         Panel3.Location = New Point(0, 296)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(428, 74)
         Panel3.TabIndex = 8
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.BackColor = Color.Transparent
+        Label3.ForeColor = Color.White
+        Label3.Location = New Point(159, 47)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(110, 15)
+        Label3.TabIndex = 0
+        Label3.Text = "copyrights reserved"
         ' 
         ' frmLogin
         ' 
@@ -160,6 +174,8 @@ Partial Class frmLogin
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
+        Panel3.ResumeLayout(False)
+        Panel3.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -173,4 +189,5 @@ Partial Class frmLogin
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents Label3 As Label
 End Class

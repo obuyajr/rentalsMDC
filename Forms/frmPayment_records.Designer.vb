@@ -217,7 +217,7 @@ Partial Class frmPayment_records
         ' Panel3
         ' 
         Panel3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        Panel3.BackColor = Color.White
+        Panel3.BackColor = Color.WhiteSmoke
         Panel3.BorderStyle = BorderStyle.FixedSingle
         Panel3.Controls.Add(btnClear)
         Panel3.Controls.Add(btn_cancel)
@@ -229,6 +229,8 @@ Partial Class frmPayment_records
         ' 
         ' btnClear
         ' 
+        btnClear.BackColor = Color.LightCoral
+        btnClear.FlatStyle = FlatStyle.Flat
         btnClear.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         btnClear.Image = My.Resources.Resources.eraser_solid_24__1_
         btnClear.ImageAlign = ContentAlignment.MiddleRight
@@ -237,10 +239,12 @@ Partial Class frmPayment_records
         btnClear.Size = New Size(107, 32)
         btnClear.TabIndex = 3
         btnClear.Text = "Clear"
-        btnClear.UseVisualStyleBackColor = True
+        btnClear.UseVisualStyleBackColor = False
         ' 
         ' btn_cancel
         ' 
+        btn_cancel.BackColor = Color.LightCoral
+        btn_cancel.FlatStyle = FlatStyle.Flat
         btn_cancel.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         btn_cancel.Image = My.Resources.Resources.x_regular_24
         btn_cancel.ImageAlign = ContentAlignment.MiddleRight
@@ -249,10 +253,12 @@ Partial Class frmPayment_records
         btn_cancel.Size = New Size(107, 32)
         btn_cancel.TabIndex = 2
         btn_cancel.Text = "Cancel"
-        btn_cancel.UseVisualStyleBackColor = True
+        btn_cancel.UseVisualStyleBackColor = False
         ' 
         ' btn_pay
         ' 
+        btn_pay.BackColor = Color.LightCoral
+        btn_pay.FlatStyle = FlatStyle.Flat
         btn_pay.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         btn_pay.Image = My.Resources.Resources.wallet_regular_24
         btn_pay.ImageAlign = ContentAlignment.MiddleRight
@@ -261,7 +267,7 @@ Partial Class frmPayment_records
         btn_pay.Size = New Size(107, 32)
         btn_pay.TabIndex = 0
         btn_pay.Text = "Pay "
-        btn_pay.UseVisualStyleBackColor = True
+        btn_pay.UseVisualStyleBackColor = False
         ' 
         ' ListView1
         ' 

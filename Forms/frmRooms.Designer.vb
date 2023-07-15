@@ -47,6 +47,9 @@ Partial Class frmRooms
         Label1 = New Label()
         TabPage2 = New TabPage()
         Panel5 = New Panel()
+        Label15 = New Label()
+        txt_total = New TextBox()
+        btn_assignHouse = New Button()
         txtDeposit = New TextBox()
         txt_rent = New TextBox()
         txt_houseNo = New TextBox()
@@ -67,9 +70,6 @@ Partial Class frmRooms
         combo_category = New ComboBox()
         Label9 = New Label()
         ErrorProvider1 = New ErrorProvider(components)
-        txt_total = New TextBox()
-        btn_assignHouse = New Button()
-        Label15 = New Label()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         Panel3.SuspendLayout()
@@ -123,63 +123,75 @@ Partial Class frmRooms
         ' 
         ' btn_reset
         ' 
+        btn_reset.BackColor = Color.LightCoral
+        btn_reset.FlatStyle = FlatStyle.Flat
         btn_reset.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btn_reset.Location = New Point(565, 20)
         btn_reset.Name = "btn_reset"
         btn_reset.Size = New Size(84, 26)
         btn_reset.TabIndex = 13
         btn_reset.Text = "Reset house"
-        btn_reset.UseVisualStyleBackColor = True
+        btn_reset.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
+        Button4.BackColor = Color.LightCoral
+        Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button4.Location = New Point(880, 20)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 11
         Button4.Text = "User Listing Report"
-        Button4.UseVisualStyleBackColor = True
+        Button4.UseVisualStyleBackColor = False
         ' 
         ' btnadd
         ' 
+        btnadd.BackColor = Color.LightCoral
+        btnadd.FlatStyle = FlatStyle.Flat
         btnadd.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnadd.Location = New Point(424, 20)
         btnadd.Name = "btnadd"
         btnadd.Size = New Size(84, 26)
         btnadd.TabIndex = 12
         btnadd.Text = "Add New"
-        btnadd.UseVisualStyleBackColor = True
+        btnadd.UseVisualStyleBackColor = False
         ' 
         ' btnSave
         ' 
+        btnSave.BackColor = Color.LightCoral
+        btnSave.FlatStyle = FlatStyle.Flat
         btnSave.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnSave.Location = New Point(28, 20)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 26)
         btnSave.TabIndex = 8
         btnSave.Text = "Save"
-        btnSave.UseVisualStyleBackColor = True
+        btnSave.UseVisualStyleBackColor = False
         ' 
         ' btnEdit
         ' 
+        btnEdit.BackColor = Color.LightCoral
+        btnEdit.FlatStyle = FlatStyle.Flat
         btnEdit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnEdit.Location = New Point(162, 20)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(75, 26)
         btnEdit.TabIndex = 9
         btnEdit.Text = "Edit"
-        btnEdit.UseVisualStyleBackColor = True
+        btnEdit.UseVisualStyleBackColor = False
         ' 
         ' btnDelete
         ' 
+        btnDelete.BackColor = Color.LightCoral
+        btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnDelete.Location = New Point(293, 20)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 26)
         btnDelete.TabIndex = 10
         btnDelete.Text = "Delete"
-        btnDelete.UseVisualStyleBackColor = True
+        btnDelete.UseVisualStyleBackColor = False
         ' 
         ' Panel2
         ' 
@@ -355,6 +367,40 @@ Partial Class frmRooms
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(1060, 228)
         Panel5.TabIndex = 2
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label15.Location = New Point(927, 6)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(75, 25)
+        Label15.TabIndex = 27
+        Label15.Text = "TOTAL"
+        ' 
+        ' txt_total
+        ' 
+        txt_total.Font = New Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_total.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_total.Location = New Point(895, 34)
+        txt_total.Name = "txt_total"
+        txt_total.Size = New Size(150, 51)
+        txt_total.TabIndex = 26
+        txt_total.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' btn_assignHouse
+        ' 
+        btn_assignHouse.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_assignHouse.ForeColor = Color.Green
+        btn_assignHouse.Image = My.Resources.Resources.right_arrow_solid_24
+        btn_assignHouse.ImageAlign = ContentAlignment.MiddleRight
+        btn_assignHouse.Location = New Point(883, 158)
+        btn_assignHouse.Name = "btn_assignHouse"
+        btn_assignHouse.Size = New Size(150, 49)
+        btn_assignHouse.TabIndex = 25
+        btn_assignHouse.Text = "Assign House"
+        btn_assignHouse.TextAlign = ContentAlignment.MiddleLeft
+        btn_assignHouse.UseVisualStyleBackColor = True
         ' 
         ' txtDeposit
         ' 
@@ -554,40 +600,6 @@ Partial Class frmRooms
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' txt_total
-        ' 
-        txt_total.Font = New Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point)
-        txt_total.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        txt_total.Location = New Point(895, 34)
-        txt_total.Name = "txt_total"
-        txt_total.Size = New Size(150, 51)
-        txt_total.TabIndex = 26
-        txt_total.TextAlign = HorizontalAlignment.Center
-        ' 
-        ' btn_assignHouse
-        ' 
-        btn_assignHouse.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_assignHouse.ForeColor = Color.Green
-        btn_assignHouse.Image = My.Resources.Resources.right_arrow_solid_24
-        btn_assignHouse.ImageAlign = ContentAlignment.MiddleRight
-        btn_assignHouse.Location = New Point(883, 158)
-        btn_assignHouse.Name = "btn_assignHouse"
-        btn_assignHouse.Size = New Size(150, 49)
-        btn_assignHouse.TabIndex = 25
-        btn_assignHouse.Text = "Assign House"
-        btn_assignHouse.TextAlign = ContentAlignment.MiddleLeft
-        btn_assignHouse.UseVisualStyleBackColor = True
-        ' 
-        ' Label15
-        ' 
-        Label15.AutoSize = True
-        Label15.Font = New Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label15.Location = New Point(927, 6)
-        Label15.Name = "Label15"
-        Label15.Size = New Size(75, 25)
-        Label15.TabIndex = 27
-        Label15.Text = "TOTAL"
         ' 
         ' frmRooms
         ' 

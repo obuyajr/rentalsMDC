@@ -242,53 +242,62 @@ Partial Class frmTenants
         ' 
         ' Button4
         ' 
+        Button4.BackColor = Color.LightCoral
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Button4.Location = New Point(911, 20)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 11
         Button4.Text = "User Listing Report"
-        Button4.UseVisualStyleBackColor = True
+        Button4.UseVisualStyleBackColor = False
         ' 
         ' btnadd
         ' 
+        btnadd.BackColor = Color.LightCoral
+        btnadd.FlatStyle = FlatStyle.Flat
         btnadd.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnadd.Location = New Point(424, 20)
         btnadd.Name = "btnadd"
         btnadd.Size = New Size(84, 26)
         btnadd.TabIndex = 12
         btnadd.Text = "Add New"
-        btnadd.UseVisualStyleBackColor = True
+        btnadd.UseVisualStyleBackColor = False
         ' 
         ' btnSave
         ' 
+        btnSave.BackColor = Color.LightCoral
+        btnSave.FlatStyle = FlatStyle.Flat
         btnSave.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnSave.Location = New Point(28, 20)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 26)
         btnSave.TabIndex = 8
         btnSave.Text = "Save"
-        btnSave.UseVisualStyleBackColor = True
+        btnSave.UseVisualStyleBackColor = False
         ' 
         ' btnEdit
         ' 
+        btnEdit.BackColor = Color.LightCoral
+        btnEdit.FlatStyle = FlatStyle.Flat
         btnEdit.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnEdit.Location = New Point(162, 20)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(75, 26)
         btnEdit.TabIndex = 9
         btnEdit.Text = "Edit"
-        btnEdit.UseVisualStyleBackColor = True
+        btnEdit.UseVisualStyleBackColor = False
         ' 
         ' btnDelete
         ' 
+        btnDelete.BackColor = Color.LightCoral
+        btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnDelete.Location = New Point(293, 20)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 26)
         btnDelete.TabIndex = 10
         btnDelete.Text = "Delete"
-        btnDelete.UseVisualStyleBackColor = True
+        btnDelete.UseVisualStyleBackColor = False
         ' 
         ' ErrorProvider1
         ' 
