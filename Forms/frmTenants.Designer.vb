@@ -235,16 +235,16 @@ Partial Class frmTenants
         Panel3.Controls.Add(btnSave)
         Panel3.Controls.Add(btnEdit)
         Panel3.Controls.Add(btnDelete)
-        Panel3.Location = New Point(0, 437)
+        Panel3.Location = New Point(12, 437)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1059, 63)
+        Panel3.Size = New Size(1047, 63)
         Panel3.TabIndex = 2
         ' 
         ' Button4
         ' 
         Button4.BackColor = Color.LightCoral
         Button4.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button4.Location = New Point(911, 20)
+        Button4.Location = New Point(879, 20)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
         Button4.TabIndex = 11
