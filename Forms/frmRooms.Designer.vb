@@ -46,17 +46,6 @@ Partial Class frmRooms
         Label2 = New Label()
         Label1 = New Label()
         TabPage2 = New TabPage()
-        Label5 = New Label()
-        Panel4 = New Panel()
-        ErrorProvider1 = New ErrorProvider(components)
-        combo_category = New ComboBox()
-        Label9 = New Label()
-        DateTimePicker1 = New DateTimePicker()
-        DateTimePicker2 = New DateTimePicker()
-        Label10 = New Label()
-        Label11 = New Label()
-        Button1 = New Button()
-        ListView1 = New ListView()
         Panel5 = New Panel()
         txtDeposit = New TextBox()
         txt_rent = New TextBox()
@@ -67,15 +56,29 @@ Partial Class frmRooms
         Label13 = New Label()
         txt_id = New TextBox()
         Label14 = New Label()
+        ListView1 = New ListView()
+        Label5 = New Label()
+        Panel4 = New Panel()
+        Button1 = New Button()
+        Label11 = New Label()
+        Label10 = New Label()
+        DateTimePicker2 = New DateTimePicker()
+        DateTimePicker1 = New DateTimePicker()
+        combo_category = New ComboBox()
+        Label9 = New Label()
+        ErrorProvider1 = New ErrorProvider(components)
+        txt_total = New TextBox()
+        btn_assignHouse = New Button()
+        Label15 = New Label()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         Panel3.SuspendLayout()
         Panel2.SuspendLayout()
         Panel1.SuspendLayout()
         TabPage2.SuspendLayout()
+        Panel5.SuspendLayout()
         Panel4.SuspendLayout()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
-        Panel5.SuspendLayout()
         SuspendLayout()
         ' 
         ' TabControl1
@@ -98,7 +101,7 @@ Partial Class frmRooms
         TabPage1.Location = New Point(4, 24)
         TabPage1.Name = "TabPage1"
         TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(1072, 545)
+        TabPage1.Size = New Size(1072, 616)
         TabPage1.TabIndex = 0
         TabPage1.Text = "Room Operations"
         ' 
@@ -332,118 +335,13 @@ Partial Class frmRooms
         TabPage2.TabIndex = 1
         TabPage2.Text = "Book Rooms"
         ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(6, 3)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(154, 21)
-        Label5.TabIndex = 0
-        Label5.Text = "Selection Criteria :"
-        ' 
-        ' Panel4
-        ' 
-        Panel4.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Panel4.BackColor = Color.White
-        Panel4.BorderStyle = BorderStyle.Fixed3D
-        Panel4.Controls.Add(Button1)
-        Panel4.Controls.Add(Label11)
-        Panel4.Controls.Add(Label10)
-        Panel4.Controls.Add(DateTimePicker2)
-        Panel4.Controls.Add(DateTimePicker1)
-        Panel4.Controls.Add(combo_category)
-        Panel4.Controls.Add(Label9)
-        Panel4.Location = New Point(6, 19)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(1063, 103)
-        Panel4.TabIndex = 0
-        ' 
-        ' ErrorProvider1
-        ' 
-        ErrorProvider1.ContainerControl = Me
-        ' 
-        ' combo_category
-        ' 
-        combo_category.BackColor = Color.Turquoise
-        combo_category.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
-        combo_category.FormattingEnabled = True
-        combo_category.Location = New Point(90, 11)
-        combo_category.Name = "combo_category"
-        combo_category.Size = New Size(213, 28)
-        combo_category.TabIndex = 8
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.Location = New Point(5, 11)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(79, 17)
-        Label9.TabIndex = 7
-        Label9.Text = "Room Type"
-        ' 
-        ' DateTimePicker1
-        ' 
-        DateTimePicker1.Font = New Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        DateTimePicker1.Location = New Point(419, 14)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(185, 25)
-        DateTimePicker1.TabIndex = 12
-        ' 
-        ' DateTimePicker2
-        ' 
-        DateTimePicker2.Font = New Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        DateTimePicker2.Location = New Point(695, 14)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(185, 25)
-        DateTimePicker2.TabIndex = 13
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label10.Location = New Point(642, 20)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(32, 17)
-        Label10.TabIndex = 14
-        Label10.Text = "To :"
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label11.Location = New Point(349, 18)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(49, 17)
-        Label11.TabIndex = 15
-        Label11.Text = "From :"
-        ' 
-        ' Button1
-        ' 
-        Button1.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Button1.Image = My.Resources.Resources.search_alt_2_regular_24
-        Button1.ImageAlign = ContentAlignment.MiddleLeft
-        Button1.Location = New Point(916, 7)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(129, 37)
-        Button1.TabIndex = 16
-        Button1.Text = "Search"
-        Button1.UseVisualStyleBackColor = True
-        ' 
-        ' ListView1
-        ' 
-        ListView1.BorderStyle = BorderStyle.FixedSingle
-        ListView1.Location = New Point(6, 162)
-        ListView1.Name = "ListView1"
-        ListView1.Size = New Size(1060, 214)
-        ListView1.TabIndex = 1
-        ListView1.UseCompatibleStateImageBehavior = False
-        ' 
         ' Panel5
         ' 
         Panel5.BackColor = Color.White
         Panel5.BorderStyle = BorderStyle.Fixed3D
+        Panel5.Controls.Add(Label15)
+        Panel5.Controls.Add(txt_total)
+        Panel5.Controls.Add(btn_assignHouse)
         Panel5.Controls.Add(txtDeposit)
         Panel5.Controls.Add(txt_rent)
         Panel5.Controls.Add(txt_houseNo)
@@ -548,6 +446,149 @@ Partial Class frmRooms
         Label14.TabIndex = 16
         Label14.Text = "Tenant Name"
         ' 
+        ' ListView1
+        ' 
+        ListView1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        ListView1.BorderStyle = BorderStyle.FixedSingle
+        ListView1.Location = New Point(6, 162)
+        ListView1.Name = "ListView1"
+        ListView1.Size = New Size(1060, 214)
+        ListView1.TabIndex = 1
+        ListView1.UseCompatibleStateImageBehavior = False
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.Location = New Point(6, 3)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(154, 21)
+        Label5.TabIndex = 0
+        Label5.Text = "Selection Criteria :"
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel4.BackColor = Color.White
+        Panel4.BorderStyle = BorderStyle.Fixed3D
+        Panel4.Controls.Add(Button1)
+        Panel4.Controls.Add(Label11)
+        Panel4.Controls.Add(Label10)
+        Panel4.Controls.Add(DateTimePicker2)
+        Panel4.Controls.Add(DateTimePicker1)
+        Panel4.Controls.Add(combo_category)
+        Panel4.Controls.Add(Label9)
+        Panel4.Location = New Point(6, 19)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(1063, 103)
+        Panel4.TabIndex = 0
+        ' 
+        ' Button1
+        ' 
+        Button1.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.Image = My.Resources.Resources.search_alt_2_regular_24
+        Button1.ImageAlign = ContentAlignment.MiddleLeft
+        Button1.Location = New Point(916, 7)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(129, 37)
+        Button1.TabIndex = 16
+        Button1.Text = "Search"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.Location = New Point(349, 18)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(49, 17)
+        Label11.TabIndex = 15
+        Label11.Text = "From :"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Location = New Point(642, 20)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(32, 17)
+        Label10.TabIndex = 14
+        Label10.Text = "To :"
+        ' 
+        ' DateTimePicker2
+        ' 
+        DateTimePicker2.Font = New Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        DateTimePicker2.Location = New Point(695, 14)
+        DateTimePicker2.Name = "DateTimePicker2"
+        DateTimePicker2.Size = New Size(185, 25)
+        DateTimePicker2.TabIndex = 13
+        ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.Font = New Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        DateTimePicker1.Location = New Point(419, 14)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(185, 25)
+        DateTimePicker1.TabIndex = 12
+        ' 
+        ' combo_category
+        ' 
+        combo_category.BackColor = Color.Turquoise
+        combo_category.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        combo_category.FormattingEnabled = True
+        combo_category.Location = New Point(90, 11)
+        combo_category.Name = "combo_category"
+        combo_category.Size = New Size(213, 28)
+        combo_category.TabIndex = 8
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.Location = New Point(5, 11)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(79, 17)
+        Label9.TabIndex = 7
+        Label9.Text = "Room Type"
+        ' 
+        ' ErrorProvider1
+        ' 
+        ErrorProvider1.ContainerControl = Me
+        ' 
+        ' txt_total
+        ' 
+        txt_total.Font = New Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        txt_total.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
+        txt_total.Location = New Point(895, 34)
+        txt_total.Name = "txt_total"
+        txt_total.Size = New Size(150, 51)
+        txt_total.TabIndex = 26
+        txt_total.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' btn_assignHouse
+        ' 
+        btn_assignHouse.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btn_assignHouse.ForeColor = Color.Green
+        btn_assignHouse.Image = My.Resources.Resources.right_arrow_solid_24
+        btn_assignHouse.ImageAlign = ContentAlignment.MiddleRight
+        btn_assignHouse.Location = New Point(883, 158)
+        btn_assignHouse.Name = "btn_assignHouse"
+        btn_assignHouse.Size = New Size(150, 49)
+        btn_assignHouse.TabIndex = 25
+        btn_assignHouse.Text = "Assign House"
+        btn_assignHouse.TextAlign = ContentAlignment.MiddleLeft
+        btn_assignHouse.UseVisualStyleBackColor = True
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label15.Location = New Point(927, 6)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(75, 25)
+        Label15.TabIndex = 27
+        Label15.Text = "TOTAL"
+        ' 
         ' frmRooms
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -566,11 +607,11 @@ Partial Class frmRooms
         Panel1.PerformLayout()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
+        Panel5.ResumeLayout(False)
+        Panel5.PerformLayout()
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
-        Panel5.ResumeLayout(False)
-        Panel5.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -618,4 +659,7 @@ Partial Class frmRooms
     Friend WithEvents Label13 As Label
     Friend WithEvents txt_id As TextBox
     Friend WithEvents Label14 As Label
+    Friend WithEvents txt_total As TextBox
+    Friend WithEvents btn_assignHouse As Button
+    Friend WithEvents Label15 As Label
 End Class

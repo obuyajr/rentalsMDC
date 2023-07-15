@@ -76,9 +76,10 @@ Partial Class frmLogin
         ' 
         ' btnLogin
         ' 
-        btnLogin.BackColor = Color.Peru
+        btnLogin.BackColor = Color.LavenderBlush
         btnLogin.FlatStyle = FlatStyle.Popup
         btnLogin.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnLogin.ForeColor = Color.Black
         btnLogin.Image = My.Resources.Resources.login_btn
         btnLogin.ImageAlign = ContentAlignment.MiddleRight
         btnLogin.Location = New Point(110, 140)
@@ -91,10 +92,11 @@ Partial Class frmLogin
         ' 
         ' btnCancel
         ' 
-        btnCancel.BackColor = Color.Peru
+        btnCancel.BackColor = Color.LavenderBlush
         btnCancel.DialogResult = DialogResult.Cancel
         btnCancel.FlatStyle = FlatStyle.Popup
         btnCancel.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnCancel.ForeColor = Color.Black
         btnCancel.Image = My.Resources.Resources.log_out_circle_solid_36
         btnCancel.ImageAlign = ContentAlignment.MiddleRight
         btnCancel.Location = New Point(304, 140)
