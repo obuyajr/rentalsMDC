@@ -116,9 +116,9 @@ Partial Class frmRooms
         Panel3.Controls.Add(btnSave)
         Panel3.Controls.Add(btnEdit)
         Panel3.Controls.Add(btnDelete)
-        Panel3.Location = New Point(8, 476)
+        Panel3.Location = New Point(8, 547)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1047, 63)
+        Panel3.Size = New Size(1056, 63)
         Panel3.TabIndex = 4
         ' 
         ' btn_reset
@@ -199,9 +199,9 @@ Partial Class frmRooms
         Panel2.BackColor = Color.WhiteSmoke
         Panel2.BorderStyle = BorderStyle.Fixed3D
         Panel2.Controls.Add(lvwRooms)
-        Panel2.Location = New Point(3, 129)
+        Panel2.Location = New Point(8, 129)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1063, 330)
+        Panel2.Size = New Size(1056, 393)
         Panel2.TabIndex = 3
         ' 
         ' lvwRooms
@@ -210,7 +210,7 @@ Partial Class frmRooms
         lvwRooms.BackColor = Color.White
         lvwRooms.Location = New Point(3, 15)
         lvwRooms.Name = "lvwRooms"
-        lvwRooms.Size = New Size(1053, 308)
+        lvwRooms.Size = New Size(1046, 371)
         lvwRooms.TabIndex = 0
         lvwRooms.UseCompatibleStateImageBehavior = False
         ' 
@@ -229,9 +229,9 @@ Partial Class frmRooms
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Label1)
-        Panel1.Location = New Point(3, 6)
+        Panel1.Location = New Point(8, 6)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1063, 97)
+        Panel1.Size = New Size(1056, 97)
         Panel1.TabIndex = 2
         ' 
         ' chkboxStatus
@@ -390,6 +390,7 @@ Partial Class frmRooms
         ' 
         ' btn_assignHouse
         ' 
+        btn_assignHouse.BackColor = Color.LightCoral
         btn_assignHouse.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
         btn_assignHouse.ForeColor = Color.Green
         btn_assignHouse.Image = My.Resources.Resources.right_arrow_solid_24
@@ -398,9 +399,9 @@ Partial Class frmRooms
         btn_assignHouse.Name = "btn_assignHouse"
         btn_assignHouse.Size = New Size(150, 49)
         btn_assignHouse.TabIndex = 25
-        btn_assignHouse.Text = "Assign House"
+        btn_assignHouse.Text = "Book Room"
         btn_assignHouse.TextAlign = ContentAlignment.MiddleLeft
-        btn_assignHouse.UseVisualStyleBackColor = True
+        btn_assignHouse.UseVisualStyleBackColor = False
         ' 
         ' txtDeposit
         ' 
@@ -436,11 +437,11 @@ Partial Class frmRooms
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(347, 174)
+        Label7.Location = New Point(55, 158)
         Label7.Name = "Label7"
-        Label7.Size = New Size(56, 17)
+        Label7.Size = New Size(42, 17)
         Label7.TabIndex = 21
-        Label7.Text = "Deposit"
+        Label7.Text = "Rates"
         ' 
         ' Label8
         ' 
