@@ -47,6 +47,8 @@ Partial Class frmHouses
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
+        combo_vat = New ComboBox()
+        Label8 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -58,6 +60,8 @@ Partial Class frmHouses
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.WhiteSmoke
         Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(combo_vat)
+        Panel1.Controls.Add(Label8)
         Panel1.Controls.Add(combo_status)
         Panel1.Controls.Add(combo_category)
         Panel1.Controls.Add(txtDeposit)
@@ -73,7 +77,7 @@ Partial Class frmHouses
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1047, 156)
+        Panel1.Size = New Size(1047, 174)
         Panel1.TabIndex = 1
         ' 
         ' combo_status
@@ -312,6 +316,26 @@ Partial Class frmHouses
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' combo_vat
+        ' 
+        combo_vat.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_vat.FormattingEnabled = True
+        combo_vat.Items.AddRange(New Object() {"E", "V", "Z"})
+        combo_vat.Location = New Point(86, 131)
+        combo_vat.Name = "combo_vat"
+        combo_vat.Size = New Size(261, 27)
+        combo_vat.TabIndex = 7
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Location = New Point(41, 137)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(39, 15)
+        Label8.TabIndex = 8
+        Label8.Text = "VAT :"
+        ' 
         ' frmHouses
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -356,4 +380,6 @@ Partial Class frmHouses
     Friend WithEvents combo_category As ComboBox
     Friend WithEvents combo_status As ComboBox
     Friend WithEvents btn_reset As Button
+    Friend WithEvents combo_vat As ComboBox
+    Friend WithEvents Label8 As Label
 End Class

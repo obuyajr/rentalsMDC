@@ -13,10 +13,6 @@ Public Class frmCreditDebitNote
 
 
 
-
-
-
-
     End Sub
 
     Public Sub Display_Data_on_Comboboxes_from_DatabaseTable()

@@ -136,6 +136,13 @@ Public Class frmHouses
             ErrorProvider1.SetError(combo_status, "")
         End If
 
+        If combo_vat.Text.Trim = "" Then
+            ErrorProvider1.SetError(combo_vat, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(combo_vat, "")
+        End If
+
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
 
@@ -150,7 +157,7 @@ Public Class frmHouses
             If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE houses set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',status = '" & combo_status.Text & "' where id = " & currentID & ""
+                StrCmd = "UPDATE houses set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',vat_type = '" & combo_vat.Text & "'status = '" & combo_status.Text & "' where id = " & currentID & ""
 
             Else
                 StrCmd = ""
@@ -160,6 +167,7 @@ Public Class frmHouses
                             "           ,category" &
                             "           ,rent" &
                             "           ,deposit" &
+                            "           ,vat_type" &
                             "           ,status)" &
                             "     VALUES" &
                             "           ('" & txtHouseNo.Text.ToUpper.Trim & "'" &
@@ -167,6 +175,7 @@ Public Class frmHouses
                             "           ,'" & combo_category.Text.ToUpper & "'" &
                             "           ,'" & txtRent.Text.ToLower & "'" &
                             "           ,'" & txtDeposit.Text.ToUpper & "'" &
+                            "           ,'" & combo_vat.Text.ToUpper & "'" &
                             "           ,'" & combo_status.Text.ToUpper & "')"
             End If
 
@@ -324,4 +333,7 @@ Public Class frmHouses
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_reset.Click
 
     End Sub
+
+
+
 End Class

@@ -242,7 +242,7 @@ Partial Class frmCreditDebitNote
         btnClear.ImageAlign = ContentAlignment.MiddleRight
         btnClear.Location = New Point(267, 20)
         btnClear.Name = "btnClear"
-        btnClear.Size = New Size(107, 32)
+        btnClear.Size = New Size(107, 43)
         btnClear.TabIndex = 3
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = False
@@ -256,7 +256,7 @@ Partial Class frmCreditDebitNote
         btn_cancel.ImageAlign = ContentAlignment.MiddleRight
         btn_cancel.Location = New Point(916, 20)
         btn_cancel.Name = "btn_cancel"
-        btn_cancel.Size = New Size(107, 32)
+        btn_cancel.Size = New Size(107, 43)
         btn_cancel.TabIndex = 2
         btn_cancel.Text = "Cancel"
         btn_cancel.UseVisualStyleBackColor = False
@@ -270,7 +270,7 @@ Partial Class frmCreditDebitNote
         btn_issue.ImageAlign = ContentAlignment.MiddleRight
         btn_issue.Location = New Point(93, 20)
         btn_issue.Name = "btn_issue"
-        btn_issue.Size = New Size(107, 32)
+        btn_issue.Size = New Size(107, 43)
         btn_issue.TabIndex = 0
         btn_issue.Text = "Issue"
         btn_issue.UseVisualStyleBackColor = False
