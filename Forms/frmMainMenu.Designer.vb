@@ -171,10 +171,10 @@ Partial Class frmMainMenu
         Button1.ForeColor = Color.White
         Button1.Image = My.Resources.Resources.close
         Button1.ImageAlign = ContentAlignment.MiddleRight
-        Button1.Location = New Point(10, 522)
+        Button1.Location = New Point(1, 522)
         Button1.Margin = New Padding(1)
         Button1.Name = "Button1"
-        Button1.Size = New Size(128, 34)
+        Button1.Size = New Size(148, 34)
         Button1.TabIndex = 5
         Button1.Text = "Exit"
         Button1.TextAlign = ContentAlignment.MiddleLeft

@@ -201,27 +201,6 @@ Public Class frmAssignHouse
 
     Private Sub Display_data()
 
-        Dim I As Integer = 0
-        Dim Count As Integer = 0
-
-        For I = 0 To lvwHouses.Items.Count - 1
-            If lvwHouses.Items(I).Checked = True Then
-                currentId = CInt(lvwHouses.Items(I).SubItems(0).Text)
-                txt_houseNo.Text = lvwHouses.Items(I).SubItems(1).Text
-                txt_rent.Text = lvwHouses.Items(I).SubItems(4).Text
-                txtDeposit.Text = lvwHouses.Items(I).SubItems(5).Text
-
-                Count += 1
-            End If
-
-            Dim tAmount As Decimal
-            tAmount = CDec(txt_rent.Text) + CDec(txtDeposit.Text)
-            txt_total.Text = tAmount
-
-
-
-        Next
-
     End Sub
 
     Private Sub Assign_House_To_Tenants()
@@ -351,15 +330,14 @@ Public Class frmAssignHouse
 
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-                                   
+
 
 
         If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
             txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
             Dim totalAmount As New Decimal
-            totalAmount = CDec(txt_total.Text) * -1
-
+            totalAmount = -1 * CDec(txt_total.Text)
 
 
 
@@ -373,10 +351,10 @@ Public Class frmAssignHouse
                             "           ,total)" &
                             "     VALUES" &
                             "           ('" & txt_houseNo.Text.ToUpper.Trim & "'" &
-                            "           ,'" & txt_id.Text.ToUpper & "'" &
+                            "           ," & txt_id.Text.ToUpper & "" &
                             "           ,'" & combo_tenantName.Text.ToUpper & "'" &
-                            "           ,'" & txt_rent.Text & "'" &
-                            "           ,'" & txtDeposit.Text & "'" &
+                            "           ," & CDec(txt_rent.Text) & "" &
+                            "           ," & CDec(txtDeposit.Text) & "" &
                             "           ," & totalAmount & ")"
 
 
@@ -593,5 +571,37 @@ Public Class frmAssignHouse
 
     End Sub
 
+    Private Sub lvwHouses_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwHouses.SelectedIndexChanged
+        loadHouseKeyInfo()
+    End Sub
 
+    Private Sub loadHouseKeyInfo()
+
+        Dim I As Integer = 0
+        Dim Count As Integer = 0
+        Dim K As Integer = 0
+        Dim tAmount As Decimal
+
+
+        For I = 0 To lvwHouses.Items.Count - 1
+
+            If lvwHouses.Items(I).Selected = True Then
+
+                currentId = CInt(lvwHouses.Items(I).SubItems(0).Text)
+                txt_houseNo.Text = lvwHouses.Items(I).SubItems(1).Text
+                txt_rent.Text = FormatNumber(CDec(lvwHouses.Items(I).SubItems(4).Text)).ToString
+                txtDeposit.Text = FormatNumber(CDec(lvwHouses.Items(I).SubItems(5).Text)).ToString
+
+                txt_total.Text = FormatNumber(CDec(lvwHouses.Items(I).SubItems(4).Text) _
+                                                      + CDec(lvwHouses.Items(I).SubItems(5).Text)).ToString
+
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub lvwHouses_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles lvwHouses.ItemSelectionChanged
+        loadHouseKeyInfo()
+    End Sub
 End Class

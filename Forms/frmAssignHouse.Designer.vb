@@ -35,6 +35,7 @@ Partial Class frmAssignHouse
         btn_display = New Button()
         lvwHouses = New ListView()
         Panel3 = New Panel()
+        chkbox_bill = New CheckBox()
         Label7 = New Label()
         txt_total = New TextBox()
         btn_assignHouse = New Button()
@@ -49,7 +50,6 @@ Partial Class frmAssignHouse
         combo_tenantName = New ComboBox()
         Label3 = New Label()
         ErrorProvider1 = New ErrorProvider(components)
-        chkbox_bill = New CheckBox()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -177,7 +177,9 @@ Partial Class frmAssignHouse
         ' 
         lvwHouses.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         lvwHouses.BorderStyle = BorderStyle.FixedSingle
+        lvwHouses.FullRowSelect = True
         lvwHouses.Location = New Point(3, 12)
+        lvwHouses.MultiSelect = False
         lvwHouses.Name = "lvwHouses"
         lvwHouses.Size = New Size(1037, 175)
         lvwHouses.TabIndex = 0
@@ -206,6 +208,19 @@ Partial Class frmAssignHouse
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1047, 241)
         Panel3.TabIndex = 2
+        ' 
+        ' chkbox_bill
+        ' 
+        chkbox_bill.AutoSize = True
+        chkbox_bill.Checked = True
+        chkbox_bill.CheckState = CheckState.Checked
+        chkbox_bill.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        chkbox_bill.Location = New Point(292, 203)
+        chkbox_bill.Name = "chkbox_bill"
+        chkbox_bill.Size = New Size(48, 21)
+        chkbox_bill.TabIndex = 18
+        chkbox_bill.Text = "Bill"
+        chkbox_bill.UseVisualStyleBackColor = True
         ' 
         ' Label7
         ' 
@@ -343,19 +358,6 @@ Partial Class frmAssignHouse
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
-        ' 
-        ' chkbox_bill
-        ' 
-        chkbox_bill.AutoSize = True
-        chkbox_bill.Checked = True
-        chkbox_bill.CheckState = CheckState.Checked
-        chkbox_bill.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        chkbox_bill.Location = New Point(292, 203)
-        chkbox_bill.Name = "chkbox_bill"
-        chkbox_bill.Size = New Size(48, 21)
-        chkbox_bill.TabIndex = 18
-        chkbox_bill.Text = "Bill"
-        chkbox_bill.UseVisualStyleBackColor = True
         ' 
         ' frmAssignHouse
         ' 
