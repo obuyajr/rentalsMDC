@@ -49,17 +49,14 @@ Public Class frmBatch
             Cmd.Dispose()
 
 
+
             StrCmd = ""
-            StrCmd = "INSERT INTO rent_updates" &
-                                "           (house_no" &
-                                "           ,tenant_id" &
-                                "           ,tenant_name" &
-                                "           ,balance)" &
-                                "     VALUES" &
-                                "           ('" & Dr.Item("house_no") & "'" &
-                                "           ,'" & Dr.Item("tenant_id") & "'" &
-                                "           ,'" & Dr.Item("tenant_name") & "'" &
-                                "           ," & Dr.Item("rent") & ")"
+
+            StrCmd = "UPDATE rent_updates" &
+                             " SET tenant_id = '" & Dr.Item("tenant_id") & "'" &
+                             " ,tenant_name = '" & Dr.Item("tenant_name") & "'" &
+                             " ,balance = balance + " & Dr.Item("rent") &
+                             " WHERE house_no = '" & Dr.Item("house_no") & "'"
 
             Cmd = New SqlCommand(StrCmd, conn)
 
@@ -80,7 +77,7 @@ Public Class frmBatch
         Dr.Close()
         Cmd.Dispose()
 
-        MessageBox.Show("records updated successfully")
+        MessageBox.Show(counter & "records updated successfully")
 
 
     End Sub

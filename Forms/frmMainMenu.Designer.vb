@@ -23,6 +23,7 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
+        Button3 = New Button()
         btnRooms = New Button()
         btnReports = New Button()
         Panel1 = New Panel()
@@ -35,7 +36,6 @@ Partial Class frmMainMenu
         btn_Tenants = New Button()
         btn_Users = New Button()
         Button2 = New Button()
-        Button3 = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.Panel2.SuspendLayout()
@@ -74,6 +74,24 @@ Partial Class frmMainMenu
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
         ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.ForeColor = Color.White
+        Button3.Image = My.Resources.Resources.report_solid_24__1_
+        Button3.ImageAlign = ContentAlignment.MiddleRight
+        Button3.Location = New Point(3, 365)
+        Button3.Margin = New Padding(1)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(149, 34)
+        Button3.TabIndex = 10
+        Button3.Text = "Bill Batch"
+        Button3.TextAlign = ContentAlignment.MiddleLeft
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' btnRooms
         ' 
         btnRooms.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
@@ -101,7 +119,7 @@ Partial Class frmMainMenu
         btnReports.ForeColor = Color.White
         btnReports.Image = My.Resources.Resources.report_solid_24__1_
         btnReports.ImageAlign = ContentAlignment.MiddleRight
-        btnReports.Location = New Point(0, 333)
+        btnReports.Location = New Point(0, 320)
         btnReports.Margin = New Padding(1)
         btnReports.Name = "btnReports"
         btnReports.Size = New Size(149, 34)
@@ -154,7 +172,7 @@ Partial Class frmMainMenu
         btnPayments.ForeColor = Color.White
         btnPayments.Image = My.Resources.Resources.money_withdraw_regular_24
         btnPayments.ImageAlign = ContentAlignment.MiddleRight
-        btnPayments.Location = New Point(1, 288)
+        btnPayments.Location = New Point(1, 275)
         btnPayments.Margin = New Padding(1)
         btnPayments.Name = "btnPayments"
         btnPayments.Size = New Size(148, 34)
@@ -191,7 +209,7 @@ Partial Class frmMainMenu
         btnAssignHouse.ForeColor = Color.White
         btnAssignHouse.Image = My.Resources.Resources.door_open_regular_24
         btnAssignHouse.ImageAlign = ContentAlignment.MiddleRight
-        btnAssignHouse.Location = New Point(0, 243)
+        btnAssignHouse.Location = New Point(0, 230)
         btnAssignHouse.Margin = New Padding(1)
         btnAssignHouse.Name = "btnAssignHouse"
         btnAssignHouse.Size = New Size(149, 34)
@@ -209,7 +227,7 @@ Partial Class frmMainMenu
         btnHouses.ForeColor = Color.White
         btnHouses.Image = My.Resources.Resources.building_house_solid_24
         btnHouses.ImageAlign = ContentAlignment.MiddleRight
-        btnHouses.Location = New Point(0, 207)
+        btnHouses.Location = New Point(0, 185)
         btnHouses.Margin = New Padding(1)
         btnHouses.Name = "btnHouses"
         btnHouses.Size = New Size(149, 34)
@@ -227,7 +245,7 @@ Partial Class frmMainMenu
         btn_Tenants.ForeColor = Color.White
         btn_Tenants.Image = My.Resources.Resources.book_open_regular_24___Copy
         btn_Tenants.ImageAlign = ContentAlignment.MiddleRight
-        btn_Tenants.Location = New Point(0, 161)
+        btn_Tenants.Location = New Point(2, 139)
         btn_Tenants.Margin = New Padding(1)
         btn_Tenants.Name = "btn_Tenants"
         btn_Tenants.Size = New Size(149, 34)
@@ -245,7 +263,7 @@ Partial Class frmMainMenu
         btn_Users.ForeColor = Color.White
         btn_Users.Image = My.Resources.Resources.user_solid_24
         btn_Users.ImageAlign = ContentAlignment.MiddleRight
-        btn_Users.Location = New Point(1, 111)
+        btn_Users.Location = New Point(2, 94)
         btn_Users.Margin = New Padding(1)
         btn_Users.Name = "btn_Users"
         btn_Users.Size = New Size(148, 34)
@@ -265,24 +283,6 @@ Partial Class frmMainMenu
         Button2.TabIndex = 1
         Button2.Text = "Button2"
         Button2.UseVisualStyleBackColor = True
-        ' 
-        ' Button3
-        ' 
-        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button3.ForeColor = Color.White
-        Button3.Image = My.Resources.Resources.report_solid_24__1_
-        Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(3, 369)
-        Button3.Margin = New Padding(1)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(149, 34)
-        Button3.TabIndex = 10
-        Button3.Text = "Bill Batch"
-        Button3.TextAlign = ContentAlignment.MiddleLeft
-        Button3.UseVisualStyleBackColor = True
         ' 
         ' frmMainMenu
         ' 
