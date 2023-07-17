@@ -27,8 +27,10 @@ Partial Class frmBatch
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
         TabPage2 = New TabPage()
+        Panel1 = New Panel()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
+        TabPage2.SuspendLayout()
         SuspendLayout()
         ' 
         ' Button1
@@ -65,6 +67,7 @@ Partial Class frmBatch
         ' 
         ' TabPage1
         ' 
+        TabPage1.BorderStyle = BorderStyle.FixedSingle
         TabPage1.Controls.Add(Button2)
         TabPage1.Controls.Add(Button1)
         TabPage1.Location = New Point(4, 24)
@@ -77,13 +80,25 @@ Partial Class frmBatch
         ' 
         ' TabPage2
         ' 
+        TabPage2.BackColor = Color.MistyRose
+        TabPage2.BorderStyle = BorderStyle.FixedSingle
+        TabPage2.Controls.Add(Panel1)
+        TabPage2.ForeColor = Color.Transparent
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
         TabPage2.Size = New Size(917, 477)
         TabPage2.TabIndex = 1
         TabPage2.Text = "Isuue Credit Note"
-        TabPage2.UseVisualStyleBackColor = True
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.WhiteSmoke
+        Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Location = New Point(6, 6)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(903, 100)
+        Panel1.TabIndex = 0
         ' 
         ' frmBatch
         ' 
@@ -96,6 +111,7 @@ Partial Class frmBatch
         Text = "Batch"
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
+        TabPage2.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -104,4 +120,5 @@ Partial Class frmBatch
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents Panel1 As Panel
 End Class

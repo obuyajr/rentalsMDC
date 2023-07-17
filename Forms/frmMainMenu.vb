@@ -146,10 +146,17 @@ Public Class frmMainMenu
 
     End Sub
 
-    Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click_2(sender As Object, e As EventArgs) Handles btnBatch.Click
 
         Dim billBatch As New frmBatch
         switchPanel(billBatch)
+
+    End Sub
+
+    Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles btnCr_Dr_Note.Click
+
+        Dim cr_dr As New frmCreditDebitNote
+        switchPanel(cr_dr)
 
     End Sub
 End Class

@@ -33,3 +33,4 @@ C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\ref\r
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmReports.resources
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmRooms.resources
 C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmBatch.resources
+C:\Users\felix\OneDrive\Desktop\VB net\rentalsMDC\obj\Debug\net6.0-windows\rentalsMDC.frmCreditDebitNote.resources

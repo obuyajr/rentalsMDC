@@ -23,7 +23,8 @@ Partial Class frmMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         SplitContainer1 = New SplitContainer()
-        Button3 = New Button()
+        btnCr_Dr_Note = New Button()
+        btnBatch = New Button()
         btnRooms = New Button()
         btnReports = New Button()
         Panel1 = New Panel()
@@ -52,7 +53,8 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
-        SplitContainer1.Panel1.Controls.Add(Button3)
+        SplitContainer1.Panel1.Controls.Add(btnCr_Dr_Note)
+        SplitContainer1.Panel1.Controls.Add(btnBatch)
         SplitContainer1.Panel1.Controls.Add(btnRooms)
         SplitContainer1.Panel1.Controls.Add(btnReports)
         SplitContainer1.Panel1.Controls.Add(Panel1)
@@ -74,23 +76,41 @@ Partial Class frmMainMenu
         SplitContainer1.SplitterDistance = 150
         SplitContainer1.TabIndex = 0
         ' 
-        ' Button3
+        ' btnCr_Dr_Note
         ' 
-        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button3.ForeColor = Color.White
-        Button3.Image = My.Resources.Resources.report_solid_24__1_
-        Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(3, 365)
-        Button3.Margin = New Padding(1)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(149, 34)
-        Button3.TabIndex = 10
-        Button3.Text = "Bill Batch"
-        Button3.TextAlign = ContentAlignment.MiddleLeft
-        Button3.UseVisualStyleBackColor = True
+        btnCr_Dr_Note.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnCr_Dr_Note.FlatAppearance.BorderSize = 0
+        btnCr_Dr_Note.FlatStyle = FlatStyle.Flat
+        btnCr_Dr_Note.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnCr_Dr_Note.ForeColor = Color.White
+        btnCr_Dr_Note.Image = My.Resources.Resources.report_solid_24__1_
+        btnCr_Dr_Note.ImageAlign = ContentAlignment.MiddleRight
+        btnCr_Dr_Note.Location = New Point(3, 412)
+        btnCr_Dr_Note.Margin = New Padding(1)
+        btnCr_Dr_Note.Name = "btnCr_Dr_Note"
+        btnCr_Dr_Note.Size = New Size(149, 34)
+        btnCr_Dr_Note.TabIndex = 11
+        btnCr_Dr_Note.Text = "Credit-Debit Note"
+        btnCr_Dr_Note.TextAlign = ContentAlignment.MiddleLeft
+        btnCr_Dr_Note.UseVisualStyleBackColor = True
+        ' 
+        ' btnBatch
+        ' 
+        btnBatch.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        btnBatch.FlatAppearance.BorderSize = 0
+        btnBatch.FlatStyle = FlatStyle.Flat
+        btnBatch.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        btnBatch.ForeColor = Color.White
+        btnBatch.Image = My.Resources.Resources.report_solid_24__1_
+        btnBatch.ImageAlign = ContentAlignment.MiddleRight
+        btnBatch.Location = New Point(3, 365)
+        btnBatch.Margin = New Padding(1)
+        btnBatch.Name = "btnBatch"
+        btnBatch.Size = New Size(149, 34)
+        btnBatch.TabIndex = 10
+        btnBatch.Text = "Bill Batch"
+        btnBatch.TextAlign = ContentAlignment.MiddleLeft
+        btnBatch.UseVisualStyleBackColor = True
         ' 
         ' btnRooms
         ' 
@@ -316,5 +336,6 @@ Partial Class frmMainMenu
     Friend WithEvents Label1 As Label
     Friend WithEvents btnReports As Button
     Friend WithEvents btnRooms As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnBatch As Button
+    Friend WithEvents btnCr_Dr_Note As Button
 End Class
