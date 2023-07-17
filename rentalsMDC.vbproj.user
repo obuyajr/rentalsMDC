@@ -7,6 +7,9 @@
     <Compile Update="Forms\frmAssignHouse.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmBatch.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\frmHouses.vb">
       <SubType>Form</SubType>
     </Compile>

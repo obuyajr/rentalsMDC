@@ -35,6 +35,7 @@ Partial Class frmMainMenu
         btn_Tenants = New Button()
         btn_Users = New Button()
         Button2 = New Button()
+        Button3 = New Button()
         CType(SplitContainer1, ComponentModel.ISupportInitialize).BeginInit()
         SplitContainer1.Panel1.SuspendLayout()
         SplitContainer1.Panel2.SuspendLayout()
@@ -51,6 +52,7 @@ Partial Class frmMainMenu
         ' SplitContainer1.Panel1
         ' 
         SplitContainer1.Panel1.BackColor = Color.Indigo
+        SplitContainer1.Panel1.Controls.Add(Button3)
         SplitContainer1.Panel1.Controls.Add(btnRooms)
         SplitContainer1.Panel1.Controls.Add(btnReports)
         SplitContainer1.Panel1.Controls.Add(Panel1)
@@ -264,6 +266,24 @@ Partial Class frmMainMenu
         Button2.Text = "Button2"
         Button2.UseVisualStyleBackColor = True
         ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.ForeColor = Color.White
+        Button3.Image = My.Resources.Resources.report_solid_24__1_
+        Button3.ImageAlign = ContentAlignment.MiddleRight
+        Button3.Location = New Point(3, 369)
+        Button3.Margin = New Padding(1)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(149, 34)
+        Button3.TabIndex = 10
+        Button3.Text = "Bill Batch"
+        Button3.TextAlign = ContentAlignment.MiddleLeft
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' frmMainMenu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -296,4 +316,5 @@ Partial Class frmMainMenu
     Friend WithEvents Label1 As Label
     Friend WithEvents btnReports As Button
     Friend WithEvents btnRooms As Button
+    Friend WithEvents Button3 As Button
 End Class
