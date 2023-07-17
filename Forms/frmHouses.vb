@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Diagnostics.Metrics
 
 Public Class frmHouses
 
@@ -321,24 +322,6 @@ Public Class frmHouses
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_reset.Click
-
-        StrCmd = ""
-        StrCmd = "UPDATE houses SET status = 'AVAILABLE'"
-
-        Cmd = New SqlCommand(StrCmd, conn)
-
-        Try
-
-            Cmd.ExecuteNonQuery()
-            MessageBox.Show("successful", "reset")
-        Catch ex As Exception
-
-            MessageBox.Show(ex.Message)
-
-        End Try
-
-        Cmd.Dispose()
-
 
     End Sub
 End Class

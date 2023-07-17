@@ -32,7 +32,6 @@ Partial Class frmAssignHouse
         Label1 = New Label()
         btnGenerate = New Button()
         Panel2 = New Panel()
-        btn_display = New Button()
         lvwHouses = New ListView()
         Panel3 = New Panel()
         chkbox_bill = New CheckBox()
@@ -149,29 +148,11 @@ Partial Class frmAssignHouse
         Panel2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Panel2.BackColor = SystemColors.GradientInactiveCaption
         Panel2.BorderStyle = BorderStyle.Fixed3D
-        Panel2.Controls.Add(btn_display)
         Panel2.Controls.Add(lvwHouses)
         Panel2.Location = New Point(12, 83)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1047, 245)
         Panel2.TabIndex = 1
-        ' 
-        ' btn_display
-        ' 
-        btn_display.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
-        btn_display.BackColor = SystemColors.HighlightText
-        btn_display.FlatStyle = FlatStyle.Popup
-        btn_display.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        btn_display.ForeColor = Color.Green
-        btn_display.Image = My.Resources.Resources.desktop_regular_24
-        btn_display.ImageAlign = ContentAlignment.MiddleRight
-        btn_display.Location = New Point(17, 202)
-        btn_display.Name = "btn_display"
-        btn_display.Size = New Size(129, 36)
-        btn_display.TabIndex = 1
-        btn_display.Text = "Display"
-        btn_display.TextAlign = ContentAlignment.MiddleLeft
-        btn_display.UseVisualStyleBackColor = False
         ' 
         ' lvwHouses
         ' 
@@ -226,7 +207,7 @@ Partial Class frmAssignHouse
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(914, 19)
+        Label7.Location = New Point(878, 19)
         Label7.Name = "Label7"
         Label7.Size = New Size(75, 25)
         Label7.TabIndex = 17
@@ -236,9 +217,9 @@ Partial Class frmAssignHouse
         ' 
         txt_total.Font = New Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point)
         txt_total.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(192))
-        txt_total.Location = New Point(878, 46)
+        txt_total.Location = New Point(808, 46)
         txt_total.Name = "txt_total"
-        txt_total.Size = New Size(150, 51)
+        txt_total.Size = New Size(220, 51)
         txt_total.TabIndex = 16
         txt_total.TextAlign = HorizontalAlignment.Center
         ' 
@@ -402,7 +383,6 @@ Partial Class frmAssignHouse
     Friend WithEvents Label8 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents btn_assignHouse As Button
-    Friend WithEvents btn_display As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents txt_total As TextBox
     Friend WithEvents ErrorProvider1 As ErrorProvider

@@ -9,6 +9,10 @@ Public Class frmCreditDebitNote
         txt_balance.ReadOnly = True
         txt_id.ReadOnly = True
         txt_tenantName.ReadOnly = True
+        txtReason.CharacterCasing = CharacterCasing.Upper
+
+
+
 
 
 
@@ -53,7 +57,10 @@ Public Class frmCreditDebitNote
 
             txt_id.Text = reader("tenant_id").ToString()
             txt_tenantName.Text = reader("tenant_name").ToString()
-            txt_balance.Text = reader("balance")
+            txt_balance.Text = FormatNumber(CDec(reader("balance"))).ToString()
+
+
+
 
 
         End If
@@ -82,7 +89,7 @@ Public Class frmCreditDebitNote
     '*---------------------------------------------------------------------------------------
     Public Sub insertDataToDb()
 
-        If MessageBox.Show("Clear These Records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+        If MessageBox.Show("Save These Records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
             If chboxDebit.Checked = True Then
 

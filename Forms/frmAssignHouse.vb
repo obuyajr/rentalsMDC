@@ -450,14 +450,43 @@ Public Class frmAssignHouse
         'Dim totalAmount1 As New Decimal
         totalAmount1 = CDec(txt_total.Text)
 
+        If chkbox_bill.Checked Then
+
+            StrCmd = ""
+            StrCmd = "DELETE FROM rent_updates WHERE house_no = '" & txt_houseNo.Text & "'"
+
+            Cmd = New SqlCommand(StrCmd, conn)
+
+            Try
+
+                Cmd.ExecuteNonQuery()
+
+            Catch ex As Exception
+
+                MessageBox.Show(ex.Message)
+                Exit Sub
+
+            End Try
+
+            Cmd.Dispose()
+
+        End If
+
+
+
+
 
         If chkbox_bill.Checked Then
+
+
+
+            '*-----------------------------------------------------------------------------------------------------------
             StrCmd = ""
             StrCmd = "INSERT INTO rent_updates" &
                                 "           (house_no" &
                                 "           ,tenant_id" &
                                 "           ,tenant_name" &
-                                "           ,balance)" &
+                                "           ,balance )" &
                                 "     VALUES" &
                                 "           ('" & txt_houseNo.Text.ToUpper & "'" &
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
@@ -565,11 +594,7 @@ Public Class frmAssignHouse
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btn_display.Click
 
-        Display_data()
-
-    End Sub
 
     Private Sub lvwHouses_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwHouses.SelectedIndexChanged
         loadHouseKeyInfo()
