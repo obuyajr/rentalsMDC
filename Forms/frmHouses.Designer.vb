@@ -24,6 +24,8 @@ Partial Class frmHouses
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
+        combo_vat = New ComboBox()
+        Label8 = New Label()
         combo_status = New ComboBox()
         combo_category = New ComboBox()
         txtDeposit = New TextBox()
@@ -47,8 +49,6 @@ Partial Class frmHouses
         btnEdit = New Button()
         btnDelete = New Button()
         ErrorProvider1 = New ErrorProvider(components)
-        combo_vat = New ComboBox()
-        Label8 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -77,8 +77,28 @@ Partial Class frmHouses
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1047, 174)
+        Panel1.Size = New Size(1107, 174)
         Panel1.TabIndex = 1
+        ' 
+        ' combo_vat
+        ' 
+        combo_vat.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        combo_vat.FormattingEnabled = True
+        combo_vat.Items.AddRange(New Object() {"E", "V", "Z"})
+        combo_vat.Location = New Point(86, 131)
+        combo_vat.Name = "combo_vat"
+        combo_vat.Size = New Size(261, 27)
+        combo_vat.TabIndex = 7
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Location = New Point(41, 137)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(39, 15)
+        Label8.TabIndex = 8
+        Label8.Text = "VAT :"
         ' 
         ' combo_status
         ' 
@@ -210,7 +230,7 @@ Partial Class frmHouses
         Panel2.Controls.Add(lvwHouses)
         Panel2.Location = New Point(12, 192)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(1047, 225)
+        Panel2.Size = New Size(1107, 225)
         Panel2.TabIndex = 2
         ' 
         ' lvwHouses
@@ -219,7 +239,7 @@ Partial Class frmHouses
         lvwHouses.BackColor = Color.White
         lvwHouses.Location = New Point(11, 15)
         lvwHouses.Name = "lvwHouses"
-        lvwHouses.Size = New Size(1027, 203)
+        lvwHouses.Size = New Size(1081, 203)
         lvwHouses.TabIndex = 0
         lvwHouses.UseCompatibleStateImageBehavior = False
         ' 
@@ -236,7 +256,7 @@ Partial Class frmHouses
         Panel3.Controls.Add(btnDelete)
         Panel3.Location = New Point(12, 437)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(1047, 63)
+        Panel3.Size = New Size(1107, 63)
         Panel3.TabIndex = 3
         ' 
         ' btn_reset
@@ -316,32 +336,12 @@ Partial Class frmHouses
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
-        ' combo_vat
-        ' 
-        combo_vat.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        combo_vat.FormattingEnabled = True
-        combo_vat.Items.AddRange(New Object() {"E", "V", "Z"})
-        combo_vat.Location = New Point(86, 131)
-        combo_vat.Name = "combo_vat"
-        combo_vat.Size = New Size(261, 27)
-        combo_vat.TabIndex = 7
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.Location = New Point(41, 137)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(39, 15)
-        Label8.TabIndex = 8
-        Label8.Text = "VAT :"
-        ' 
         ' frmHouses
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.MistyRose
-        ClientSize = New Size(1071, 512)
+        ClientSize = New Size(1131, 512)
         Controls.Add(Panel3)
         Controls.Add(Panel2)
         Controls.Add(Panel1)

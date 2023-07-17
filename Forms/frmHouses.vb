@@ -44,6 +44,7 @@ Public Class frmHouses
             .Columns.Add("Category", 300, HorizontalAlignment.Left)
             .Columns.Add("Rent", 100, HorizontalAlignment.Left)
             .Columns.Add("Deposit", 100, HorizontalAlignment.Left)
+            .Columns.Add("VAT Type", 100, HorizontalAlignment.Left)
             .Columns.Add("Status", 100, HorizontalAlignment.Left)
 
             .CheckBoxes = True
@@ -72,6 +73,7 @@ Public Class frmHouses
                 .SubItems.Add(Dr.Item("category").ToString)
                 .SubItems.Add(Dr.Item("rent").ToString)
                 .SubItems.Add(Dr.Item("deposit").ToString)
+                .SubItems.Add(Dr.Item("vat_type").ToString)
                 .SubItems.Add(Dr.Item("status").ToString)
 
                 lvwHouses.Items.Add(li)
