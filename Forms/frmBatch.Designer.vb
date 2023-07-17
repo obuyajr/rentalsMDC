@@ -108,6 +108,7 @@ Partial Class frmBatch
         ClientSize = New Size(949, 525)
         Controls.Add(TabControl1)
         Name = "frmBatch"
+        StartPosition = FormStartPosition.CenterParent
         Text = "Batch"
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)

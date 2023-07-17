@@ -73,7 +73,7 @@ Partial Class frmMainMenu
         SplitContainer1.Panel2.Controls.Add(Button2)
         SplitContainer1.Panel2.ForeColor = Color.Black
         SplitContainer1.Size = New Size(1063, 566)
-        SplitContainer1.SplitterDistance = 150
+        SplitContainer1.SplitterDistance = 196
         SplitContainer1.TabIndex = 0
         ' 
         ' btnCr_Dr_Note
@@ -83,14 +83,14 @@ Partial Class frmMainMenu
         btnCr_Dr_Note.FlatStyle = FlatStyle.Flat
         btnCr_Dr_Note.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnCr_Dr_Note.ForeColor = Color.White
-        btnCr_Dr_Note.Image = My.Resources.Resources.report_solid_24__1_
+        btnCr_Dr_Note.Image = My.Resources.Resources.credit_card_alt_regular_24
         btnCr_Dr_Note.ImageAlign = ContentAlignment.MiddleRight
         btnCr_Dr_Note.Location = New Point(3, 412)
         btnCr_Dr_Note.Margin = New Padding(1)
         btnCr_Dr_Note.Name = "btnCr_Dr_Note"
-        btnCr_Dr_Note.Size = New Size(149, 34)
+        btnCr_Dr_Note.Size = New Size(195, 34)
         btnCr_Dr_Note.TabIndex = 11
-        btnCr_Dr_Note.Text = "Credit-Debit Note"
+        btnCr_Dr_Note.Text = "CR-DR Note"
         btnCr_Dr_Note.TextAlign = ContentAlignment.MiddleLeft
         btnCr_Dr_Note.UseVisualStyleBackColor = True
         ' 
@@ -101,12 +101,12 @@ Partial Class frmMainMenu
         btnBatch.FlatStyle = FlatStyle.Flat
         btnBatch.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         btnBatch.ForeColor = Color.White
-        btnBatch.Image = My.Resources.Resources.report_solid_24__1_
+        btnBatch.Image = My.Resources.Resources.objects_horizontal_right_solid_24
         btnBatch.ImageAlign = ContentAlignment.MiddleRight
         btnBatch.Location = New Point(3, 365)
         btnBatch.Margin = New Padding(1)
         btnBatch.Name = "btnBatch"
-        btnBatch.Size = New Size(149, 34)
+        btnBatch.Size = New Size(192, 34)
         btnBatch.TabIndex = 10
         btnBatch.Text = "Bill Batch"
         btnBatch.TextAlign = ContentAlignment.MiddleLeft
@@ -124,7 +124,7 @@ Partial Class frmMainMenu
         btnRooms.Location = New Point(1, 457)
         btnRooms.Margin = New Padding(1)
         btnRooms.Name = "btnRooms"
-        btnRooms.Size = New Size(149, 34)
+        btnRooms.Size = New Size(195, 34)
         btnRooms.TabIndex = 9
         btnRooms.Text = "Rooms"
         btnRooms.TextAlign = ContentAlignment.MiddleLeft
@@ -142,7 +142,7 @@ Partial Class frmMainMenu
         btnReports.Location = New Point(0, 320)
         btnReports.Margin = New Padding(1)
         btnReports.Name = "btnReports"
-        btnReports.Size = New Size(149, 34)
+        btnReports.Size = New Size(195, 34)
         btnReports.TabIndex = 8
         btnReports.Text = "Reports"
         btnReports.TextAlign = ContentAlignment.MiddleLeft
@@ -158,7 +158,7 @@ Partial Class frmMainMenu
         Panel1.Controls.Add(lbl_uname)
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(152, 90)
+        Panel1.Size = New Size(198, 90)
         Panel1.TabIndex = 7
         ' 
         ' Label1
@@ -195,7 +195,7 @@ Partial Class frmMainMenu
         btnPayments.Location = New Point(1, 275)
         btnPayments.Margin = New Padding(1)
         btnPayments.Name = "btnPayments"
-        btnPayments.Size = New Size(148, 34)
+        btnPayments.Size = New Size(194, 34)
         btnPayments.TabIndex = 6
         btnPayments.Text = "Payment"
         btnPayments.TextAlign = ContentAlignment.MiddleLeft
@@ -214,7 +214,7 @@ Partial Class frmMainMenu
         Button1.Location = New Point(1, 522)
         Button1.Margin = New Padding(1)
         Button1.Name = "Button1"
-        Button1.Size = New Size(148, 34)
+        Button1.Size = New Size(194, 34)
         Button1.TabIndex = 5
         Button1.Text = "Exit"
         Button1.TextAlign = ContentAlignment.MiddleLeft
@@ -232,7 +232,7 @@ Partial Class frmMainMenu
         btnAssignHouse.Location = New Point(0, 230)
         btnAssignHouse.Margin = New Padding(1)
         btnAssignHouse.Name = "btnAssignHouse"
-        btnAssignHouse.Size = New Size(149, 34)
+        btnAssignHouse.Size = New Size(195, 34)
         btnAssignHouse.TabIndex = 4
         btnAssignHouse.Text = "Assign House"
         btnAssignHouse.TextAlign = ContentAlignment.MiddleLeft
@@ -250,7 +250,7 @@ Partial Class frmMainMenu
         btnHouses.Location = New Point(0, 185)
         btnHouses.Margin = New Padding(1)
         btnHouses.Name = "btnHouses"
-        btnHouses.Size = New Size(149, 34)
+        btnHouses.Size = New Size(195, 34)
         btnHouses.TabIndex = 3
         btnHouses.Text = "Houses"
         btnHouses.TextAlign = ContentAlignment.MiddleLeft
@@ -268,7 +268,7 @@ Partial Class frmMainMenu
         btn_Tenants.Location = New Point(2, 139)
         btn_Tenants.Margin = New Padding(1)
         btn_Tenants.Name = "btn_Tenants"
-        btn_Tenants.Size = New Size(149, 34)
+        btn_Tenants.Size = New Size(195, 34)
         btn_Tenants.TabIndex = 2
         btn_Tenants.Text = "Tenants"
         btn_Tenants.TextAlign = ContentAlignment.MiddleLeft
@@ -286,7 +286,7 @@ Partial Class frmMainMenu
         btn_Users.Location = New Point(2, 94)
         btn_Users.Margin = New Padding(1)
         btn_Users.Name = "btn_Users"
-        btn_Users.Size = New Size(148, 34)
+        btn_Users.Size = New Size(194, 34)
         btn_Users.TabIndex = 0
         btn_Users.Text = "Users"
         btn_Users.TextAlign = ContentAlignment.MiddleLeft

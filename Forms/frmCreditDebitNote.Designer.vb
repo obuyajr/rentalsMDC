@@ -22,6 +22,7 @@ Partial Class frmCreditDebitNote
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Panel1 = New Panel()
         Label1 = New Label()
         combo_houseNo = New ComboBox()
@@ -42,9 +43,11 @@ Partial Class frmCreditDebitNote
         btnClear = New Button()
         btn_cancel = New Button()
         btn_issue = New Button()
+        ErrorProvider1 = New ErrorProvider(components)
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -275,6 +278,10 @@ Partial Class frmCreditDebitNote
         btn_issue.Text = "Issue"
         btn_issue.UseVisualStyleBackColor = False
         ' 
+        ' ErrorProvider1
+        ' 
+        ErrorProvider1.ContainerControl = Me
+        ' 
         ' frmCreditDebitNote
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -293,6 +300,7 @@ Partial Class frmCreditDebitNote
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         Panel3.ResumeLayout(False)
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -316,4 +324,5 @@ Partial Class frmCreditDebitNote
     Friend WithEvents chboxCredit As CheckBox
     Friend WithEvents txtReason As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

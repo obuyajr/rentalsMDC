@@ -204,6 +204,7 @@ Public Class frmHouses
             txtLocation.Text = ""
             txtRent.Text = ""
             combo_status.Text = Nothing
+            combo_vat.Text = Nothing
 
             txtHouseNo.Focus()
 

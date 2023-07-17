@@ -85,6 +85,64 @@ Public Class frmCreditDebitNote
     '*---------------------------------------------------------------------------------------
     Public Sub insertDataToDb()
 
+
+
+
+
+        'validation ------------------------------------------------------------------------
+        '-----------------------------------------------------------------------------------
+        If txt_cash.Text.Trim = "" Then
+            ErrorProvider1.SetError(txt_cash, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(txt_cash, "")
+        End If
+
+
+        If txt_balance.Text.Trim = "" Then
+            ErrorProvider1.SetError(txt_balance, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(txt_balance, "")
+        End If
+
+        If txtReason.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtReason, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(txtReason, "")
+        End If
+
+
+        If combo_houseNo.Text.Trim = "" Then
+            ErrorProvider1.SetError(combo_houseNo, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(combo_houseNo, "")
+        End If
+
+        If txt_tenantName.Text.Trim = "" Then
+            ErrorProvider1.SetError(txt_tenantName, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(txt_tenantName, "")
+        End If
+
+        If txt_id.Text.Trim = "" Then
+            ErrorProvider1.SetError(txt_id, "Invalid Input")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(txt_id, "")
+        End If
+
+
+
+
+        ' End validation ------------------------------------------------------------------------
+        '-----------------------------------------------------------------------------------
+
+
+
         If MessageBox.Show("Save These Records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
             If chboxDebit.Checked = True Then
