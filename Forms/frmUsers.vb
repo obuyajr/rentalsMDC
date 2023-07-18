@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class frmUsers
 
@@ -24,11 +25,11 @@ Public Class frmUsers
         With lvwUsers
 
             .Columns.Add("ID", 100, HorizontalAlignment.Left)
-            .Columns.Add("Name", 100, HorizontalAlignment.Left)
+            .Columns.Add("Username", 100, HorizontalAlignment.Left)
             .Columns.Add("Super Admin", 100, HorizontalAlignment.Left)
             .Columns.Add("Can Add House", 100, HorizontalAlignment.Left)
             .Columns.Add("Can Add Tenants", 100, HorizontalAlignment.Left)
-            .Columns.Add("Can Take Payment", 100, HorizontalAlignment.Left)
+            .Columns.Add("Can Process Payment", 100, HorizontalAlignment.Left)
             .CheckBoxes = True
             .View = View.Details
 
@@ -49,11 +50,11 @@ Public Class frmUsers
 
             With li
 
-                .SubItems.Add(Dr.Item("name").ToString)
-                .SubItems.Add(Dr.Item("super_admin").ToString)
-                .SubItems.Add(Dr.Item("add_house").ToString)
-                .SubItems.Add(Dr.Item("add_tenants").ToString)
-                .SubItems.Add(Dr.Item("make_payments"))
+                .SubItems.Add(Dr.Item("username").ToString)
+                .SubItems.Add(Dr.Item("superAdmin").ToString)
+                .SubItems.Add(Dr.Item("addHouse").ToString)
+                .SubItems.Add(Dr.Item("addTenant").ToString)
+                .SubItems.Add(Dr.Item("processPayment"))
                 lvwUsers.Items.Add(li)
 
             End With
@@ -119,18 +120,21 @@ Public Class frmUsers
             If currentId <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE users set name = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',super_admin = '" & isSuperAdmin & "',add_house = '" & canAddHouse & "',add_tenants='" & canAddTenants & "',make_payments = '" & canTakePayments & "' where id = " & currentId & ""
+                StrCmd = "UPDATE users set username = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',superAdmin = '" & isSuperAdmin & "',addHouse = '" & canAddHouse & "',addTenant='" & canAddTenants & "',processPayment = '" & canTakePayments & "'" &
+                   ",updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "' where id = " & currentId & ""
 
 
             Else
 
                 StrCmd = "INSERT INTO users" &
                     "           (name" &
+                    "           ,username" &
                     "           ,password" &
-                    "           ,super_admin" &
-                    "           ,add_house,add_tenants,make_payments)" &
+                    "           ,superAdmin" &
+                    "           ,addHouse,addTenant,processPayment)" &
                     "     VALUES" &
-                    "           ('" & txtUserName.Text.ToUpper.Trim & "'" &
+                    "           ('" & txtName.Text.ToUpper.Trim & "'" &
+                    "           ,'" & txtUserName.Text.ToUpper & "'" &
                     "           ,'" & txtUserPassword.Text.ToUpper & "'" &
                     "           ,'" & isSuperAdmin & "'" &
                     "           ,'" & canAddHouse & "','" & canAddTenants & "','" & canTakePayments & "')"
@@ -155,7 +159,7 @@ Public Class frmUsers
 
             LoadDataTo_lvwUsers()
 
-
+            txtName.Text = ""
             txtUserName.Text = ""
             txtUserPassword.Text = ""
             chkBoxAddTenants.Checked = False
@@ -166,7 +170,7 @@ Public Class frmUsers
 
 
             txtUserName.Focus()
-
+            txtName.ReadOnly = True
             txtUserName.ReadOnly = True
             txtUserPassword.ReadOnly = True
             chkBoxSuperAdmin.Enabled = False
@@ -189,11 +193,14 @@ Public Class frmUsers
 
     End Sub
 
+
+
+
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
 
         currentState = 0
         currentId = 0
-
+        txtName.ReadOnly = False
         txtUserName.ReadOnly = False
         txtUserPassword.ReadOnly = False
         chkBoxSuperAdmin.Enabled = True
@@ -202,6 +209,7 @@ Public Class frmUsers
         chkBoxAddTenants.Enabled = True
 
         '* clear all fields
+        txtName.Text = ""
         txtUserPassword.Text = ""
         txtUserName.Text = ""
         chkBoxAddTenants.Checked = False
@@ -216,6 +224,7 @@ Public Class frmUsers
         currentState = 1
         currentId = 0
 
+        txtName.ReadOnly = False
         txtUserName.ReadOnly = False
         txtUserPassword.ReadOnly = False
         chkBoxSuperAdmin.Enabled = True

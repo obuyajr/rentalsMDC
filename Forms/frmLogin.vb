@@ -41,7 +41,7 @@ Public Class frmLogin
         If EstablishedConnectionToDB() = True Then
 
             StrCmd = ""
-            StrCmd = "SELECT TOP(1) * FROM users where upper(name) = '" & txtUserName.Text.Trim.ToUpper & "' and password = '" & txtUserPassword.Text.Trim.ToUpper & "'"
+            StrCmd = "SELECT TOP(1) * FROM users where upper(username) = '" & txtUserName.Text.Trim.ToUpper & "' and password = '" & txtUserPassword.Text.Trim.ToUpper & "'"
             Cmd = New SqlCommand(StrCmd, conn)
 
             Dr = Cmd.ExecuteReader
@@ -70,6 +70,9 @@ Public Class frmLogin
                 Me.Hide()
                 mmenu.ShowDialog()
 
+            Else
+                MessageBox.Show("Wrong Credentials !!!")
+                txtUserPassword.Text = ""
             End If
 
         End If

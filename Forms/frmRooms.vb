@@ -8,9 +8,9 @@ Public Class frmRooms
 
     Private Sub frmRooms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        TextBoxes_To_Take_Uppercase_data()
-        Define_listviewRooms_Columns()
-        LoadDataTo_lvwRooms()
+        'TextBoxes_To_Take_Uppercase_data()
+        'Define_listviewRooms_Columns()
+        ' LoadDataTo_lvwRooms()
 
         combo_rtype.DropDownStyle = ComboBoxStyle.DropDownList
         combo_vat.DropDownStyle = ComboBoxStyle.DropDownList
@@ -137,26 +137,26 @@ Public Class frmRooms
             If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE rooms set roomType = '" & combo_rtype.Text.ToUpper.Trim & "',vatType = '" & combo_vat.Text & "',netAmount = " & netAmount & " ,vatAmount = " & vatAmount & ",rates_afterVAT= " & amountAfterVat & " , status = 'AVAILABLE' where id = " & currentID & ""
+                'StrCmd = "UPDATE rooms set roomType = '" & combo_rtype.Text.ToUpper.Trim & "',vatType = '" & combo_vat.Text & "',netAmount = " & netAmount & " ,vatAmount = " & vatAmount & ",rates_afterVAT= " & amountAfterVat & " , status = 'AVAILABLE' where id = " & currentID & ""
 
             Else
-                StrCmd = ""
-                StrCmd = "INSERT INTO rooms" &
-                            "           (roomNo" &
-                            "           ,roomType" &
-                            "           ,vatType" &
-                            "           ,netAmount" &
-                            "           ,vatAmount" &
-                            "           ,rates_afterVAT" &
-                            "           ,status)" &
-                            "     VALUES" &
-                            "           ('" & txtRoomNo.Text.ToUpper.Trim & "'" &
-                            "           ,'" & combo_rtype.Text.ToUpper & "'" &
-                            "           ,'" & combo_vat.Text.ToUpper & "'" &
-                            "           ," & netAmount & "" &
-                            "           ," & vatAmount & "" &
-                            "           ," & amountAfterVat & "" &
-                            "           , 'AVAILABLE')"
+                'StrCmd = ""
+                'StrCmd = "INSERT INTO rooms" &
+                '            "           (roomNo" &
+                '            "           ,roomType" &
+                '            "           ,vatType" &
+                '            "           ,netAmount" &
+                '            "           ,vatAmount" &
+                '            "           ,rates_afterVAT" &
+                '            "           ,status)" &
+                '            "     VALUES" &
+                '            "           ('" & txtRoomNo.Text.ToUpper.Trim & "'" &
+                '            "           ,'" & combo_rtype.Text.ToUpper & "'" &
+                '            "           ,'" & combo_vat.Text.ToUpper & "'" &
+                '            "           ," & netAmount & "" &
+                '            "           ," & vatAmount & "" &
+                '            "           ," & amountAfterVat & "" &
+                '            "           , 'AVAILABLE')"
             End If
 
             Cmd = New SqlCommand(StrCmd, conn)
@@ -296,17 +296,17 @@ Public Class frmRooms
 
     Public Sub calculateVATamount()
 
-        amountAfterVat = CDec(txtRates.Text)
+        'amountAfterVat = CDec(txtRates.Text)
 
-        If combo_vat.SelectedItem.ToString() = "V" Then
-            netAmount = amountAfterVat / (vatV + 1)
-            vatAmount = netAmount * vatV
+        'If combo_vat.SelectedItem.ToString() = "V" Then
+        '    netAmount = amountAfterVat / (vatV + 1)
+        '    vatAmount = netAmount * vatV
 
-        Else
-            netAmount = amountAfterVat / (vatZ + 1)
-            vatAmount = netAmount * vatZ
+        'Else
+        '    netAmount = amountAfterVat / (vatZ + 1)
+        '    vatAmount = netAmount * vatZ
 
-        End If
+        'End If
 
 
     End Sub

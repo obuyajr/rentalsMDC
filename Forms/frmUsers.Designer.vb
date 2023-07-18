@@ -42,6 +42,8 @@ Partial Class frmUsers
         ErrorProvider1 = New ErrorProvider(components)
         btnadd = New Button()
         Panel4 = New Panel()
+        txtName = New TextBox()
+        Label3 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -54,6 +56,8 @@ Partial Class frmUsers
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.Snow
         Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(txtName)
+        Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(txtUserPassword)
         Panel1.Controls.Add(txtUserName)
         Panel1.Controls.Add(Label2)
@@ -66,7 +70,7 @@ Partial Class frmUsers
         ' txtUserPassword
         ' 
         txtUserPassword.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txtUserPassword.Location = New Point(543, 14)
+        txtUserPassword.Location = New Point(787, 19)
         txtUserPassword.Name = "txtUserPassword"
         txtUserPassword.PasswordChar = "*"c
         txtUserPassword.ReadOnly = True
@@ -76,7 +80,7 @@ Partial Class frmUsers
         ' txtUserName
         ' 
         txtUserName.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txtUserName.Location = New Point(83, 14)
+        txtUserName.Location = New Point(485, 19)
         txtUserName.Name = "txtUserName"
         txtUserName.ReadOnly = True
         txtUserName.Size = New Size(209, 28)
@@ -86,7 +90,7 @@ Partial Class frmUsers
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(468, 19)
+        Label2.Location = New Point(712, 24)
         Label2.Name = "Label2"
         Label2.Size = New Size(69, 17)
         Label2.TabIndex = 5
@@ -96,7 +100,7 @@ Partial Class frmUsers
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(4, 19)
+        Label1.Location = New Point(404, 24)
         Label1.Name = "Label1"
         Label1.Size = New Size(75, 17)
         Label1.TabIndex = 4
@@ -265,6 +269,25 @@ Partial Class frmUsers
         Panel4.Size = New Size(1013, 70)
         Panel4.TabIndex = 8
         ' 
+        ' txtName
+        ' 
+        txtName.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtName.Location = New Point(77, 18)
+        txtName.Name = "txtName"
+        txtName.ReadOnly = True
+        txtName.Size = New Size(321, 28)
+        txtName.TabIndex = 9
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(22, 23)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(49, 17)
+        Label3.TabIndex = 8
+        Label3.Text = "Name:"
+        ' 
         ' frmUsers
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -310,4 +333,6 @@ Partial Class frmUsers
     Friend WithEvents chkBoxMakePayment As CheckBox
     Friend WithEvents chkBoxAddTenants As CheckBox
     Friend WithEvents chkboxAddHouse As CheckBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents Label3 As Label
 End Class
