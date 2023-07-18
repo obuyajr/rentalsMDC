@@ -25,6 +25,24 @@ Module sysPublics
 
     End Function
 
+
+    Public Function validateStringData(ByVal controlName As Control, ByVal ErrorProviderName As ErrorProvider) As Boolean
+        Dim errorExists As Boolean = False
+
+        If controlName.Text = "" Then
+            ErrorProviderName.SetError(controlName, "Invalid Input")
+            controlName.Focus()
+            errorExists = True
+        Else
+            ErrorProviderName.SetError(controlName, "")
+            errorExists = False
+        End If
+
+        Return errorExists
+
+    End Function
+
+
     Public Function EstablishedConnectionToDB() As Boolean
 
 

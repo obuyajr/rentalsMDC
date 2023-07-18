@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Runtime.CompilerServices
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class frmUsers
@@ -82,6 +83,12 @@ Public Class frmUsers
         Else
             ErrorProvider1.SetError(txtUserName, "")
         End If
+
+        If validateStringData(txtUserName, ErrorProvider1) = False Then
+            Exit Sub
+        End If
+
+
 
 
         If txtUserPassword.Text.Trim = "" Then
