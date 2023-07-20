@@ -24,14 +24,13 @@ Partial Class frmTenants
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
+        txtEmployer = New TextBox()
         Label8 = New Label()
-        txt_NOK_phone = New TextBox()
         txt_NOK = New TextBox()
-        txtEmail = New TextBox()
+        txtPin = New TextBox()
         txtContact = New TextBox()
         txtNationalId = New TextBox()
         txtName = New TextBox()
-        Label7 = New Label()
         Label6 = New Label()
         Label5 = New Label()
         Label4 = New Label()
@@ -58,14 +57,13 @@ Partial Class frmTenants
         Panel1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Panel1.BackColor = Color.WhiteSmoke
         Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(txtEmployer)
         Panel1.Controls.Add(Label8)
-        Panel1.Controls.Add(txt_NOK_phone)
         Panel1.Controls.Add(txt_NOK)
-        Panel1.Controls.Add(txtEmail)
+        Panel1.Controls.Add(txtPin)
         Panel1.Controls.Add(txtContact)
         Panel1.Controls.Add(txtNationalId)
         Panel1.Controls.Add(txtName)
-        Panel1.Controls.Add(Label7)
         Panel1.Controls.Add(Label6)
         Panel1.Controls.Add(Label5)
         Panel1.Controls.Add(Label4)
@@ -74,25 +72,26 @@ Partial Class frmTenants
         Panel1.Controls.Add(Label1)
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1047, 156)
+        Panel1.Size = New Size(1047, 149)
         Panel1.TabIndex = 0
+        ' 
+        ' txtEmployer
+        ' 
+        txtEmployer.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtEmployer.Location = New Point(777, 86)
+        txtEmployer.Name = "txtEmployer"
+        txtEmployer.Size = New Size(261, 26)
+        txtEmployer.TabIndex = 14
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(11, 126)
+        Label8.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Location = New Point(700, 93)
         Label8.Name = "Label8"
-        Label8.Size = New Size(27, 15)
+        Label8.Size = New Size(71, 15)
         Label8.TabIndex = 13
-        Label8.Text = "Pin:"
-        ' 
-        ' txt_NOK_phone
-        ' 
-        txt_NOK_phone.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txt_NOK_phone.Location = New Point(777, 86)
-        txt_NOK_phone.Name = "txt_NOK_phone"
-        txt_NOK_phone.Size = New Size(261, 26)
-        txt_NOK_phone.TabIndex = 12
+        Label8.Text = "Employer :"
         ' 
         ' txt_NOK
         ' 
@@ -102,13 +101,13 @@ Partial Class frmTenants
         txt_NOK.Size = New Size(261, 26)
         txt_NOK.TabIndex = 11
         ' 
-        ' txtEmail
+        ' txtPin
         ' 
-        txtEmail.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txtEmail.Location = New Point(424, 86)
-        txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(261, 26)
-        txtEmail.TabIndex = 10
+        txtPin.Font = New Font("Calibri", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtPin.Location = New Point(424, 86)
+        txtPin.Name = "txtPin"
+        txtPin.Size = New Size(261, 26)
+        txtPin.TabIndex = 10
         ' 
         ' txtContact
         ' 
@@ -134,16 +133,6 @@ Partial Class frmTenants
         txtName.Size = New Size(261, 26)
         txtName.TabIndex = 7
         ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(692, 91)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(79, 15)
-        Label7.TabIndex = 6
-        Label7.Text = "NOK Phone:"
-        ' 
         ' Label6
         ' 
         Label6.AutoSize = True
@@ -158,11 +147,11 @@ Partial Class frmTenants
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(379, 91)
+        Label5.Location = New Point(384, 91)
         Label5.Name = "Label5"
-        Label5.Size = New Size(44, 15)
+        Label5.Size = New Size(34, 15)
         Label5.TabIndex = 4
-        Label5.Text = "Email:"
+        Label5.Text = "Pin :"
         ' 
         ' Label4
         ' 
@@ -331,11 +320,9 @@ Partial Class frmTenants
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txt_NOK_phone As TextBox
     Friend WithEvents txt_NOK As TextBox
-    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtPin As TextBox
     Friend WithEvents txtContact As TextBox
     Friend WithEvents txtNationalId As TextBox
     Friend WithEvents txtName As TextBox
@@ -346,5 +333,6 @@ Partial Class frmTenants
     Friend WithEvents btnDelete As Button
     Friend WithEvents lvwTenants As ListView
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents txtEmployer As TextBox
     Friend WithEvents Label8 As Label
 End Class

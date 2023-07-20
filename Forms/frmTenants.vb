@@ -24,7 +24,8 @@ Public Class frmTenants
         txtNationalId.CharacterCasing = CharacterCasing.Upper
         txtContact.CharacterCasing = CharacterCasing.Upper
         txt_NOK.CharacterCasing = CharacterCasing.Upper
-        txt_NOK_phone.CharacterCasing = CharacterCasing.Upper
+        txtPin.CharacterCasing = CharacterCasing.Upper
+        txtEmployer.CharacterCasing = CharacterCasing.Upper
 
 
     End Sub
@@ -36,12 +37,12 @@ Public Class frmTenants
         With lvwTenants
 
             .Columns.Add("ID", 100, HorizontalAlignment.Left)
-            .Columns.Add("Name", 150, HorizontalAlignment.Left)
             .Columns.Add("National ID", 100, HorizontalAlignment.Left)
+            .Columns.Add("Name", 150, HorizontalAlignment.Left)
             .Columns.Add("Contact", 100, HorizontalAlignment.Left)
-            .Columns.Add("Email Address", 200, HorizontalAlignment.Left)
+            .Columns.Add(" Pin ", 200, HorizontalAlignment.Left)
             .Columns.Add("NOK Name", 150, HorizontalAlignment.Left)
-            .Columns.Add("NOK Phone", 100, HorizontalAlignment.Left)
+            .Columns.Add("Employer", 150, HorizontalAlignment.Left)
             .CheckBoxes = True
 
             .View = View.Details
@@ -53,7 +54,7 @@ Public Class frmTenants
     Private Sub LoadDataTo_lvwTenants()
 
         StrCmd = ""
-        StrCmd = "SELECT * FROM tenants ORDER BY id"
+        StrCmd = "SELECT * FROM tenantRegistration ORDER BY id"
         Cmd = New SqlCommand(StrCmd, conn)
         Dr = Cmd.ExecuteReader
         lvwTenants.Items.Clear()
@@ -63,12 +64,12 @@ Public Class frmTenants
 
             With li
 
-                .SubItems.Add(Dr.Item("name").ToString)
-                .SubItems.Add(Dr.Item("national_id").ToString)
-                .SubItems.Add(Dr.Item("contact").ToString)
-                .SubItems.Add(Dr.Item("email").ToString)
-                .SubItems.Add(Dr.Item("nok_name").ToString)
-                .SubItems.Add(Dr.Item("nok_phone").ToString)
+                .SubItems.Add(Dr.Item("idNo").ToString)
+                .SubItems.Add(Dr.Item("tenantName").ToString)
+                .SubItems.Add(Dr.Item("phoneNo").ToString)
+                .SubItems.Add(Dr.Item("tenantPin").ToString)
+                .SubItems.Add(Dr.Item("nextOfKin").ToString)
+                .SubItems.Add(Dr.Item("employer").ToString)
                 lvwTenants.Items.Add(li)
 
             End With
@@ -109,11 +110,11 @@ Public Class frmTenants
         End If
 
 
-        If txtEmail.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtEmail, "Invalid Input")
+        If txtPin.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtPin, "Invalid Input")
             Exit Sub
         Else
-            ErrorProvider1.SetError(txtEmail, "")
+            ErrorProvider1.SetError(txtPin, "")
         End If
 
         If txt_NOK.Text.Trim = "" Then
@@ -124,11 +125,11 @@ Public Class frmTenants
         End If
 
 
-        If txt_NOK_phone.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_NOK_phone, "Invalid Input")
+        If txtEmployer.Text.Trim = "" Then
+            ErrorProvider1.SetError(txtEmployer, "Invalid Input")
             Exit Sub
         Else
-            ErrorProvider1.SetError(txt_NOK_phone, "")
+            ErrorProvider1.SetError(txtEmployer, "")
         End If
 
         ' End validation ------------------------------------------------------------------------
@@ -145,24 +146,24 @@ Public Class frmTenants
             If currentId <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE tenants set name = '" & txtName.Text.ToUpper.Trim & "',national_id = '" & txtNationalId.Text & "',contact = '" & txtContact.Text & "',email = '" & txtEmail.Text & "',nok_name = '" & txt_NOK.Text & "',nok_phone = '" & txt_NOK_phone.Text & "' where id = " & currentId & ""
+                StrCmd = "UPDATE tenantRegistration set tenantName = '" & txtName.Text.ToUpper.Trim & "',idNo = '" & txtNationalId.Text & "',phoneNo = '" & txtContact.Text & "',tenantPin = '" & txtPin.Text & "',nextOfKin = '" & txt_NOK.Text & "',employer = '" & txtEmployer.Text & "',updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "' where id = " & currentId & ""
 
             Else
                 StrCmd = ""
-                StrCmd = "INSERT INTO tenants" &
-                            "           (name" &
-                            "           ,national_id" &
-                            "           ,contact" &
-                            "           ,email" &
-                            "           ,nok_name" &
-                            "           ,nok_phone)" &
+                StrCmd = "INSERT INTO tenantRegistration" &
+                            "           (tenantName" &
+                            "           ,idNo" &
+                            "           ,phoneNo" &
+                            "           ,tenantPin" &
+                            "           ,nextOfKin" &
+                            "           ,employer)" &
                             "     VALUES" &
                             "           ('" & txtName.Text.ToUpper.Trim & "'" &
                             "           ,'" & txtNationalId.Text.ToUpper & "'" &
                             "           ,'" & txtContact.Text.ToUpper & "'" &
-                            "           ,'" & txtEmail.Text.ToLower & "'" &
+                            "           ,'" & txtPin.Text.ToLower & "'" &
                             "           ,'" & txt_NOK.Text.ToUpper & "'" &
-                            "           ,'" & txt_NOK_phone.Text.ToUpper & "')"
+                            "           ,'" & txtEmployer.Text.ToUpper & "')"
             End If
 
             Cmd = New SqlCommand(StrCmd, conn)
@@ -186,9 +187,9 @@ Public Class frmTenants
             txtName.Text = ""
             txtNationalId.Text = ""
             txtContact.Text = ""
-            txtEmail.Text = ""
+            txtPin.Text = ""
             txt_NOK.Text = ""
-            txt_NOK_phone.Text = ""
+            txtEmployer.Text = ""
 
             txtName.Focus()
 
@@ -216,9 +217,9 @@ Public Class frmTenants
         txtName.ReadOnly = False
         txtNationalId.ReadOnly = False
         txtContact.ReadOnly = False
-        txtEmail.ReadOnly = False
+        txtPin.ReadOnly = False
         txt_NOK.ReadOnly = False
-        txt_NOK_phone.ReadOnly = False
+        txtEmployer.ReadOnly = False
 
 
     End Sub
@@ -241,7 +242,7 @@ Public Class frmTenants
 
 
                     StrCmd = ""
-                    StrCmd = "DELETE tenants where id = " & currentId & ""
+                    StrCmd = "DELETE tenantRegistration where id = " & currentId & ""
 
                     Cmd = New SqlCommand(StrCmd, conn)
 
@@ -272,29 +273,20 @@ Public Class frmTenants
     End Sub
 
     Private Sub lvwTenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwTenants.SelectedIndexChanged
+        If currentState = 1 AndAlso lvwTenants.SelectedItems.Count > 0 Then
+            Dim selectedItem As ListViewItem = lvwTenants.SelectedItems(0)
 
-        Dim I As Integer = 0
-
-        If currentState = 1 Then
-
-            For I = 0 To lvwTenants.Items.Count - 1
-
-                If lvwTenants.Items(I).Selected = True Then
-
-                    currentId = CInt(lvwTenants.Items(I).SubItems(0).Text)
-                    txtName.Text = lvwTenants.Items(I).SubItems(1).Text
-                    txtNationalId.Text = lvwTenants.Items(I).SubItems(2).Text
-                    txtContact.Text = lvwTenants.Items(I).SubItems(3).Text
-                    txtEmail.Text = lvwTenants.Items(I).SubItems(4).Text
-                    txt_NOK.Text = lvwTenants.Items(I).SubItems(5).Text
-                    txt_NOK_phone.Text = lvwTenants.Items(I).SubItems(6).Text
-
-                End If
-
-            Next
-
+            ' Get the data from the selected item
+            currentId = CInt(selectedItem.SubItems(0).Text)
+            txtName.Text = selectedItem.SubItems(1).Text
+            txtNationalId.Text = selectedItem.SubItems(2).Text
+            txtContact.Text = selectedItem.SubItems(3).Text
+            txtPin.Text = selectedItem.SubItems(4).Text
+            txt_NOK.Text = selectedItem.SubItems(5).Text
+            txtEmployer.Text = selectedItem.SubItems(6).Text
         End If
     End Sub
+
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         currentState = 0
@@ -303,14 +295,14 @@ Public Class frmTenants
         txtName.ReadOnly = False
         txtNationalId.ReadOnly = False
         txtContact.ReadOnly = False
-        txtEmail.ReadOnly = False
+        txtPin.ReadOnly = False
         txt_NOK.ReadOnly = False
-        txt_NOK_phone.ReadOnly = False
+        txtEmployer.ReadOnly = False
 
         txtName.Text = ""
         txtNationalId.Text = ""
         txtContact.Text = ""
-        txtEmail.Text = ""
+        txtPin.Text = ""
         txt_NOK.Text = ""
         txt_NOK.Text = ""
 
