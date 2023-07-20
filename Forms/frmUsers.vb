@@ -17,6 +17,8 @@ Public Class frmUsers
         chkBoxAddTenants.Enabled = False
         Define_lvwUsers_Columns()
         LoadDataTo_lvwUsers()
+        txtName.CharacterCasing = CharacterCasing.Upper
+
 
     End Sub
 
@@ -26,11 +28,12 @@ Public Class frmUsers
         With lvwUsers
 
             .Columns.Add("ID", 100, HorizontalAlignment.Left)
+            .Columns.Add("Name", 200, HorizontalAlignment.Left)
             .Columns.Add("Username", 100, HorizontalAlignment.Left)
             .Columns.Add("Super Admin", 100, HorizontalAlignment.Left)
-            .Columns.Add("Can Add House", 100, HorizontalAlignment.Left)
-            .Columns.Add("Can Add Tenants", 100, HorizontalAlignment.Left)
-            .Columns.Add("Can Process Payment", 100, HorizontalAlignment.Left)
+            .Columns.Add("Can Add House", 150, HorizontalAlignment.Left)
+            .Columns.Add("Can Add Tenants", 150, HorizontalAlignment.Left)
+            .Columns.Add("Can Process Payment", 200, HorizontalAlignment.Left)
             .CheckBoxes = True
             .View = View.Details
 
@@ -51,6 +54,7 @@ Public Class frmUsers
 
             With li
 
+                .SubItems.Add(Dr.Item("name").ToString)
                 .SubItems.Add(Dr.Item("username").ToString)
                 .SubItems.Add(Dr.Item("superAdmin").ToString)
                 .SubItems.Add(Dr.Item("addHouse").ToString)
@@ -84,11 +88,9 @@ Public Class frmUsers
             ErrorProvider1.SetError(txtUserName, "")
         End If
 
-        If validateStringData(txtUserName, ErrorProvider1) = False Then
-            Exit Sub
-        End If
-
-
+        'If validateStringData(txtUserName, ErrorProvider1) = False Then
+        '    Exit Sub
+        'End If
 
 
         If txtUserPassword.Text.Trim = "" Then
@@ -127,7 +129,7 @@ Public Class frmUsers
             If currentId <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE users set username = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',superAdmin = '" & isSuperAdmin & "',addHouse = '" & canAddHouse & "',addTenant='" & canAddTenants & "',processPayment = '" & canTakePayments & "'" &
+                StrCmd = "UPDATE users set name = '" & txtName.Text.ToUpper.Trim & "', username = '" & txtUserName.Text.ToUpper.Trim & "',password = '" & txtUserPassword.Text.ToUpper & "',superAdmin = '" & isSuperAdmin & "',addHouse = '" & canAddHouse & "',addTenant='" & canAddTenants & "',processPayment = '" & canTakePayments & "'" &
                    ",updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "' where id = " & currentId & ""
 
 
@@ -258,10 +260,12 @@ Public Class frmUsers
                 If lvwUsers.Items(I).Selected = True Then
 
                     currentId = CInt(lvwUsers.Items(I).SubItems(0).Text)
-                    txtUserName.Text = lvwUsers.Items(I).SubItems(1).Text
+                    txtName.Text = lvwUsers.Items(I).SubItems(1).Text
+                    txtUserName.Text = lvwUsers.Items(I).SubItems(2).Text
+
                     txtUserPassword.Text = ""
 
-                    If lvwUsers.Items(I).SubItems(2).Text.Trim = "Y" Then
+                    If lvwUsers.Items(I).SubItems(3).Text.Trim = "Y" Then
                         chkBoxSuperAdmin.Checked = True
                     Else
                         chkBoxSuperAdmin.Checked = False
