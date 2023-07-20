@@ -81,25 +81,25 @@ Public Class frmAssignHouse
         End Using
 
 
-        Dim query2 As String = "SELECT DISTINCT status FROM houseRegistration"
+        'Dim query2 As String = "SELECT DISTINCT status FROM houseRegistration"
 
-        Using cmd As New SqlCommand(query2, conn)
+        'Using cmd As New SqlCommand(query2, conn)
 
-            Using reader As SqlDataReader = cmd.ExecuteReader()
+        '    Using reader As SqlDataReader = cmd.ExecuteReader()
 
-                combo_status.Items.Clear()
+        '        combo_status.Items.Clear()
 
-                While reader.Read()
+        '        While reader.Read()
 
-                    combo_status.Items.Add(reader("status").ToString())
+        '            combo_status.Items.Add(reader("status").ToString())
 
-                End While
+        '        End While
 
-                reader.Close()
+        '        reader.Close()
 
-            End Using
+        '    End Using
 
-        End Using
+        'End Using
 
 
         Dim query3 As String = "SELECT DISTINCT tenantName FROM tenantRegistration" ' WHERE name NOT IN (SELECT tenant_name FROM rentHouse)"
@@ -340,22 +340,15 @@ Public Class frmAssignHouse
             totalAmount = -1 * CDec(txt_total.Text)
 
 
-
+            '*----------------------insert into assignHouse table--------------------------------------------------
+            '*-------------------------------------------------------------------------------------------------
             StrCmd = ""
-            StrCmd = "INSERT INTO rentHouse" &
-                            "           (house_no" &
-                            "           ,tenant_id" &
-                            "           ,tenant_name" &
-                            "           ,rent" &
-                            "           ,deposit" &
-                            "           ,total)" &
+            StrCmd = "INSERT INTO assignHouse" &
+                            "           (houseNo" &
+                            "           ,tenantID)" &
                             "     VALUES" &
                             "           ('" & txt_houseNo.Text.ToUpper.Trim & "'" &
-                            "           ," & txt_id.Text.ToUpper & "" &
-                            "           ,'" & combo_tenantName.Text.ToUpper & "'" &
-                            "           ," & CDec(txt_rent.Text) & "" &
-                            "           ," & CDec(txtDeposit.Text) & "" &
-                            "           ," & totalAmount & ")"
+                            "           ," & txt_id.Text.ToUpper & ")"
 
 
 
@@ -376,84 +369,86 @@ Public Class frmAssignHouse
 
         Cmd.Dispose()
 
+        '*-------------------------------------------------------------------------------------------------
+        '*-------------------------------------------------------------------------------------------------
 
 
 
 
 
 
-        '*-----------------------Insert into Rent records table------------------------------------------------------
+        '*-----------------------Insert into charge log table------------------------------------------------------
         '*-----------------------------------------------------------------------------------------------------------
+
+
+        'txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+        'Dim totalAmount1 As New Decimal
+        'totalAmount1 = CDec(txt_total.Text)
+
+
+        'Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
+        'Dim transactionType As String = "Bill"
+
+
+        'If chkbox_bill.Checked Then
+        '    StrCmd = ""
+        '    StrCmd = "INSERT INTO chargeLog" &
+        '                        "           (house_no" &
+        '                        "           ,tenant_id" &
+        '                        "           ,tenant_name" &
+        '                        "           ,transaction_description" &
+        '                        "           ,transaction_type" &
+        '                        "           ,debit" &
+        '                        "           ,credit)" &
+        '                        "     VALUES" &
+        '                        "           ('" & txt_houseNo.Text.ToUpper & "'" &
+        '                        "           ,'" & txt_id.Text.ToUpper & "'" &
+        '                        "           ,'" & combo_tenantName.Text.ToUpper & "'" &
+        '                        "           ,'" & transactionDesc & "'" &
+        '                        "           ,'BILL'" &
+        '                        "           ," & totalAmount1 & "" &
+        '                        "           ," & 0 & ")"
+
+        'End If
+
+
+
+
+
+        'Cmd = New SqlCommand(StrCmd, conn)
+
+        'Try
+
+        '    Cmd.ExecuteNonQuery()
+
+        'Catch ex As Exception
+
+        '    MessageBox.Show(ex.Message)
+        '    Exit Sub
+
+        'End Try
+
+        'Cmd.Dispose()
+
+
+
+        ''*--------------------------End-------------------------------------------------------------------------------
+        ''*------------------------------------------------------------------------------------------------------------
+        ''*******************************'
+
+
+        ''*-----------------------Insert into Rent Updates table------------------------------------------------------
+        ''*-----------------------------------------------------------------------------------------------------------
 
 
         txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
         Dim totalAmount1 As New Decimal
         totalAmount1 = CDec(txt_total.Text)
 
-
-        Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
-        Dim transactionType As String = "Bill"
-
-
-        If chkbox_bill.Checked Then
-            StrCmd = ""
-            StrCmd = "INSERT INTO rent_records" &
-                                "           (house_no" &
-                                "           ,tenant_id" &
-                                "           ,tenant_name" &
-                                "           ,transaction_description" &
-                                "           ,transaction_type" &
-                                "           ,debit" &
-                                "           ,credit)" &
-                                "     VALUES" &
-                                "           ('" & txt_houseNo.Text.ToUpper & "'" &
-                                "           ,'" & txt_id.Text.ToUpper & "'" &
-                                "           ,'" & combo_tenantName.Text.ToUpper & "'" &
-                                "           ,'" & transactionDesc & "'" &
-                                "           ,'BILL'" &
-                                "           ," & totalAmount1 & "" &
-                                "           ," & 0 & ")"
-
-        End If
-
-
-
-
-
-        Cmd = New SqlCommand(StrCmd, conn)
-
-        Try
-
-            Cmd.ExecuteNonQuery()
-
-        Catch ex As Exception
-
-            MessageBox.Show(ex.Message)
-            Exit Sub
-
-        End Try
-
-        Cmd.Dispose()
-
-
-
-        '*--------------------------End-------------------------------------------------------------------------------
-        '*------------------------------------------------------------------------------------------------------------
-        '*******************************'
-
-
-        '*-----------------------Insert into Rent Updates table------------------------------------------------------
-        '*-----------------------------------------------------------------------------------------------------------
-
-
-        txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-        'Dim totalAmount1 As New Decimal
-        totalAmount1 = CDec(txt_total.Text)
-
         If chkbox_bill.Checked Then
 
             StrCmd = ""
-            StrCmd = "DELETE FROM rent_updates WHERE house_no = '" & txt_houseNo.Text & "'"
+            StrCmd = "DELETE FROM rentUpdates WHERE houseNo = '" & txt_houseNo.Text & "'"
 
             Cmd = New SqlCommand(StrCmd, conn)
 
@@ -482,15 +477,13 @@ Public Class frmAssignHouse
 
             '*-----------------------------------------------------------------------------------------------------------
             StrCmd = ""
-            StrCmd = "INSERT INTO rent_updates" &
-                                "           (house_no" &
-                                "           ,tenant_id" &
-                                "           ,tenant_name" &
-                                "           ,balance )" &
+            StrCmd = "INSERT INTO rentUpdates" &
+                                "           (houseNo" &
+                                "           ,tenantID" &
+                                "           ,runningBalance )" &
                                 "     VALUES" &
                                 "           ('" & txt_houseNo.Text.ToUpper & "'" &
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
-                                "           ,'" & combo_tenantName.Text.ToUpper & "'" &
                                 "           ," & totalAmount1 & ")"
 
         End If
@@ -516,22 +509,22 @@ Public Class frmAssignHouse
 
 
 
-        '*--------------------------End-------------------------------------------------------------------------------
-        '*------------------------------------------------------------------------------------------------------------
-        '*******************************'
+        ''*--------------------------End-------------------------------------------------------------------------------
+        ''*------------------------------------------------------------------------------------------------------------
+        ''*******************************'
 
 
 
 
-        '*------------------------------------------------------------------------------------------------------
-        '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+        ''*------------------------------------------------------------------------------------------------------
+        ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
 
         If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
 
 
 
             StrCmd = ""
-            StrCmd = "UPDATE houses SET status = 'OCCUPIED' WHERE house_no = '" & txt_houseNo.Text & "'"
+            StrCmd = "UPDATE houseRegistration SET status = 'OCCUPIED' WHERE houseNo = '" & txt_houseNo.Text & "'"
             Cmd = New SqlCommand(StrCmd, conn)
 
             Try
@@ -553,8 +546,8 @@ Public Class frmAssignHouse
 
         End If
 
-        '*------------------------------------------------------------------------------------------------------
-        '*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+        ''*------------------------------------------------------------------------------------------------------
+        ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
 
 
 
@@ -586,7 +579,7 @@ Public Class frmAssignHouse
     End Sub
 
     Private Sub btn_assignHouse_Click(sender As Object, e As EventArgs) Handles btn_assignHouse.Click
-        ' Assign_House_To_Tenants()
+        Assign_House_To_Tenants()
         Display_Data_on_Comboboxes_from_DatabaseTable()
 
 

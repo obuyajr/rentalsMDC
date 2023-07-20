@@ -86,6 +86,7 @@ Partial Class frmAssignHouse
         ' 
         combo_status.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
         combo_status.FormattingEnabled = True
+        combo_status.Items.AddRange(New Object() {"AVAILABLE"})
         combo_status.Location = New Point(731, 16)
         combo_status.Name = "combo_status"
         combo_status.Size = New Size(169, 28)
