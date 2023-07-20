@@ -208,6 +208,7 @@ Partial Class frmTenants
         ' 
         lvwTenants.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         lvwTenants.BackColor = Color.White
+        lvwTenants.FullRowSelect = True
         lvwTenants.Location = New Point(11, 15)
         lvwTenants.Name = "lvwTenants"
         lvwTenants.Size = New Size(1027, 203)

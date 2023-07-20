@@ -18,6 +18,7 @@ Public Class frmUsers
         Define_lvwUsers_Columns()
         LoadDataTo_lvwUsers()
         txtName.CharacterCasing = CharacterCasing.Upper
+        txtName.Focus()
 
 
     End Sub
@@ -192,6 +193,8 @@ Public Class frmUsers
             currentState = 0
 
             btnadd.Focus()
+            txtName.Focus()
+
             Beep()
 
             MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
@@ -225,6 +228,9 @@ Public Class frmUsers
         chkboxAddHouse.Checked = False
         chkBoxMakePayment.Checked = False
         chkBoxSuperAdmin.Checked = False
+
+        txtName.Focus()
+
 
     End Sub
 

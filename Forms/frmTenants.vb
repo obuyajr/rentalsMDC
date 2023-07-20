@@ -10,9 +10,19 @@ Public Class frmTenants
     Private Sub frmTenants_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
-        Define_listviewUsers_Columns()
+        Define_listviewTenants_Columns()
         LoadDataTo_lvwTenants()
         TextBoxes_To_Take_Uppercase_data()
+
+        txtName.ReadOnly = True
+        txtNationalId.ReadOnly = True
+        txtContact.ReadOnly = True
+        txtPin.ReadOnly = True
+        txt_NOK.ReadOnly = True
+        txtEmployer.ReadOnly = True
+
+
+
 
 
 
@@ -32,7 +42,7 @@ Public Class frmTenants
 
 
 
-    Private Sub Define_listviewUsers_Columns()
+    Private Sub Define_listviewTenants_Columns()
 
         With lvwTenants
 
@@ -44,7 +54,6 @@ Public Class frmTenants
             .Columns.Add("NOK Name", 150, HorizontalAlignment.Left)
             .Columns.Add("Employer", 150, HorizontalAlignment.Left)
             .CheckBoxes = True
-
             .View = View.Details
 
         End With
@@ -273,20 +282,29 @@ Public Class frmTenants
     End Sub
 
     Private Sub lvwTenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lvwTenants.SelectedIndexChanged
-        If currentState = 1 AndAlso lvwTenants.SelectedItems.Count > 0 Then
-            Dim selectedItem As ListViewItem = lvwTenants.SelectedItems(0)
 
-            ' Get the data from the selected item
-            currentId = CInt(selectedItem.SubItems(0).Text)
-            txtName.Text = selectedItem.SubItems(1).Text
-            txtNationalId.Text = selectedItem.SubItems(2).Text
-            txtContact.Text = selectedItem.SubItems(3).Text
-            txtPin.Text = selectedItem.SubItems(4).Text
-            txt_NOK.Text = selectedItem.SubItems(5).Text
-            txtEmployer.Text = selectedItem.SubItems(6).Text
+        Dim I As Integer = 0
+
+        If currentState = 1 Then
+
+            For I = 0 To lvwTenants.Items.Count - 1
+
+                If lvwTenants.Items(I).Selected = True Then
+
+                    currentId = CInt(lvwTenants.Items(I).SubItems(0).Text)
+                    txtName.Text = lvwTenants.Items(I).SubItems(1).Text
+                    txtNationalId.Text = lvwTenants.Items(I).SubItems(2).Text
+                    txtContact.Text = lvwTenants.Items(I).SubItems(3).Text
+                    txtPin.Text = lvwTenants.Items(I).SubItems(4).Text
+                    txt_NOK.Text = lvwTenants.Items(I).SubItems(5).Text
+                    txtEmployer.Text = lvwTenants.Items(I).SubItems(6).Text
+
+                End If
+
+            Next
+
         End If
     End Sub
-
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         currentState = 0
@@ -305,6 +323,8 @@ Public Class frmTenants
         txtPin.Text = ""
         txt_NOK.Text = ""
         txt_NOK.Text = ""
+        txtName.Focus()
+
 
 
     End Sub
