@@ -17,6 +17,16 @@ Public Class frmHouses
 
         combo_category.DropDownStyle = ComboBoxStyle.DropDownList
         combo_status.DropDownStyle = ComboBoxStyle.DropDownList
+        combo_vat.DropDownStyle = ComboBoxStyle.DropDownList
+
+        txtHouseNo.ReadOnly = True
+        txtDeposit.ReadOnly = True
+        txtLocation.ReadOnly = True
+        txtRent.ReadOnly = True
+
+        txtHouseNo.Focus()
+
+
 
 
     End Sub
@@ -44,8 +54,8 @@ Public Class frmHouses
             .Columns.Add("Category", 300, HorizontalAlignment.Left)
             .Columns.Add("Rent", 100, HorizontalAlignment.Left)
             .Columns.Add("Deposit", 100, HorizontalAlignment.Left)
-            .Columns.Add("VAT Type", 100, HorizontalAlignment.Left)
             .Columns.Add("Status", 100, HorizontalAlignment.Left)
+            .Columns.Add("VAT Type", 100, HorizontalAlignment.Left)
 
             .CheckBoxes = True
 
@@ -58,7 +68,7 @@ Public Class frmHouses
     Private Sub LoadDataTo_lvwHouses()
 
         StrCmd = ""
-        StrCmd = "SELECT * FROM houses ORDER BY id"
+        StrCmd = "SELECT * FROM houseRegistration ORDER BY id"
         Cmd = New SqlCommand(StrCmd, conn)
         Dr = Cmd.ExecuteReader
         lvwHouses.Items.Clear()
@@ -68,13 +78,13 @@ Public Class frmHouses
 
             With li
 
-                .SubItems.Add(Dr.Item("house_no").ToString)
+                .SubItems.Add(Dr.Item("houseNo").ToString)
                 .SubItems.Add(Dr.Item("location").ToString)
                 .SubItems.Add(Dr.Item("category").ToString)
                 .SubItems.Add(Dr.Item("rent").ToString)
                 .SubItems.Add(Dr.Item("deposit").ToString)
-                .SubItems.Add(Dr.Item("vat_type").ToString)
                 .SubItems.Add(Dr.Item("status").ToString)
+                .SubItems.Add(Dr.Item("vatType").ToString)
 
                 lvwHouses.Items.Add(li)
 
@@ -159,26 +169,26 @@ Public Class frmHouses
             If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE houses set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',vat_type = '" & combo_vat.Text & "'status = '" & combo_status.Text & "' where id = " & currentID & ""
+                StrCmd = "UPDATE houseRegistration set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',status = '" & combo_status.Text & "' ,vatType = '" & combo_vat.Text & "',updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "'  where id = " & currentID & ""
 
             Else
                 StrCmd = ""
-                StrCmd = "INSERT INTO houses" &
-                            "           (house_no" &
+                StrCmd = "INSERT INTO houseRegistration" &
+                            "           (houseNo" &
                             "           ,location" &
                             "           ,category" &
                             "           ,rent" &
                             "           ,deposit" &
-                            "           ,vat_type" &
-                            "           ,status)" &
+                            "           ,status" &
+                            "           ,vatType)" &
                             "     VALUES" &
                             "           ('" & txtHouseNo.Text.ToUpper.Trim & "'" &
                             "           ,'" & txtLocation.Text.ToUpper & "'" &
                             "           ,'" & combo_category.Text.ToUpper & "'" &
                             "           ,'" & txtRent.Text.ToLower & "'" &
                             "           ,'" & txtDeposit.Text.ToUpper & "'" &
-                            "           ,'" & combo_vat.Text.ToUpper & "'" &
-                            "           ,'" & combo_status.Text.ToUpper & "')"
+                            "           ,'" & combo_status.Text.ToUpper & "'" &
+                            "           ,'" & combo_vat.Text.ToUpper & "')"
             End If
 
             Cmd = New SqlCommand(StrCmd, conn)
@@ -233,6 +243,7 @@ Public Class frmHouses
         txtLocation.ReadOnly = False
         txtRent.ReadOnly = False
         txtDeposit.ReadOnly = False
+        txtHouseNo.Focus()
 
 
 
@@ -256,7 +267,7 @@ Public Class frmHouses
 
 
                     StrCmd = ""
-                    StrCmd = "DELETE houses where id = " & currentID & ""
+                    StrCmd = "DELETE houseRegistration where id = " & currentID & ""
 
                     Cmd = New SqlCommand(StrCmd, conn)
 
@@ -283,6 +294,19 @@ Public Class frmHouses
 
         LoadDataTo_lvwHouses()
 
+        combo_category.Text = Nothing
+        txtDeposit.Text = ""
+        txtHouseNo.Text = ""
+        txtLocation.Text = ""
+        txtRent.Text = ""
+        combo_status.Text = Nothing
+        combo_vat.Text = Nothing
+
+        Beep()
+
+        txtHouseNo.Focus()
+
+
 
     End Sub
 
@@ -304,6 +328,8 @@ Public Class frmHouses
                     txtRent.Text = lvwHouses.Items(I).SubItems(4).Text
                     txtDeposit.Text = lvwHouses.Items(I).SubItems(5).Text
                     combo_status.Text = lvwHouses.Items(I).SubItems(6).Text
+                    combo_vat.Text = lvwHouses.Items(I).SubItems(7).Text
+
 
                 End If
 
@@ -327,10 +353,11 @@ Public Class frmHouses
         txtLocation.Text = ""
         txtDeposit.Text = ""
         txtRent.Text = ""
-        combo_status.Text = ""
-        combo_category.Text = ""
+        combo_status.Text = Nothing
+        combo_category.Text = Nothing
+        combo_vat.Text = Nothing
 
-
+        txtHouseNo.Focus()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_reset.Click

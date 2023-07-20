@@ -85,7 +85,7 @@ Partial Class frmHouses
         combo_vat.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_vat.FormattingEnabled = True
         combo_vat.Items.AddRange(New Object() {"E", "V", "Z"})
-        combo_vat.Location = New Point(86, 131)
+        combo_vat.Location = New Point(758, 85)
         combo_vat.Name = "combo_vat"
         combo_vat.Size = New Size(261, 27)
         combo_vat.TabIndex = 7
@@ -94,7 +94,7 @@ Partial Class frmHouses
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.Location = New Point(41, 137)
+        Label8.Location = New Point(713, 91)
         Label8.Name = "Label8"
         Label8.Size = New Size(39, 15)
         Label8.TabIndex = 8
@@ -105,7 +105,7 @@ Partial Class frmHouses
         combo_status.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_status.FormattingEnabled = True
         combo_status.Items.AddRange(New Object() {"AVAILABLE"})
-        combo_status.Location = New Point(758, 86)
+        combo_status.Location = New Point(758, 36)
         combo_status.Name = "combo_status"
         combo_status.Size = New Size(261, 27)
         combo_status.TabIndex = 6
@@ -115,23 +115,23 @@ Partial Class frmHouses
         combo_category.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
         combo_category.FormattingEnabled = True
         combo_category.Items.AddRange(New Object() {"BEDSITTER UNIT", "OFFICE UNIT ( SHOP UNIT )", "1 BEDROOM", "2 BEDROOM", "3 BEDROOM", "4 BEDROOM", "5 BEDROOM", ""})
-        combo_category.Location = New Point(430, 36)
+        combo_category.Location = New Point(86, 131)
         combo_category.Name = "combo_category"
-        combo_category.Size = New Size(255, 27)
+        combo_category.Size = New Size(261, 27)
         combo_category.TabIndex = 3
         ' 
         ' txtDeposit
         ' 
         txtDeposit.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        txtDeposit.Location = New Point(758, 34)
+        txtDeposit.Location = New Point(416, 86)
         txtDeposit.Name = "txtDeposit"
-        txtDeposit.Size = New Size(261, 27)
+        txtDeposit.Size = New Size(255, 27)
         txtDeposit.TabIndex = 5
         ' 
         ' txtRent
         ' 
         txtRent.Font = New Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        txtRent.Location = New Point(430, 86)
+        txtRent.Location = New Point(416, 36)
         txtRent.Name = "txtRent"
         txtRent.Size = New Size(255, 27)
         txtRent.TabIndex = 4
@@ -156,7 +156,7 @@ Partial Class frmHouses
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(703, 91)
+        Label7.Location = New Point(703, 43)
         Label7.Name = "Label7"
         Label7.Size = New Size(49, 15)
         Label7.TabIndex = 6
@@ -166,7 +166,7 @@ Partial Class frmHouses
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.Location = New Point(694, 39)
+        Label6.Location = New Point(352, 91)
         Label6.Name = "Label6"
         Label6.Size = New Size(58, 15)
         Label6.TabIndex = 5
@@ -176,7 +176,7 @@ Partial Class frmHouses
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.Location = New Point(385, 93)
+        Label5.Location = New Point(371, 43)
         Label5.Name = "Label5"
         Label5.Size = New Size(39, 15)
         Label5.TabIndex = 4
@@ -186,7 +186,7 @@ Partial Class frmHouses
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(358, 39)
+        Label4.Location = New Point(14, 137)
         Label4.Name = "Label4"
         Label4.Size = New Size(66, 15)
         Label4.TabIndex = 3
@@ -237,6 +237,7 @@ Partial Class frmHouses
         ' 
         lvwHouses.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         lvwHouses.BackColor = Color.White
+        lvwHouses.FullRowSelect = True
         lvwHouses.Location = New Point(11, 15)
         lvwHouses.Name = "lvwHouses"
         lvwHouses.Size = New Size(1081, 203)
