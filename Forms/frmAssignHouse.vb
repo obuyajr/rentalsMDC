@@ -38,7 +38,7 @@ Public Class frmAssignHouse
     Public Sub Display_Data_on_Comboboxes_from_DatabaseTable()
 
 
-        Dim query As String = "SELECT DISTINCT location FROM houses"
+        Dim query As String = "SELECT DISTINCT location FROM houseRegistration"
 
         Using cmd As New SqlCommand(query, conn)
 
@@ -60,7 +60,7 @@ Public Class frmAssignHouse
 
 
 
-        Dim query1 As String = "SELECT DISTINCT category FROM houses"
+        Dim query1 As String = "SELECT DISTINCT category FROM houseRegistration"
         Using cmd As New SqlCommand(query1, conn)
 
             Using reader As SqlDataReader = cmd.ExecuteReader()
@@ -81,7 +81,7 @@ Public Class frmAssignHouse
         End Using
 
 
-        Dim query2 As String = "SELECT DISTINCT status FROM houses"
+        Dim query2 As String = "SELECT DISTINCT status FROM houseRegistration"
 
         Using cmd As New SqlCommand(query2, conn)
 
@@ -102,7 +102,7 @@ Public Class frmAssignHouse
         End Using
 
 
-        Dim query3 As String = "SELECT DISTINCT name FROM tenants WHERE name NOT IN (SELECT tenant_name FROM rentHouse)"
+        Dim query3 As String = "SELECT DISTINCT tenantName FROM tenantRegistration" ' WHERE name NOT IN (SELECT tenant_name FROM rentHouse)"
 
         Using cmd As New SqlCommand(query3, conn)
 
@@ -114,7 +114,7 @@ Public Class frmAssignHouse
 
                 While reader.Read()
 
-                    combo_tenantName.Items.Add(reader("name").ToString())
+                    combo_tenantName.Items.Add(reader("tenantName").ToString())
 
 
                 End While
@@ -131,7 +131,7 @@ Public Class frmAssignHouse
     Private Sub combo_tenantName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_tenantName.SelectedIndexChanged
 
         StrCmd = ""
-        StrCmd = "SELECT id FROM tenants WHERE name = '" & combo_tenantName.Text & "'"
+        StrCmd = "SELECT id FROM tenantRegistration WHERE tenantName = '" & combo_tenantName.Text & "'"
         Cmd = New SqlCommand(StrCmd, conn)
 
         Dim reader As SqlDataReader = Cmd.ExecuteReader()
@@ -170,7 +170,7 @@ Public Class frmAssignHouse
     Private Sub LoadDataTo_lvwHouses()
 
         StrCmd = ""
-        StrCmd = "SELECT * FROM houses WHERE category = '" & combo_category.Text & "' AND location = '" & combo_location.Text & "' AND status ='" & combo_status.Text & "'"
+        StrCmd = "SELECT * FROM houseRegistration WHERE category = '" & combo_category.Text & "' AND location = '" & combo_location.Text & "' AND status ='" & combo_status.Text & "'"
         Cmd = New SqlCommand(StrCmd, conn)
         Dr = Cmd.ExecuteReader
         lvwHouses.Items.Clear()
@@ -180,7 +180,7 @@ Public Class frmAssignHouse
 
             With li
 
-                .SubItems.Add(Dr.Item("house_no").ToString)
+                .SubItems.Add(Dr.Item("houseNo").ToString)
                 .SubItems.Add(Dr.Item("location").ToString)
                 .SubItems.Add(Dr.Item("category").ToString)
                 .SubItems.Add(Dr.Item("rent").ToString)
@@ -586,7 +586,7 @@ Public Class frmAssignHouse
     End Sub
 
     Private Sub btn_assignHouse_Click(sender As Object, e As EventArgs) Handles btn_assignHouse.Click
-        Assign_House_To_Tenants()
+        ' Assign_House_To_Tenants()
         Display_Data_on_Comboboxes_from_DatabaseTable()
 
 
