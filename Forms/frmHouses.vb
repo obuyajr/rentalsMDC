@@ -171,6 +171,7 @@ Public Class frmHouses
                 StrCmd = ""
                 StrCmd = "UPDATE houseRegistration set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',vatType = '" & combo_vat.Text & "',updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "'  where id = " & currentID & ""
 
+
             Else
                 StrCmd = ""
                 StrCmd = "INSERT INTO houseRegistration" &
@@ -244,7 +245,8 @@ Public Class frmHouses
         txtRent.ReadOnly = False
         txtDeposit.ReadOnly = False
         txtHouseNo.Focus()
-
+        combo_status.Enabled = False
+        ErrorProvider1.SetError(combo_status, "")
 
 
     End Sub
