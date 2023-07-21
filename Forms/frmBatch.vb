@@ -9,7 +9,7 @@ Public Class frmBatch
 
 
         StrCmd = ""
-        StrCmd = "SELECT * FROM rentHouse"
+        StrCmd = "SELECT * FROM assignHouse"
         Cmd = New SqlCommand(StrCmd, conn)
         Dr = Cmd.ExecuteReader
 
@@ -19,44 +19,44 @@ Public Class frmBatch
         While Dr.Read
 
 
+            'StrCmd = ""
+            'StrCmd = "INSERT INTO rent_records" &
+            '                    "           (house_no" &
+            '                    "           ,tenant_id" &
+            '                    "           ,tenant_name" &
+            '                    "           ,transaction_description" &
+            '                    "           ,transaction_type" &
+            '                    "           ,debit" &
+            '                    "           ,credit)" &
+            '                    "     VALUES" &
+            '                    "           ('" & Dr.Item("house_no") & "'" &
+            '                    "           ,'" & Dr.Item("tenant_id") & "'" &
+            '                    "           ,'" & Dr.Item("tenant_name") & "'" &
+            '                    "           ,'Rent House Number:" & Dr.Item("house_no") & "'" &
+            '                    "           ,'BILL'" &
+            '                    "           ," & Dr.Item("rent") & "" &
+            '                    "           ," & 0 & ")"
+
+            'Cmd = New SqlCommand(StrCmd, conn)
+
+
+            'Try
+            '    Cmd.ExecuteNonQuery()
+            'Catch ex As Exception
+            '    MessageBox.Show(ex.Message)
+
+            'End Try
+            'Cmd.Dispose()
+
+
+
             StrCmd = ""
-            StrCmd = "INSERT INTO rent_records" &
-                                "           (house_no" &
-                                "           ,tenant_id" &
-                                "           ,tenant_name" &
-                                "           ,transaction_description" &
-                                "           ,transaction_type" &
-                                "           ,debit" &
-                                "           ,credit)" &
-                                "     VALUES" &
-                                "           ('" & Dr.Item("house_no") & "'" &
-                                "           ,'" & Dr.Item("tenant_id") & "'" &
-                                "           ,'" & Dr.Item("tenant_name") & "'" &
-                                "           ,'Rent House Number:" & Dr.Item("house_no") & "'" &
-                                "           ,'BILL'" &
-                                "           ," & Dr.Item("rent") & "" &
-                                "           ," & 0 & ")"
 
-            Cmd = New SqlCommand(StrCmd, conn)
-
-
-            Try
-                Cmd.ExecuteNonQuery()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-
-            End Try
-            Cmd.Dispose()
-
-
-
-            StrCmd = ""
-
-            StrCmd = "UPDATE rent_updates" &
-                             " SET tenant_id = '" & Dr.Item("tenant_id") & "'" &
-                             " ,tenant_name = '" & Dr.Item("tenant_name") & "'" &
-                             " ,balance = balance + " & Dr.Item("rent") &
-                             " WHERE house_no = '" & Dr.Item("house_no") & "'"
+            StrCmd = "UPDATE rentUpdates" &
+         " SET tenantID = '" & Dr.Item("tenantID") & "'" &
+         " ,runningBalance = runningBalance + " &
+         "(SELECT rent FROM houseRegistration WHERE houseNo = '" & Dr.Item("houseNo") & "')" &
+         " WHERE houseNo = '" & Dr.Item("houseNo") & "'"
 
             Cmd = New SqlCommand(StrCmd, conn)
 

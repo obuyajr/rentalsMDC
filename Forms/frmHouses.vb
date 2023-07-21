@@ -169,7 +169,7 @@ Public Class frmHouses
             If currentID <> 0 Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE houseRegistration set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',status = '" & combo_status.Text & "' ,vatType = '" & combo_vat.Text & "',updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "'  where id = " & currentID & ""
+                StrCmd = "UPDATE houseRegistration set location = '" & txtLocation.Text.ToUpper.Trim & "',category = '" & combo_category.Text & "',rent = '" & txtRent.Text & "',deposit = '" & txtDeposit.Text & "',vatType = '" & combo_vat.Text & "',updatedDate = '" & generateYYYYdashMMdashDDDateformat(Now()) & "'  where id = " & currentID & ""
 
             Else
                 StrCmd = ""
