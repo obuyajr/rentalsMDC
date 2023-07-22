@@ -102,14 +102,14 @@ Public Class frmAssignHouse
         End Using
 
 
-        ' Dim query3 As String = "SELECT DISTINCT tenantName FROM tenantRegistration" ' WHERE tenantName NOT IN (SELECT tenant_name FROM rentHouse)"
 
-        Dim query3 As String = " Select  DISTINCT tenantName
-From tenantRegistration
-Where id Not In (
-    Select tenantID
-    From assignHouse
-)"
+
+        Dim query3 As String = " SELECT  DISTINCT tenantName
+                                        FROM tenantRegistration
+                                        WHERE id NOT  IN (
+                                                        SELECT tenantID
+                                                        FROM assignHouse
+                                                         )"
 
 
         Using cmd As New SqlCommand(query3, conn)
@@ -339,19 +339,31 @@ Where id Not In (
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
 
+        Dim checkOccupiedQuery As String = "SELECT COUNT(*) FROM assignHouse WHERE houseNo = '" & txt_houseNo.Text.ToUpper.Trim & "' "
+
+        Cmd = New SqlCommand(checkOccupiedQuery, conn)
+
+        Try
+
+            Dim result As Integer = Convert.ToInt32(Cmd.ExecuteScalar())
 
 
-        If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+            If result > 0 Then
 
-            txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-            Dim totalAmount As New Decimal
-            totalAmount = -1 * CDec(txt_total.Text)
+                MessageBox.Show("The selected house is already occupied and cannot be assigned to another tenant.", "Occupied House", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            Else
+                If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+
+                    txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+                    Dim totalAmount As New Decimal
+                    totalAmount = -1 * CDec(txt_total.Text)
 
 
-            '*----------------------insert into assignHouse table--------------------------------------------------
-            '*-------------------------------------------------------------------------------------------------
-            StrCmd = ""
-            StrCmd = "INSERT INTO assignHouse" &
+                    '*----------------------insert into assignHouse table--------------------------------------------------
+                    '*-------------------------------------------------------------------------------------------------
+                    StrCmd = ""
+                    StrCmd = "INSERT INTO assignHouse" &
                             "           (houseNo" &
                             "           ,tenantID)" &
                             "     VALUES" &
@@ -360,132 +372,132 @@ Where id Not In (
 
 
 
-        End If
+                End If
 
-        Cmd = New SqlCommand(StrCmd, conn)
+                Cmd = New SqlCommand(StrCmd, conn)
 
-        Try
+                Try
 
-            Cmd.ExecuteNonQuery()
+                    Cmd.ExecuteNonQuery()
 
-        Catch ex As Exception
+                Catch ex As Exception
 
-            MessageBox.Show(ex.Message)
-            Exit Sub
+                    MessageBox.Show(ex.Message)
+                    Exit Sub
 
-        End Try
+                End Try
 
-        Cmd.Dispose()
+                Cmd.Dispose()
 
-        '*-------------------------------------------------------------------------------------------------
-        '*-------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-        '*-----------------------Insert into charge log table------------------------------------------------------
-        '*-----------------------------------------------------------------------------------------------------------
-
-
-        'txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-        'Dim totalAmount1 As New Decimal
-        'totalAmount1 = CDec(txt_total.Text)
-
-
-        'Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
-        'Dim transactionType As String = "Bill"
-
-
-        'If chkbox_bill.Checked Then
-        '    StrCmd = ""
-        '    StrCmd = "INSERT INTO chargeLog" &
-        '                        "           (house_no" &
-        '                        "           ,tenant_id" &
-        '                        "           ,tenant_name" &
-        '                        "           ,transaction_description" &
-        '                        "           ,transaction_type" &
-        '                        "           ,debit" &
-        '                        "           ,credit)" &
-        '                        "     VALUES" &
-        '                        "           ('" & txt_houseNo.Text.ToUpper & "'" &
-        '                        "           ,'" & txt_id.Text.ToUpper & "'" &
-        '                        "           ,'" & combo_tenantName.Text.ToUpper & "'" &
-        '                        "           ,'" & transactionDesc & "'" &
-        '                        "           ,'BILL'" &
-        '                        "           ," & totalAmount1 & "" &
-        '                        "           ," & 0 & ")"
-
-        'End If
+                '*-------------------------------------------------------------------------------------------------
+                '*-------------------------------------------------------------------------------------------------
 
 
 
 
 
-        'Cmd = New SqlCommand(StrCmd, conn)
 
-        'Try
-
-        '    Cmd.ExecuteNonQuery()
-
-        'Catch ex As Exception
-
-        '    MessageBox.Show(ex.Message)
-        '    Exit Sub
-
-        'End Try
-
-        'Cmd.Dispose()
+                '*-----------------------Insert into charge log table------------------------------------------------------
+                '*-----------------------------------------------------------------------------------------------------------
 
 
-
-        ''*--------------------------End-------------------------------------------------------------------------------
-        ''*------------------------------------------------------------------------------------------------------------
-        ''*******************************'
-
-
-        ''*-----------------------Insert into Rent Updates table------------------------------------------------------
-        ''*-----------------------------------------------------------------------------------------------------------
+                'txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+                'Dim totalAmount1 As New Decimal
+                'totalAmount1 = CDec(txt_total.Text)
 
 
-        txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-        Dim totalAmount1 As New Decimal
-        totalAmount1 = CDec(txt_total.Text)
+                'Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
+                'Dim transactionType As String = "Bill"
 
-        If chkbox_bill.Checked Then
 
-            StrCmd = ""
-            StrCmd = "DELETE FROM rentUpdates WHERE houseNo = '" & txt_houseNo.Text & "'"
+                'If chkbox_bill.Checked Then
+                '    StrCmd = ""
+                '    StrCmd = "INSERT INTO chargeLog" &
+                '                        "           (house_no" &
+                '                        "           ,tenant_id" &
+                '                        "           ,tenant_name" &
+                '                        "           ,transaction_description" &
+                '                        "           ,transaction_type" &
+                '                        "           ,debit" &
+                '                        "           ,credit)" &
+                '                        "     VALUES" &
+                '                        "           ('" & txt_houseNo.Text.ToUpper & "'" &
+                '                        "           ,'" & txt_id.Text.ToUpper & "'" &
+                '                        "           ,'" & combo_tenantName.Text.ToUpper & "'" &
+                '                        "           ,'" & transactionDesc & "'" &
+                '                        "           ,'BILL'" &
+                '                        "           ," & totalAmount1 & "" &
+                '                        "           ," & 0 & ")"
 
-            Cmd = New SqlCommand(StrCmd, conn)
-
-            Try
-
-                Cmd.ExecuteNonQuery()
-
-            Catch ex As Exception
-
-                MessageBox.Show(ex.Message)
-                Exit Sub
-
-            End Try
-
-            Cmd.Dispose()
-
-        End If
+                'End If
 
 
 
 
 
-        If chkbox_bill.Checked Then
+                'Cmd = New SqlCommand(StrCmd, conn)
+
+                'Try
+
+                '    Cmd.ExecuteNonQuery()
+
+                'Catch ex As Exception
+
+                '    MessageBox.Show(ex.Message)
+                '    Exit Sub
+
+                'End Try
+
+                'Cmd.Dispose()
 
 
 
-            '*-----------------------------------------------------------------------------------------------------------
-            StrCmd = ""
-            StrCmd = "INSERT INTO rentUpdates" &
+                ''*--------------------------End-------------------------------------------------------------------------------
+                ''*------------------------------------------------------------------------------------------------------------
+                ''*******************************'
+
+
+                ''*-----------------------Insert into Rent Updates table------------------------------------------------------
+                ''*-----------------------------------------------------------------------------------------------------------
+
+
+                txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+                Dim totalAmount1 As New Decimal
+                totalAmount1 = CDec(txt_total.Text)
+
+                If chkbox_bill.Checked Then
+
+                    StrCmd = ""
+                    StrCmd = "DELETE FROM rentUpdates WHERE houseNo = '" & txt_houseNo.Text & "'"
+
+                    Cmd = New SqlCommand(StrCmd, conn)
+
+                    Try
+
+                        Cmd.ExecuteNonQuery()
+
+                    Catch ex As Exception
+
+                        MessageBox.Show(ex.Message)
+                        Exit Sub
+
+                    End Try
+
+                    Cmd.Dispose()
+
+                End If
+
+
+
+
+
+                If chkbox_bill.Checked Then
+
+
+
+                    '*-----------------------------------------------------------------------------------------------------------
+                    StrCmd = ""
+                    StrCmd = "INSERT INTO rentUpdates" &
                                 "           (houseNo" &
                                 "           ,tenantID" &
                                 "           ,runningBalance )" &
@@ -494,89 +506,96 @@ Where id Not In (
                                 "           ,'" & txt_id.Text.ToUpper & "'" &
                                 "           ," & totalAmount1 & ")"
 
-        End If
+                End If
 
 
 
 
 
-        Cmd = New SqlCommand(StrCmd, conn)
+                Cmd = New SqlCommand(StrCmd, conn)
 
-        Try
+                Try
 
-            Cmd.ExecuteNonQuery()
+                    Cmd.ExecuteNonQuery()
 
-        Catch ex As Exception
+                Catch ex As Exception
 
-            MessageBox.Show(ex.Message)
-            Exit Sub
+                    MessageBox.Show(ex.Message)
+                    Exit Sub
 
+                End Try
+
+                Cmd.Dispose()
+
+
+
+                ''*--------------------------End-------------------------------------------------------------------------------
+                ''*------------------------------------------------------------------------------------------------------------
+                ''*******************************'
+
+
+
+
+                ''*------------------------------------------------------------------------------------------------------
+                ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
+                If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
+
+
+
+                    StrCmd = ""
+                    StrCmd = "UPDATE houseRegistration SET status = 'OCCUPIED' WHERE houseNo = '" & txt_houseNo.Text & "'"
+                    Cmd = New SqlCommand(StrCmd, conn)
+
+                    Try
+
+                        Cmd.ExecuteNonQuery()
+
+                    Catch ex As Exception
+
+                        MessageBox.Show(ex.Message)
+                        Exit Sub
+
+                    End Try
+
+                    Cmd.Dispose()
+
+                    LoadDataTo_lvwHouses()
+
+
+
+                End If
+
+                ''*------------------------------------------------------------------------------------------------------
+                ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
+
+
+
+                combo_location.Text = Nothing
+                combo_category.Text = Nothing
+                combo_status.Text = Nothing
+                combo_tenantName.Text = Nothing
+                txt_id.Text = ""
+                txt_houseNo.Text = ""
+                txt_rent.Text = ""
+                txt_total.Text = ""
+                txtDeposit.Text = ""
+
+                combo_location.Focus()
+
+                currentId = 0
+                currentState = 0
+
+                Beep()
+
+                MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+
+            End If
+        Catch
         End Try
 
-        Cmd.Dispose()
 
 
-
-        ''*--------------------------End-------------------------------------------------------------------------------
-        ''*------------------------------------------------------------------------------------------------------------
-        ''*******************************'
-
-
-
-
-        ''*------------------------------------------------------------------------------------------------------
-        ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
-
-        If MessageBox.Show("Update Record?", "Update", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.OK Then
-
-
-
-            StrCmd = ""
-            StrCmd = "UPDATE houseRegistration SET status = 'OCCUPIED' WHERE houseNo = '" & txt_houseNo.Text & "'"
-            Cmd = New SqlCommand(StrCmd, conn)
-
-            Try
-
-                Cmd.ExecuteNonQuery()
-
-            Catch ex As Exception
-
-                MessageBox.Show(ex.Message)
-                Exit Sub
-
-            End Try
-
-            Cmd.Dispose()
-
-            LoadDataTo_lvwHouses()
-
-
-
-        End If
-
-        ''*------------------------------------------------------------------------------------------------------
-        ''*-------------------------UPDATE THE HOUSE IN THE HOUSE TABLE TO OCCUPIED------------------------------
-
-
-
-        combo_location.Text = Nothing
-        combo_category.Text = Nothing
-        combo_status.Text = Nothing
-        combo_tenantName.Text = Nothing
-        txt_id.Text = ""
-        txt_houseNo.Text = ""
-        txt_rent.Text = ""
-        txt_total.Text = ""
-        txtDeposit.Text = ""
-
-        combo_location.Focus()
-
-        currentId = 0
-        currentState = 0
-
-        Beep()
-
-        MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
 
     End Sub
 
