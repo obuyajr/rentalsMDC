@@ -44,46 +44,46 @@ Public Class frmMainMenu
 
         While Dr.Read
 
-            'If Dr.Item("super_admin").ToString.ToUpper = "Y" Then
-            '    btn_Users.Enabled = True
-            '    btnAssignHouse.Enabled = True
+            If Dr.Item("superAdmin").ToString.ToUpper = "Y" Then
+                btn_Users.Enabled = True
+                btnAssignHouse.Enabled = True
 
-            'Else
+            Else
 
-            '    btn_Users.Enabled = False
-            '    btnAssignHouse.Enabled = False
+                btn_Users.Enabled = False
+                btnAssignHouse.Enabled = False
 
-            'End If
+            End If
 
-            'If Dr.Item("add_house").ToString.ToUpper = "Y" Then
+            If Dr.Item("addHouse").ToString.ToUpper = "Y" Then
 
-            '    btnHouses.Enabled = True
+                btnHouses.Enabled = True
 
-            'Else
+            Else
 
-            '    btnHouses.Enabled = False
+                btnHouses.Enabled = False
 
-            'End If
+            End If
 
-            'If Dr.Item("add_tenants").ToString.ToUpper = "Y" Then
+            If Dr.Item("addTenant").ToString.ToUpper = "Y" Then
 
-            '    btn_Tenants.Enabled = True
+                btn_Tenants.Enabled = True
 
-            'Else
+            Else
 
-            '    btn_Tenants.Enabled = False
+                btn_Tenants.Enabled = False
 
-            'End If
+            End If
 
-            'If Dr.Item("make_payments").ToString.ToUpper = "Y" Then
+            If Dr.Item("processPayment").ToString.ToUpper = "Y" Then
 
-            '    btnPayments.Enabled = True
+                btnPayments.Enabled = True
 
-            'Else
+            Else
 
-            '    btnPayments.Enabled = False
+                btnPayments.Enabled = False
 
-            'End If
+            End If
 
 
 
@@ -118,6 +118,7 @@ Public Class frmMainMenu
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Dispose()
+
 
         ' Me.Close()
         Dim frmLogin As New frmLogin

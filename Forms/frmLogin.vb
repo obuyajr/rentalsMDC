@@ -21,6 +21,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        frmMainMenu.lbl_uname.Text = ""
 
         If txtUserName.Text.Trim = "" Then
             ErrorProvider1.SetError(txtUserName, "Invalid Input")
