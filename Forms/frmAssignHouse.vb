@@ -81,28 +81,36 @@ Public Class frmAssignHouse
         End Using
 
 
-        'Dim query2 As String = "SELECT DISTINCT status FROM houseRegistration"
+        Dim query2 As String = "SELECT DISTINCT status FROM houseRegistration"
 
-        'Using cmd As New SqlCommand(query2, conn)
+        Using cmd As New SqlCommand(query2, conn)
 
-        '    Using reader As SqlDataReader = cmd.ExecuteReader()
+            Using reader As SqlDataReader = cmd.ExecuteReader()
 
-        '        combo_status.Items.Clear()
+                combo_status.Items.Clear()
 
-        '        While reader.Read()
+                While reader.Read()
 
-        '            combo_status.Items.Add(reader("status").ToString())
+                    combo_status.Items.Add(reader("status").ToString())
 
-        '        End While
+                End While
 
-        '        reader.Close()
+                reader.Close()
 
-        '    End Using
+            End Using
 
-        'End Using
+        End Using
 
 
-        Dim query3 As String = "SELECT DISTINCT tenantName FROM tenantRegistration" ' WHERE name NOT IN (SELECT tenant_name FROM rentHouse)"
+        ' Dim query3 As String = "SELECT DISTINCT tenantName FROM tenantRegistration" ' WHERE tenantName NOT IN (SELECT tenant_name FROM rentHouse)"
+
+        Dim query3 As String = " Select  DISTINCT tenantName
+From tenantRegistration
+Where id Not In (
+    Select tenantID
+    From assignHouse
+)"
+
 
         Using cmd As New SqlCommand(query3, conn)
 
