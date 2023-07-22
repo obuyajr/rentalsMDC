@@ -401,54 +401,52 @@ Public Class frmAssignHouse
                 '*-----------------------------------------------------------------------------------------------------------
 
 
-                'txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-                'Dim totalAmount1 As New Decimal
-                'totalAmount1 = CDec(txt_total.Text)
+                txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+                Dim totalAmount1 As New Decimal
+                totalAmount1 = CDec(txt_total.Text)
 
 
-                'Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
-                'Dim transactionType As String = "Bill"
+                Dim transactionDesc As String = "Bill House Number :" + txt_houseNo.Text
+                Dim transactionType As String = "BILL"
 
 
-                'If chkbox_bill.Checked Then
-                '    StrCmd = ""
-                '    StrCmd = "INSERT INTO chargeLog" &
-                '                        "           (house_no" &
-                '                        "           ,tenant_id" &
-                '                        "           ,tenant_name" &
-                '                        "           ,transaction_description" &
-                '                        "           ,transaction_type" &
-                '                        "           ,debit" &
-                '                        "           ,credit)" &
-                '                        "     VALUES" &
-                '                        "           ('" & txt_houseNo.Text.ToUpper & "'" &
-                '                        "           ,'" & txt_id.Text.ToUpper & "'" &
-                '                        "           ,'" & combo_tenantName.Text.ToUpper & "'" &
-                '                        "           ,'" & transactionDesc & "'" &
-                '                        "           ,'BILL'" &
-                '                        "           ," & totalAmount1 & "" &
-                '                        "           ," & 0 & ")"
+                If chkbox_bill.Checked Then
+                    StrCmd = ""
+                    StrCmd = "INSERT INTO chargeLog" &
+                                        "           (houseNo" &
+                                        "           ,tenantID" &
+                                        "           ,description" &
+                                        "           ,transactionType" &
+                                        "           ,drAmount" &
+                                        "           ,crAmount)" &
+                                        "     VALUES" &
+                                        "           ('" & txt_houseNo.Text.ToUpper & "'" &
+                                        "           ,'" & txt_id.Text.ToUpper & "'" &
+                                        "           ,'" & transactionDesc & "'" &
+                                        "           ,'BILL'" &
+                                        "           ," & totalAmount1 & "" &
+                                        "           ," & 0 & ")"
 
-                'End If
+                End If
 
 
 
 
 
-                'Cmd = New SqlCommand(StrCmd, conn)
+                Cmd = New SqlCommand(StrCmd, conn)
 
-                'Try
+                Try
 
-                '    Cmd.ExecuteNonQuery()
+                    Cmd.ExecuteNonQuery()
 
-                'Catch ex As Exception
+                Catch ex As Exception
 
-                '    MessageBox.Show(ex.Message)
-                '    Exit Sub
+                    MessageBox.Show(ex.Message)
+                    Exit Sub
 
-                'End Try
+                End Try
 
-                'Cmd.Dispose()
+                Cmd.Dispose()
 
 
 
@@ -461,9 +459,7 @@ Public Class frmAssignHouse
                 ''*-----------------------------------------------------------------------------------------------------------
 
 
-                txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-                Dim totalAmount1 As New Decimal
-                totalAmount1 = CDec(txt_total.Text)
+
 
                 If chkbox_bill.Checked Then
 

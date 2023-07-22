@@ -85,63 +85,62 @@ Public Class frmPayment_records
         '-----------------------------------------------------------------------------------
 
 
-        ' txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
-        'Dim cashPaid As New Decimal
-        'cashPaid = CDec(txt_cash.Text)
+        'txt_total.Text = (Decimal.Parse(txt_rent.Text) + Decimal.Parse(txtDeposit.Text))
+        Dim cashPaid As New Decimal
+        cashPaid = CDec(txt_cash.Text)
 
-        'Dim currentDate As DateTime = DateTime.Now
-        'Dim transactionDesc As String = "Pay Rent For :" + combo_houseNo.Text
-        'Dim transactionType As String = " PAYMENT "
+        Dim currentDate As DateTime = DateTime.Now
+        Dim transactionDesc As String = "Pay Rent For :" + combo_houseNo.Text
+        Dim transactionType As String = " PAYMENT "
 
-        'If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
+        If MessageBox.Show("Save Record?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.Yes Then
 
-        '    If chkbox_payment.Checked Then
-        '        StrCmd = ""
-        '        StrCmd = "INSERT INTO rent_records" &
-        '                        "           (house_no" &
-        '                        "           ,tenant_id" &
-        '                        "           ,tenant_name" &
-        '                        "           ,transaction_description" &
-        '                        "           ,transaction_type" &
-        '                        "           ,debit" &
-        '                        "           ,credit)" &
-        '                        "     VALUES" &
-        '                        "           ('" & combo_houseNo.Text.ToUpper & "'" &
-        '                        "           ,'" & txt_id.Text.ToUpper & "'" &
-        '                        "           ,'" & txt_tenantName.Text.ToUpper & "'" &
-        '                        "           ,'" & transactionDesc & "'" &
-        '                        "           ,'Payment'" &
-        '                        "           ," & 0 & "" &
-        '                        "           ," & cashPaid & ")"
-
-        '    End If
+            If chkbox_payment.Checked Then
+                StrCmd = ""
+                StrCmd = "INSERT INTO chargeLog" &
+                                        "           (houseNo" &
+                                        "           ,tenantID" &
+                                        "           ,description" &
+                                        "           ,transactionType" &
+                                        "           ,drAmount" &
+                                        "           ,crAmount)" &
+                                        "     VALUES" &
+                                        "           ('" & combo_houseNo.Text.ToUpper & "'" &
+                                        "           ,'" & txt_id.Text.ToUpper & "'" &
+                                        "           ,'" & transactionDesc & "'" &
+                                        "           ,'PAYMENT'" &
+                                        "           ," & 0 & "" &
+                                        "           ," & cashPaid & ")"
 
 
-
-        'End If
+            End If
 
 
 
-        'Cmd = New SqlCommand(StrCmd, conn)
-
-        'Try
-
-        '    Cmd.ExecuteNonQuery()
+        End If
 
 
-        'Catch ex As Exception
 
-        '    MessageBox.Show(ex.Message)
-        '    Exit Sub
+        Cmd = New SqlCommand(StrCmd, conn)
 
-        'End Try
+        Try
 
-        'Cmd.Dispose()
+            Cmd.ExecuteNonQuery()
 
 
-        'Beep()
+        Catch ex As Exception
 
-        'MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
+            MessageBox.Show(ex.Message)
+            Exit Sub
+
+        End Try
+
+        Cmd.Dispose()
+
+
+        Beep()
+
+        MessageBox.Show("Record Successfully Saved!", "Save", MessageBoxButtons.OK)
 
 
 
@@ -196,7 +195,7 @@ Public Class frmPayment_records
         txt_id.Text = ""
         txt_mMoney.Text = ""
         combo_houseNo.Text = Nothing
-        chkbox_payment.Checked = False
+        chkbox_payment.Checked = True
 
         Display_Data_on_Comboboxes_from_DatabaseTable()
 

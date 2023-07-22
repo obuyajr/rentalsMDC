@@ -18,7 +18,8 @@ Public Class frmCreditDebitNote
     Public Sub Display_Data_on_Comboboxes_from_DatabaseTable()
 
 
-        Dim query As String = "SELECT DISTINCT house_no FROM houses"
+        Dim query As String = "SELECT houseNo FROM houseRegistration WHERE status = 'OCCUPIED' "
+
 
         Using cmd As New SqlCommand(query, conn)
 
@@ -28,7 +29,7 @@ Public Class frmCreditDebitNote
 
                 While reader.Read()
 
-                    combo_houseNo.Items.Add(reader("house_no").ToString())
+                    combo_houseNo.Items.Add(reader("houseNo").ToString())
 
                 End While
 
@@ -43,7 +44,15 @@ Public Class frmCreditDebitNote
     Private Sub combo_houseNo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles combo_houseNo.SelectedIndexChanged
 
         StrCmd = ""
-        StrCmd = "SELECT tenant_id, tenant_name, balance FROM rent_updates WHERE house_no = '" & combo_houseNo.Text & "'"
+        StrCmd = "SELECT rentUpdates.tenantID,
+                         rentUpdates.runningBalance,
+                         tenantRegistration.tenantName
+                  FROM 
+                         rentUpdates
+                  JOIN   
+                         tenantRegistration ON rentUpdates.tenantID = tenantRegistration.id
+                  WHERE 
+                         rentUpdates.houseNo = '" & combo_houseNo.Text & "'"
 
         Cmd = New SqlCommand(StrCmd, conn)
 
@@ -51,9 +60,9 @@ Public Class frmCreditDebitNote
 
         If reader.Read() Then
 
-            txt_id.Text = reader("tenant_id").ToString()
-            txt_tenantName.Text = reader("tenant_name").ToString()
-            txt_balance.Text = FormatNumber(CDec(reader("balance"))).ToString()
+            txt_id.Text = reader("tenantID").ToString()
+            txt_tenantName.Text = reader("tenantName").ToString()
+            txt_balance.Text = FormatNumber(CDec(reader("runningBalance"))).ToString()
 
 
 
@@ -149,40 +158,38 @@ Public Class frmCreditDebitNote
             If chboxDebit.Checked = True Then
 
                 StrCmd = ""
-                StrCmd = "INSERT INTO rent_records" &
-                                    "           (house_no" &
-                                    "           ,tenant_id" &
-                                    "           ,tenant_name" &
-                                    "           ,transaction_description" &
-                                    "           ,transaction_type" &
-                                    "           ,debit" &
-                                    "           ,credit)" &
-                                    "     VALUES" &
-                                    "           ('" & combo_houseNo.Text.ToUpper & "'" &
-                                    "           ,'" & txt_id.Text.ToUpper & "'" &
-                                    "           ,'" & txt_tenantName.Text.ToUpper & "'" &
-                                    "           ,'" & txtReason.Text.ToUpper & "'" &
-                                    "           ,'Debit Note'" &
-                                    "           ," & txt_cash.Text.ToUpper & "" &
-                                    "           ," & 0 & ")"
+                StrCmd = "INSERT INTO chargeLog" &
+                                        "           (houseNo" &
+                                        "           ,tenantID" &
+                                        "           ,description" &
+                                        "           ,transactionType" &
+                                        "           ,drAmount" &
+                                        "           ,crAmount)" &
+                                        "     VALUES" &
+                                        "           ('" & combo_houseNo.Text.ToUpper & "'" &
+                                        "           ,'" & txt_id.Text.ToUpper & "'" &
+                                        "           ,'" & txtReason.Text & "'" &
+                                        "           ,'BILL'" &
+                                        "           ," & txt_cash.Text & "" &
+                                        "           ," & 0 & ")"
+
+
             ElseIf chboxCredit.Checked = True Then
                 StrCmd = ""
-                StrCmd = "INSERT INTO rent_records" &
-                                    "           (house_no" &
-                                    "           ,tenant_id" &
-                                    "           ,tenant_name" &
-                                    "           ,transaction_description" &
-                                    "           ,transaction_type" &
-                                    "           ,debit" &
-                                    "           ,credit)" &
-                                    "     VALUES" &
-                                    "           ('" & combo_houseNo.Text.ToUpper & "'" &
-                                    "           ,'" & txt_id.Text.ToUpper & "'" &
-                                    "           ,'" & txt_tenantName.Text.ToUpper & "'" &
-                                    "           ,'" & txtReason.Text.ToUpper & "'" &
-                                    "           ,'Credit Note'" &
-                                    "           ," & 0 & "" &
-                                    "           ," & txt_cash.Text.ToUpper & ")"
+                StrCmd = "INSERT INTO chargeLog" &
+                                        "           (houseNo" &
+                                        "           ,tenantID" &
+                                        "           ,description" &
+                                        "           ,transactionType" &
+                                        "           ,drAmount" &
+                                        "           ,crAmount)" &
+                                        "     VALUES" &
+                                        "           ('" & combo_houseNo.Text.ToUpper & "'" &
+                                        "           ,'" & txt_id.Text.ToUpper & "'" &
+                                        "           ,'" & txtReason.Text & "'" &
+                                        "           ,'PAYMENT'" &
+                                        "           ," & 0 & "" &
+                                        "           ," & txt_cash.Text & ")"
             End If
             Cmd = New SqlCommand(StrCmd, conn)
 
@@ -206,20 +213,18 @@ Public Class frmCreditDebitNote
             If chboxDebit.Checked = True Then
 
                 StrCmd = ""
-                StrCmd = "UPDATE rent_updates" &
-                 " SET tenant_id = '" & txt_id.Text.ToUpper & "'" &
-                 " ,tenant_name = '" & txt_tenantName.Text.ToUpper & "'" &
-                 " ,balance = balance + " & CDec(txt_cash.Text) &
-                 " WHERE house_no = '" & combo_houseNo.Text.ToUpper & "'"
+                StrCmd = "UPDATE rentUpdates" &
+                 " SET tenantID = '" & txt_id.Text.ToUpper & "'" &
+                 " ,runningBalance = runningBalance + " & CDec(txt_cash.Text) &
+                 " WHERE houseNo = '" & combo_houseNo.Text.ToUpper & "'"
 
             ElseIf chboxCredit.Checked = True Then
                 StrCmd = ""
 
-                StrCmd = "UPDATE rent_updates" &
-                 " SET tenant_id = '" & txt_id.Text.ToUpper & "'" &
-                 " ,tenant_name = '" & txt_tenantName.Text.ToUpper & "'" &
-                 " ,balance =balance - " & CDec(txt_cash.Text) &
-                 " WHERE house_no = '" & combo_houseNo.Text.ToUpper & "'"
+                StrCmd = "UPDATE rentUpdates" &
+                 " SET tenantID = '" & txt_id.Text.ToUpper & "'" &
+                 " ,runningBalance =runningBalance - " & CDec(txt_cash.Text) &
+                 " WHERE houseNo = '" & combo_houseNo.Text.ToUpper & "'"
             End If
             Cmd = New SqlCommand(StrCmd, conn)
 
