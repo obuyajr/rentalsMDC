@@ -103,57 +103,38 @@ Public Class frmHouses
 
         'validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-        If txtHouseNo.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtHouseNo, "Invalid Input")
+
+        If validateStringData(txtHouseNo, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtHouseNo, "")
+        End If
+
+        If validateStringData(txtLocation, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+        If validateStringData(combo_category, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+        If validateStringData(txtRent, ErrorProvider1) = True Then
+            Exit Sub
         End If
 
 
-        If txtLocation.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtLocation, "Invalid Input")
+        If validateStringData(txtDeposit, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtLocation, "")
         End If
 
-        If combo_category.Text.Trim = "" Then
-            ErrorProvider1.SetError(combo_category, "Invalid Input")
+        If validateStringData(combo_status, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(combo_category, "")
         End If
 
 
-        If txtRent.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtRent, "Invalid Input")
+        If validateStringData(combo_vat, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtRent, "")
-        End If
-
-        If txtDeposit.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtDeposit, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(txtDeposit, "")
         End If
 
 
-        If combo_status.Text.Trim = "" Then
-            ErrorProvider1.SetError(combo_status, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(combo_status, "")
-        End If
-
-        If combo_vat.Text.Trim = "" Then
-            ErrorProvider1.SetError(combo_vat, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(combo_vat, "")
-        End If
 
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
@@ -348,7 +329,7 @@ Public Class frmHouses
         txtLocation.ReadOnly = False
         txtDeposit.ReadOnly = False
         txtRent.ReadOnly = False
-        txtRent.ReadOnly = False
+
 
 
         txtHouseNo.Text = ""

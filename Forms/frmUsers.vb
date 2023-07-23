@@ -101,22 +101,26 @@ Public Class frmUsers
 
     End Sub
 
+
+
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
 
         userRights()
 
+        If validateStringData(txtName, ErrorProvider1) = True Then
+            Exit Sub
+        End If
 
-
-
-        If validateStringData(txtUserName, ErrorProvider1) = False Then
+        If validateStringData(txtUserName, ErrorProvider1) = True Then
             Exit Sub
         End If
 
 
-        If validateStringData(txtUserPassword, ErrorProvider1) = False Then
+        If validateStringData(txtUserPassword, ErrorProvider1) = True Then
             Exit Sub
         End If
+
 
 
 
