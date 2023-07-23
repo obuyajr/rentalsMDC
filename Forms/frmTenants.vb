@@ -96,50 +96,33 @@ Public Class frmTenants
 
         'validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-        If txtName.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtName, "Invalid Input")
+        If validateStringData(txtName, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtName, "")
+        End If
+
+        If validateStringData(txtNationalId, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+        If validateStringData(txtContact, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+        If validateStringData(txtPin, ErrorProvider1) = True Then
+            Exit Sub
         End If
 
 
-        If txtNationalId.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtNationalId, "Invalid Input")
+        If validateStringData(txt_NOK, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtNationalId, "")
         End If
 
-        If txtContact.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtContact, "Invalid Input")
+        If validateStringData(txtEmployer, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtContact, "")
         End If
 
 
-        If txtPin.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtPin, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(txtPin, "")
-        End If
 
-        If txt_NOK.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_NOK, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(txt_NOK, "")
-        End If
-
-
-        If txtEmployer.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtEmployer, "Invalid Input")
-            Exit Sub
-        Else
-            ErrorProvider1.SetError(txtEmployer, "")
-        End If
 
         ' End validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------

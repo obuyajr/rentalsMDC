@@ -100,48 +100,30 @@ Public Class frmCreditDebitNote
 
         'validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-        If txt_cash.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_cash, "Invalid Input")
+        If validateStringData(txt_cash, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txt_cash, "")
         End If
 
 
-        If txt_balance.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_balance, "Invalid Input")
+        If validateStringData(txt_balance, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txt_balance, "")
         End If
 
-        If txtReason.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtReason, "Invalid Input")
+        If validateStringData(txtReason, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtReason, "")
         End If
 
 
-        If combo_houseNo.Text.Trim = "" Then
-            ErrorProvider1.SetError(combo_houseNo, "Invalid Input")
+        If validateStringData(combo_houseNo, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(combo_houseNo, "")
         End If
 
-        If txt_tenantName.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_tenantName, "Invalid Input")
+        If validateStringData(txt_tenantName, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txt_tenantName, "")
         End If
 
-        If txt_id.Text.Trim = "" Then
-            ErrorProvider1.SetError(txt_id, "Invalid Input")
+        If validateStringData(txt_id, ErrorProvider1) = True Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txt_id, "")
         End If
 
 

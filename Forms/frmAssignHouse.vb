@@ -217,122 +217,47 @@ Public Class frmAssignHouse
 
         'validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-        If combo_location.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(combo_location, "Invalid Input")
-
+        If validateStringData(combo_location, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(combo_location, "")
-
         End If
 
 
-        If combo_category.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(combo_category, "Invalid Input")
-
+        If validateStringData(combo_category, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(combo_category, "")
-
         End If
 
-        If combo_status.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(combo_status, "Invalid Input")
-
+        If validateStringData(combo_status, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(combo_status, "")
-
         End If
 
 
-        If combo_tenantName.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(combo_tenantName, "Invalid Input")
-
+        If validateStringData(combo_tenantName, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(combo_tenantName, "")
-
         End If
 
-        If txt_houseNo.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_houseNo, "Invalid Input")
-
+        If validateStringData(txt_houseNo, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_houseNo, "")
-
         End If
 
 
-        If txt_id.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_id, "Invalid Input")
+        If validateStringData(txt_id, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_id, "")
-
         End If
 
-        If txt_rent.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_rent, "Invalid Input")
+        If validateStringData(txt_rent, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_rent, "")
-
         End If
 
-        If txtDeposit.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txtDeposit, "Invalid Input")
+        If validateStringData(txtDeposit, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txtDeposit, "")
-
         End If
 
-        If txt_total.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_total, "Invalid Input")
+        If validateStringData(txt_total, ErrorProvider1) = True Then
             Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_total, "")
-
         End If
 
-        If Not chkbox_bill.Checked Then
-
-            ErrorProvider1.SetError(chkbox_bill, "Field must be checked")
-
+        If validateStringData(chkbox_bill, ErrorProvider1) = True Then
             Exit Sub
-        Else
-
-            ErrorProvider1.SetError(chkbox_bill, "")
-
         End If
 
 
