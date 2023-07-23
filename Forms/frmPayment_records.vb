@@ -19,63 +19,28 @@ Public Class frmPayment_records
 
         'validation ------------------------------------------------------------------------
         '-----------------------------------------------------------------------------------
-        If combo_houseNo.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(combo_houseNo, "Invalid Input")
-
-            Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(combo_houseNo, "")
-
-        End If
-
-        If txt_tenantName.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_tenantName, "Invalid Input")
-
-            Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_tenantName, "")
-
-        End If
-
-        If txt_id.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_id, "Invalid Input")
-
-            Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_id, "")
-
-        End If
-
-        If txt_id.Text.Trim = "" Then
-
-            ErrorProvider1.SetError(txt_id, "Invalid Input")
-
-            Exit Sub
-
-        Else
-
-            ErrorProvider1.SetError(txt_id, "")
-
-        End If
-
-        If chkbox_payment.Checked Then
-
-            ErrorProvider1.SetError(chkbox_payment, String.Empty)
-        Else
-
-            ErrorProvider1.SetError(chkbox_payment, "This checkbox must be checked.")
-
+        If validateStringData(combo_houseNo, ErrorProvider1) = True Then
             Exit Sub
         End If
+
+        If validateStringData(txt_tenantName, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+        If validateStringData(txt_id, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+
+
+        If validateStringData(chkbox_payment, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+        If validateStringData(txt_cash, ErrorProvider1) = True Then
+            Exit Sub
+        End If
+
+
 
 
 
