@@ -9,6 +9,13 @@ Public Class frmUsers
     Dim currentState As Integer = 0
 
 
+    Dim isSuperAdmin As String = "N"
+    Dim canAddHouse As String = "N"
+    Dim canTakePayments As String = "N"
+    Dim canAddTenants As String = "N"
+
+
+
     Private Sub frmUsers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         chkBoxSuperAdmin.Checked = False
@@ -72,25 +79,7 @@ Public Class frmUsers
 
 
     End Sub
-
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
-        Dim isSuperAdmin As String = "N"
-        Dim canAddHouse As String = "N"
-        Dim canTakePayments As String = "N"
-        Dim canAddTenants As String = "N"
-
-
-
-
-        If validateStringData(txtUserName, ErrorProvider1) = False Then
-            Exit Sub
-        End If
-
-
-        If validateStringData(txtUserPassword, ErrorProvider1) = False Then
-            Exit Sub
-        End If
+    Private Sub userRights()
 
 
         If chkBoxSuperAdmin.Checked = True Then
@@ -108,6 +97,28 @@ Public Class frmUsers
         If chkBoxMakePayment.Checked = True Then
             canTakePayments = "Y"
         End If
+
+
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+
+        userRights()
+
+
+
+
+        If validateStringData(txtUserName, ErrorProvider1) = False Then
+            Exit Sub
+        End If
+
+
+        If validateStringData(txtUserPassword, ErrorProvider1) = False Then
+            Exit Sub
+        End If
+
+
 
 
 
@@ -483,4 +494,6 @@ Public Class frmUsers
         '    xlApp = Nothing
 
     End Sub
+
+
 End Class
