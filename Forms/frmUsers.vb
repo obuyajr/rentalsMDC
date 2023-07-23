@@ -82,23 +82,14 @@ Public Class frmUsers
 
 
 
-        If txtUserName.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtUserName, "Invalid Input")
+
+        If validateStringData(txtUserName, ErrorProvider1) = False Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtUserName, "")
         End If
 
-        'If validateStringData(txtUserName, ErrorProvider1) = False Then
-        '    Exit Sub
-        'End If
 
-
-        If txtUserPassword.Text.Trim = "" Then
-            ErrorProvider1.SetError(txtUserPassword, "Invalid Input")
+        If validateStringData(txtUserPassword, ErrorProvider1) = False Then
             Exit Sub
-        Else
-            ErrorProvider1.SetError(txtUserPassword, "")
         End If
 
 
