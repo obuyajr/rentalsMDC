@@ -90,7 +90,7 @@ Partial Class frmPayment_records
         txt_tenantName.Location = New Point(516, 19)
         txt_tenantName.Name = "txt_tenantName"
         txt_tenantName.Size = New Size(304, 33)
-        txt_tenantName.TabIndex = 7
+        txt_tenantName.TabIndex = 2
         ' 
         ' Label2
         ' 
@@ -130,7 +130,7 @@ Partial Class frmPayment_records
         chkbox_payment.Location = New Point(617, 21)
         chkbox_payment.Name = "chkbox_payment"
         chkbox_payment.Size = New Size(82, 21)
-        chkbox_payment.TabIndex = 17
+        chkbox_payment.TabIndex = 5
         chkbox_payment.Text = "Payment"
         chkbox_payment.UseVisualStyleBackColor = True
         ' 
@@ -141,7 +141,7 @@ Partial Class frmPayment_records
         txt_mMoney.Location = New Point(133, 53)
         txt_mMoney.Name = "txt_mMoney"
         txt_mMoney.Size = New Size(131, 43)
-        txt_mMoney.TabIndex = 16
+        txt_mMoney.TabIndex = 6
         txt_mMoney.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label6
@@ -161,7 +161,7 @@ Partial Class frmPayment_records
         txt_cash.Location = New Point(133, 115)
         txt_cash.Name = "txt_cash"
         txt_cash.Size = New Size(131, 43)
-        txt_cash.TabIndex = 14
+        txt_cash.TabIndex = 7
         txt_cash.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label5
@@ -181,7 +181,7 @@ Partial Class frmPayment_records
         txt_id.Location = New Point(133, 14)
         txt_id.Name = "txt_id"
         txt_id.Size = New Size(131, 33)
-        txt_id.TabIndex = 12
+        txt_id.TabIndex = 3
         txt_id.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label3
@@ -201,7 +201,7 @@ Partial Class frmPayment_records
         txt_balance.Location = New Point(405, 14)
         txt_balance.Name = "txt_balance"
         txt_balance.Size = New Size(131, 33)
-        txt_balance.TabIndex = 10
+        txt_balance.TabIndex = 4
         txt_balance.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label4
@@ -237,7 +237,7 @@ Partial Class frmPayment_records
         btnClear.Location = New Point(267, 20)
         btnClear.Name = "btnClear"
         btnClear.Size = New Size(107, 32)
-        btnClear.TabIndex = 3
+        btnClear.TabIndex = 10
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = False
         ' 
@@ -251,7 +251,7 @@ Partial Class frmPayment_records
         btn_cancel.Location = New Point(916, 20)
         btn_cancel.Name = "btn_cancel"
         btn_cancel.Size = New Size(107, 32)
-        btn_cancel.TabIndex = 2
+        btn_cancel.TabIndex = 11
         btn_cancel.Text = "Cancel"
         btn_cancel.UseVisualStyleBackColor = False
         ' 
@@ -265,7 +265,7 @@ Partial Class frmPayment_records
         btn_pay.Location = New Point(93, 20)
         btn_pay.Name = "btn_pay"
         btn_pay.Size = New Size(107, 32)
-        btn_pay.TabIndex = 0
+        btn_pay.TabIndex = 9
         btn_pay.Text = "Pay "
         btn_pay.UseVisualStyleBackColor = False
         ' 
@@ -276,7 +276,7 @@ Partial Class frmPayment_records
         ListView1.Location = New Point(12, 290)
         ListView1.Name = "ListView1"
         ListView1.Size = New Size(1045, 322)
-        ListView1.TabIndex = 3
+        ListView1.TabIndex = 8
         ListView1.UseCompatibleStateImageBehavior = False
         ' 
         ' ErrorProvider1

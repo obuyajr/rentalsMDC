@@ -68,7 +68,7 @@ Partial Class frmLogin
         txtUserName.Font = New Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point)
         txtUserName.Location = New Point(127, 24)
         txtUserName.Name = "txtUserName"
-        txtUserName.Size = New Size(289, 29)
+        txtUserName.Size = New Size(272, 29)
         txtUserName.TabIndex = 2
         ' 
         ' txtUserPassword
@@ -77,7 +77,7 @@ Partial Class frmLogin
         txtUserPassword.Location = New Point(127, 79)
         txtUserPassword.Name = "txtUserPassword"
         txtUserPassword.PasswordChar = "*"c
-        txtUserPassword.Size = New Size(289, 29)
+        txtUserPassword.Size = New Size(272, 29)
         txtUserPassword.TabIndex = 3
         ' 
         ' btnLogin
@@ -88,9 +88,9 @@ Partial Class frmLogin
         btnLogin.ForeColor = Color.Black
         btnLogin.Image = My.Resources.Resources.fast_forward_circle_solid_36
         btnLogin.ImageAlign = ContentAlignment.MiddleRight
-        btnLogin.Location = New Point(110, 140)
+        btnLogin.Location = New Point(127, 140)
         btnLogin.Name = "btnLogin"
-        btnLogin.Size = New Size(88, 39)
+        btnLogin.Size = New Size(84, 39)
         btnLogin.TabIndex = 4
         btnLogin.Text = "Login"
         btnLogin.TextAlign = ContentAlignment.MiddleLeft

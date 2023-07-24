@@ -89,7 +89,7 @@ Partial Class frmMainMenu
         btnCr_Dr_Note.Margin = New Padding(1)
         btnCr_Dr_Note.Name = "btnCr_Dr_Note"
         btnCr_Dr_Note.Size = New Size(195, 34)
-        btnCr_Dr_Note.TabIndex = 11
+        btnCr_Dr_Note.TabIndex = 7
         btnCr_Dr_Note.Text = "CR-DR Note"
         btnCr_Dr_Note.TextAlign = ContentAlignment.MiddleLeft
         btnCr_Dr_Note.UseVisualStyleBackColor = True
@@ -107,7 +107,7 @@ Partial Class frmMainMenu
         btnBatch.Margin = New Padding(1)
         btnBatch.Name = "btnBatch"
         btnBatch.Size = New Size(192, 34)
-        btnBatch.TabIndex = 10
+        btnBatch.TabIndex = 6
         btnBatch.Text = "Bill Batch"
         btnBatch.TextAlign = ContentAlignment.MiddleLeft
         btnBatch.UseVisualStyleBackColor = True
@@ -125,7 +125,7 @@ Partial Class frmMainMenu
         btnRooms.Margin = New Padding(1)
         btnRooms.Name = "btnRooms"
         btnRooms.Size = New Size(195, 34)
-        btnRooms.TabIndex = 9
+        btnRooms.TabIndex = 8
         btnRooms.Text = "Rooms"
         btnRooms.TextAlign = ContentAlignment.MiddleLeft
         btnRooms.UseVisualStyleBackColor = True
@@ -143,7 +143,7 @@ Partial Class frmMainMenu
         btnReports.Margin = New Padding(1)
         btnReports.Name = "btnReports"
         btnReports.Size = New Size(195, 34)
-        btnReports.TabIndex = 8
+        btnReports.TabIndex = 5
         btnReports.Text = "Reports"
         btnReports.TextAlign = ContentAlignment.MiddleLeft
         btnReports.UseVisualStyleBackColor = True
@@ -196,7 +196,7 @@ Partial Class frmMainMenu
         btnPayments.Margin = New Padding(1)
         btnPayments.Name = "btnPayments"
         btnPayments.Size = New Size(194, 34)
-        btnPayments.TabIndex = 6
+        btnPayments.TabIndex = 4
         btnPayments.Text = "Payment"
         btnPayments.TextAlign = ContentAlignment.MiddleLeft
         btnPayments.UseVisualStyleBackColor = True
@@ -215,7 +215,7 @@ Partial Class frmMainMenu
         Button1.Margin = New Padding(1)
         Button1.Name = "Button1"
         Button1.Size = New Size(194, 34)
-        Button1.TabIndex = 5
+        Button1.TabIndex = 9
         Button1.Text = "Exit"
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = True
@@ -233,7 +233,7 @@ Partial Class frmMainMenu
         btnAssignHouse.Margin = New Padding(1)
         btnAssignHouse.Name = "btnAssignHouse"
         btnAssignHouse.Size = New Size(195, 34)
-        btnAssignHouse.TabIndex = 4
+        btnAssignHouse.TabIndex = 3
         btnAssignHouse.Text = "Assign House"
         btnAssignHouse.TextAlign = ContentAlignment.MiddleLeft
         btnAssignHouse.UseVisualStyleBackColor = True
@@ -251,7 +251,7 @@ Partial Class frmMainMenu
         btnHouses.Margin = New Padding(1)
         btnHouses.Name = "btnHouses"
         btnHouses.Size = New Size(195, 34)
-        btnHouses.TabIndex = 3
+        btnHouses.TabIndex = 2
         btnHouses.Text = "Houses"
         btnHouses.TextAlign = ContentAlignment.MiddleLeft
         btnHouses.UseVisualStyleBackColor = True
@@ -269,7 +269,7 @@ Partial Class frmMainMenu
         btn_Tenants.Margin = New Padding(1)
         btn_Tenants.Name = "btn_Tenants"
         btn_Tenants.Size = New Size(195, 34)
-        btn_Tenants.TabIndex = 2
+        btn_Tenants.TabIndex = 1
         btn_Tenants.Text = "Tenants"
         btn_Tenants.TextAlign = ContentAlignment.MiddleLeft
         btn_Tenants.UseVisualStyleBackColor = True

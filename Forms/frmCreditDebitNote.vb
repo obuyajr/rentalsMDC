@@ -245,6 +245,7 @@ Public Class frmCreditDebitNote
         chboxDebit.Checked = False
         txtReason.Text = ""
 
+        Beep()
 
     End Sub
 
@@ -268,13 +269,18 @@ Public Class frmCreditDebitNote
 
         End If
 
+        Beep()
+
 
     End Sub
 
     Private Sub btn_cancel_Click(sender As Object, e As EventArgs) Handles btn_cancel.Click
+        Beep()
         Me.Close()
 
     End Sub
+
+
 
 
 

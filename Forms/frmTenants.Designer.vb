@@ -81,7 +81,7 @@ Partial Class frmTenants
         txtEmployer.Location = New Point(777, 86)
         txtEmployer.Name = "txtEmployer"
         txtEmployer.Size = New Size(261, 26)
-        txtEmployer.TabIndex = 14
+        txtEmployer.TabIndex = 6
         ' 
         ' Label8
         ' 
@@ -99,7 +99,7 @@ Partial Class frmTenants
         txt_NOK.Location = New Point(777, 34)
         txt_NOK.Name = "txt_NOK"
         txt_NOK.Size = New Size(261, 26)
-        txt_NOK.TabIndex = 11
+        txt_NOK.TabIndex = 5
         ' 
         ' txtPin
         ' 
@@ -107,7 +107,7 @@ Partial Class frmTenants
         txtPin.Location = New Point(424, 86)
         txtPin.Name = "txtPin"
         txtPin.Size = New Size(261, 26)
-        txtPin.TabIndex = 10
+        txtPin.TabIndex = 4
         ' 
         ' txtContact
         ' 
@@ -115,7 +115,7 @@ Partial Class frmTenants
         txtContact.Location = New Point(424, 34)
         txtContact.Name = "txtContact"
         txtContact.Size = New Size(261, 26)
-        txtContact.TabIndex = 9
+        txtContact.TabIndex = 3
         ' 
         ' txtNationalId
         ' 
@@ -123,7 +123,7 @@ Partial Class frmTenants
         txtNationalId.Location = New Point(86, 88)
         txtNationalId.Name = "txtNationalId"
         txtNationalId.Size = New Size(261, 26)
-        txtNationalId.TabIndex = 8
+        txtNationalId.TabIndex = 2
         ' 
         ' txtName
         ' 
@@ -131,7 +131,7 @@ Partial Class frmTenants
         txtName.Location = New Point(86, 36)
         txtName.Name = "txtName"
         txtName.Size = New Size(261, 26)
-        txtName.TabIndex = 7
+        txtName.TabIndex = 1
         ' 
         ' Label6
         ' 
@@ -212,7 +212,7 @@ Partial Class frmTenants
         lvwTenants.Location = New Point(11, 15)
         lvwTenants.Name = "lvwTenants"
         lvwTenants.Size = New Size(1027, 203)
-        lvwTenants.TabIndex = 0
+        lvwTenants.TabIndex = 7
         lvwTenants.UseCompatibleStateImageBehavior = False
         ' 
         ' Panel3
@@ -237,7 +237,7 @@ Partial Class frmTenants
         Button4.Location = New Point(879, 20)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
-        Button4.TabIndex = 11
+        Button4.TabIndex = 12
         Button4.Text = "User Listing Report"
         Button4.UseVisualStyleBackColor = False
         ' 
@@ -249,7 +249,7 @@ Partial Class frmTenants
         btnadd.Location = New Point(424, 20)
         btnadd.Name = "btnadd"
         btnadd.Size = New Size(84, 26)
-        btnadd.TabIndex = 12
+        btnadd.TabIndex = 11
         btnadd.Text = "Add New"
         btnadd.UseVisualStyleBackColor = False
         ' 

@@ -24,6 +24,8 @@ Partial Class frmUsers
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
+        txtName = New TextBox()
+        Label3 = New Label()
         txtUserPassword = New TextBox()
         txtUserName = New TextBox()
         Label2 = New Label()
@@ -42,8 +44,6 @@ Partial Class frmUsers
         ErrorProvider1 = New ErrorProvider(components)
         btnadd = New Button()
         Panel4 = New Panel()
-        txtName = New TextBox()
-        Label3 = New Label()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
@@ -67,6 +67,25 @@ Partial Class frmUsers
         Panel1.Size = New Size(1013, 63)
         Panel1.TabIndex = 0
         ' 
+        ' txtName
+        ' 
+        txtName.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        txtName.Location = New Point(77, 18)
+        txtName.Name = "txtName"
+        txtName.ReadOnly = True
+        txtName.Size = New Size(321, 28)
+        txtName.TabIndex = 1
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Location = New Point(22, 23)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(49, 17)
+        Label3.TabIndex = 8
+        Label3.Text = "Name:"
+        ' 
         ' txtUserPassword
         ' 
         txtUserPassword.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
@@ -75,7 +94,7 @@ Partial Class frmUsers
         txtUserPassword.PasswordChar = "*"c
         txtUserPassword.ReadOnly = True
         txtUserPassword.Size = New Size(209, 28)
-        txtUserPassword.TabIndex = 7
+        txtUserPassword.TabIndex = 3
         ' 
         ' txtUserName
         ' 
@@ -84,7 +103,7 @@ Partial Class frmUsers
         txtUserName.Name = "txtUserName"
         txtUserName.ReadOnly = True
         txtUserName.Size = New Size(209, 28)
-        txtUserName.TabIndex = 6
+        txtUserName.TabIndex = 2
         ' 
         ' Label2
         ' 
@@ -128,7 +147,7 @@ Partial Class frmUsers
         chkBoxMakePayment.Location = New Point(197, 14)
         chkBoxMakePayment.Name = "chkBoxMakePayment"
         chkBoxMakePayment.Size = New Size(121, 21)
-        chkBoxMakePayment.TabIndex = 3
+        chkBoxMakePayment.TabIndex = 7
         chkBoxMakePayment.Text = "Make Payment"
         chkBoxMakePayment.UseVisualStyleBackColor = True
         ' 
@@ -140,7 +159,7 @@ Partial Class frmUsers
         chkBoxAddTenants.Location = New Point(22, 92)
         chkBoxAddTenants.Name = "chkBoxAddTenants"
         chkBoxAddTenants.Size = New Size(106, 21)
-        chkBoxAddTenants.TabIndex = 2
+        chkBoxAddTenants.TabIndex = 6
         chkBoxAddTenants.Text = "Add Tenants"
         chkBoxAddTenants.UseVisualStyleBackColor = True
         ' 
@@ -152,7 +171,7 @@ Partial Class frmUsers
         chkboxAddHouse.Location = New Point(22, 54)
         chkboxAddHouse.Name = "chkboxAddHouse"
         chkboxAddHouse.Size = New Size(102, 21)
-        chkboxAddHouse.TabIndex = 1
+        chkboxAddHouse.TabIndex = 5
         chkboxAddHouse.Text = "Add Houses"
         chkboxAddHouse.UseVisualStyleBackColor = True
         ' 
@@ -164,7 +183,7 @@ Partial Class frmUsers
         chkBoxSuperAdmin.Location = New Point(22, 14)
         chkBoxSuperAdmin.Name = "chkBoxSuperAdmin"
         chkBoxSuperAdmin.Size = New Size(109, 21)
-        chkBoxSuperAdmin.TabIndex = 0
+        chkBoxSuperAdmin.TabIndex = 4
         chkBoxSuperAdmin.Text = "Super Admin"
         chkBoxSuperAdmin.UseVisualStyleBackColor = True
         ' 
@@ -187,7 +206,7 @@ Partial Class frmUsers
         lvwUsers.MultiSelect = False
         lvwUsers.Name = "lvwUsers"
         lvwUsers.Size = New Size(1013, 175)
-        lvwUsers.TabIndex = 0
+        lvwUsers.TabIndex = 8
         lvwUsers.UseCompatibleStateImageBehavior = False
         ' 
         ' btnSave
@@ -198,7 +217,7 @@ Partial Class frmUsers
         btnSave.Location = New Point(23, 23)
         btnSave.Name = "btnSave"
         btnSave.Size = New Size(75, 26)
-        btnSave.TabIndex = 3
+        btnSave.TabIndex = 9
         btnSave.Text = "Save"
         btnSave.UseVisualStyleBackColor = False
         ' 
@@ -210,7 +229,7 @@ Partial Class frmUsers
         btnEdit.Location = New Point(154, 23)
         btnEdit.Name = "btnEdit"
         btnEdit.Size = New Size(75, 26)
-        btnEdit.TabIndex = 4
+        btnEdit.TabIndex = 10
         btnEdit.Text = "Edit"
         btnEdit.UseVisualStyleBackColor = False
         ' 
@@ -222,7 +241,7 @@ Partial Class frmUsers
         btnDelete.Location = New Point(310, 23)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 26)
-        btnDelete.TabIndex = 5
+        btnDelete.TabIndex = 11
         btnDelete.Text = "Delete"
         btnDelete.UseVisualStyleBackColor = False
         ' 
@@ -234,7 +253,7 @@ Partial Class frmUsers
         Button4.Location = New Point(749, 23)
         Button4.Name = "Button4"
         Button4.Size = New Size(140, 26)
-        Button4.TabIndex = 6
+        Button4.TabIndex = 13
         Button4.Text = "User Listing Report"
         Button4.UseVisualStyleBackColor = False
         ' 
@@ -250,7 +269,7 @@ Partial Class frmUsers
         btnadd.Location = New Point(467, 23)
         btnadd.Name = "btnadd"
         btnadd.Size = New Size(84, 26)
-        btnadd.TabIndex = 7
+        btnadd.TabIndex = 12
         btnadd.Text = "Add New"
         btnadd.UseVisualStyleBackColor = False
         ' 
@@ -268,25 +287,6 @@ Partial Class frmUsers
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(1013, 70)
         Panel4.TabIndex = 8
-        ' 
-        ' txtName
-        ' 
-        txtName.Font = New Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
-        txtName.Location = New Point(77, 18)
-        txtName.Name = "txtName"
-        txtName.ReadOnly = True
-        txtName.Size = New Size(321, 28)
-        txtName.TabIndex = 9
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(22, 23)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(49, 17)
-        Label3.TabIndex = 8
-        Label3.Text = "Name:"
         ' 
         ' frmUsers
         ' 
